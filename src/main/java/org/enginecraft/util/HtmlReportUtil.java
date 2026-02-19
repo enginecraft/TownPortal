@@ -200,8 +200,8 @@ public class HtmlReportUtil {
             String subReportFileName = fileName + "_" + ref.replaceAll("[^a-zA-Z0-9]", "_") + "_" + category.replaceAll("[^a-zA-Z0-9]", "_") + "_report.html";
             generateSubReport(outputPath.resolve(subReportFileName), ref, category, items);
 
-            sb.append("<details>\n");
-            sb.append("<summary><a href=\"").append(subReportFileName).append("\">").append(escape(ref)).append(" (").append(items.size()).append(")</a></summary>\n");
+            sb.append("<details onclick=\"window.location.href='").append(subReportFileName).append("'\">").append("\n");
+            sb.append("<summary>").append(escape(ref)).append(" (").append(items.size()).append(")</summary>\n");
             sb.append("</details>\n");
         } else {
             generateItemDetails(category, ref, sb, items, true);
