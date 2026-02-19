@@ -6,6 +6,7 @@ import org.enginecraft.objects.DataDictionary;
 import org.enginecraft.objects.Difference;
 import org.enginecraft.objects.DifferenceOverview;
 import org.enginecraft.objects.DifferenceType;
+import org.enginecraft.objects.IndexedRow;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,10 +14,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @Getter
@@ -201,20 +204,21 @@ public class LibraryService {
 
         List<Difference> diffs = new ArrayList<>();
 
-        Map<String, String[]> aMap = rowMap(aRows);
-        Map<String, String[]> bMap = rowMap(bRows);
+        Map<String, IndexedRow> aMap = rowMap(aRows);
+        Map<String, IndexedRow> bMap = rowMap(bRows);
 
         for (String id : aMap.keySet()) {
             if (!bMap.containsKey(id)) {
+                IndexedRow ir = aMap.get(id);
                 diffs.add(
                         new Difference(
                                 DifferenceType.MISSING,
                                 ref,
                                 header,
-                                aMap.get(id),
+                                ir.row(),
                                 null,
-                                0,
                                 null,
+                                ir.index(),
                                 id,
                                 null
                         )
@@ -224,15 +228,16 @@ public class LibraryService {
 
         for (String id : bMap.keySet()) {
             if (!aMap.containsKey(id)) {
+                IndexedRow ir = bMap.get(id);
                 diffs.add(
                         new Difference(
                                 DifferenceType.UNKNOWN,
                                 ref,
                                 header,
                                 null,
-                                bMap.get(id),
-                                0,
+                                ir.row(),
                                 null,
+                                ir.index(),
                                 null,
                                 id
                         )
@@ -242,9 +247,10 @@ public class LibraryService {
 
         for (String id : aMap.keySet()) {
             if (!bMap.containsKey(id)) continue;
+            IndexedRow ir = aMap.get(id);
 
-            String[] aRow = aMap.get(id);
-            String[] bRow = bMap.get(id);
+            String[] aRow = ir.row();
+            String[] bRow = bMap.get(id).row();
 
             for (int col = 1; col < header.length; col++) {
                 if (!Objects.equals(aRow[col], bRow[col])) {
@@ -256,7 +262,7 @@ public class LibraryService {
                                     aRow,
                                     bRow,
                                     col,
-                                    null,
+                                    ir.index(),
                                     aRow[col],
                                     bRow[col]
                             )
@@ -280,13 +286,14 @@ public class LibraryService {
         return map;
     }
 
-    private Map<String, String[]> rowMap(List<String[]> rows) {
-        return rows.stream()
-                .skip(1)
+    private Map<String, IndexedRow> rowMap(List<String[]> rows) {
+        return IntStream.range(1, rows.size())
+                .boxed()
                 .collect(Collectors.toMap(
-                        r -> r[0],
-                        r -> r,
-                        (a, b) -> a
+                        i -> rows.get(i)[0],
+                        i -> new IndexedRow(i, rows.get(i)),
+                        (a, b) -> a,
+                        LinkedHashMap::new
                 ));
     }
 

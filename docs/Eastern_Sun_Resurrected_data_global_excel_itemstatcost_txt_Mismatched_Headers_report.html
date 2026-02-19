@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/itemstatcost.txt (1034)</summary>
+<ul>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 32093 | Found: 1000</li>
+<li>Expected: 204 | Found: 100</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 10 | Found: 100</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 10 | Found: 100</li>
+<li>Expected:  | Found: item_hp_perlevel</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 27 | Found: 6</li>
+<li>Expected: 17 | Found: 4</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 30 | Found: 50</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 30 | Found: 50</li>
+<li>Expected: 584 | Found: 2500</li>
+<li>Expected: 256 | Found: 250</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 584 | Found: 2500</li>
+<li>Expected: 256 | Found: 250</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 132</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: skillpiercingattack</li>
+<li>Expected:  | Found: skillpiercingattack</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 104 | Found: 26</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 88 | Found: 22</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 77 | Found: 19</li>
+<li>Expected: 51 | Found: 12</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 42 | Found: 10</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 415 | Found: 103</li>
+<li>Expected: 64 | Found: 16</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 11 | Found: 16</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 5486 | Found: 1000</li>
+<li>Expected: 102 | Found: 100</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModAbsorbElemental</li>
+<li>Expected:  | Found: strModAbsorbElemental</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 978 | Found: 244</li>
+<li>Expected: 394 | Found: 50</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected: 526 | Found: 2500</li>
+<li>Expected: 256 | Found: 250</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 1091 | Found: 2500</li>
+<li>Expected: 409 | Found: 250</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 12 | Found: 3</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 19 | Found: 32</li>
+<li>Expected: 12 | Found: 300</li>
+<li>Expected: 28 | Found: 1</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: 45 | Found: 11</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: 102 | Found: 25</li>
+<li>Expected: 5 | Found: 11</li>
+<li>Expected: 5 | Found: 11</li>
+<li>Expected: 43 | Found: 10</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 101 | Found: 25</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 76 | Found: 19</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: moditemreqflat</li>
+<li>Expected:  | Found: moditemreqflat</li>
+<li>Expected: 101 | Found: 25</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 105 | Found: 26</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 1042 | Found: 260</li>
+<li>Expected: 156 | Found: 39</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 20 | Found: 150</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 20 | Found: 150</li>
+<li>Expected:  | Found: 11</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected: 101 | Found: 25</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 5486 | Found: 1000</li>
+<li>Expected: 102 | Found: 100</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModAbsorbElemental</li>
+<li>Expected:  | Found: strModAbsorbElemental</li>
+<li>Expected: 94 | Found: 23</li>
+<li>Expected: 16 | Found: 4</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 18957 | Found: 5000</li>
+<li>Expected: 203 | Found: 250</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 332 | Found: 83</li>
+<li>Expected: 1024 | Found: 256</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 132 | Found: 33</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 19 | Found: 32</li>
+<li>Expected: 11 | Found: 300</li>
+<li>Expected: 34 | Found: 1</li>
+<li>Expected: 10 | Found: 17</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 492 | Found: 123</li>
+<li>Expected: 1536 | Found: 384</li>
+<li>Expected: 401 | Found: </li>
+<li>Expected: 256 | Found: </li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 45 | Found: 11</li>
+<li>Expected: 40 | Found: 10</li>
+<li>Expected: 88 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: strModEnhancedDamage | Found: </li>
+<li>Expected: strModEnhancedDamage | Found: </li>
+<li>Expected: 4083 | Found: 1020</li>
+<li>Expected: 156 | Found: 39</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected:  | Found: 11</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 18 | Found: 4</li>
+<li>Expected: 102 | Found: 25</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 0 | Found: 500</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 0 | Found: 500</li>
+<li>Expected: 43 | Found: 10</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 106 | Found: 26</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 11 | Found: 16</li>
+<li>Expected: 125 | Found: 31</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 47 | Found: 11</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected:  | Found: item_armorpercent_perlevel</li>
+<li>Expected:  | Found: item_armor_perlevel</li>
+<li>Expected: 15 | Found: 16</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 181 | Found: </li>
+<li>Expected: 256 | Found: </li>
+<li>Expected: 3 | Found: 7</li>
+<li>Expected: 9 | Found: 14</li>
+<li>Expected: 5 | Found: 7</li>
+<li>Expected: 15 | Found: 3</li>
+<li>Expected: 51 | Found: 12</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 190 | Found: </li>
+<li>Expected: 256 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 158 | Found: 160</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 1924 | Found: 481</li>
+<li>Expected: 2048 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 981 | Found: 245</li>
+<li>Expected: 40 | Found: 10</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 20 | Found: 500</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 20 | Found: 500</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 97 | Found: 24</li>
+<li>Expected: 15 | Found: 3</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 1295 | Found: 323</li>
+<li>Expected: 379 | Found: 50</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected: 15 | Found: 3</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected: 128 | Found: 1000</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected: 128 | Found: 1000</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 298</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: ignoreundeadphysicalresist</li>
+<li>Expected:  | Found: ignoreundeadphysicalresist</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 11 | Found: 16</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 94 | Found: 23</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: 7 | Found: 11</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 19 | Found: 300</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: maxelementaldamage</li>
+<li>Expected:  | Found: maxelementaldamage</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 49 | Found: 12</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 101 | Found: 25</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 584 | Found: 2500</li>
+<li>Expected: 256 | Found: 250</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: allmaximumresistances</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 105 | Found: 26</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 13 | Found: 3</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 17 | Found: 4</li>
+<li>Expected: 102 | Found: 25</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 0 | Found: 500</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 0 | Found: 500</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 17 | Found: 4</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: 10 | Found: 1000</li>
+<li>Expected: 164 | Found: 41</li>
+<li>Expected: 68 | Found: 17</li>
+<li>Expected: 43 | Found: 10</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 3 | Found: 16</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 11042 | Found: 2760</li>
+<li>Expected: 768 | Found: 192</li>
+<li>Expected: 3 | Found: 7</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 155 | Found: 38</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 36015 | Found: 2000</li>
+<li>Expected: 519 | Found: 100</li>
+<li>Expected: 50 | Found: 100</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 88</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: passiveevadedesc</li>
+<li>Expected:  | Found: passiveevadedesc</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 19 | Found: 4</li>
+<li>Expected: 12 | Found: 3</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 20 | Found: 1000</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 20 | Found: 1000</li>
+<li>Expected: 2578 | Found: 100</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 11 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 158 | Found: 160</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 1 | Found: 11</li>
+<li>Expected:  | Found: item_stamina_perlevel</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 188 | Found: 47</li>
+<li>Expected: 200 | Found: 50</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 11 | Found: 2</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected: 128 | Found: 1000</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected: 128 | Found: 1000</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 132 | Found: 33</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 87 | Found: 21</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: 1088 | Found: 272</li>
+<li>Expected: 1024 | Found: 100</li>
+<li>Expected: 11 | Found: 2</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 85 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 158 | Found: 160</li>
+<li>Expected: 207 | Found: 51</li>
+<li>Expected: 340 | Found: 85</li>
+<li>Expected: 2345 | Found: 100</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 43 | Found: 10</li>
+<li>Expected: 42 | Found: 10</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 27 | Found: 6</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 106 | Found: 26</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 157 | Found: 159</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 1432 | Found: 358</li>
+<li>Expected: 513 | Found: 128</li>
+<li>Expected: 159 | Found: 100</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 1054 | Found: 263</li>
+<li>Expected: 408 | Found: 50</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected: 8 | Found: 11</li>
+<li>Expected: 26 | Found: 6</li>
+<li>Expected: -34 | Found: -8</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 1739 | Found: 200</li>
+<li>Expected: 204 | Found: 50</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 13 | Found: 3</li>
+<li>Expected: 12 | Found: 3</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 20 | Found: 1000</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 20 | Found: 1000</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 196 | Found: 300</li>
+<li>Expected: 20 | Found: 1</li>
+<li>Expected: 6 | Found: 11</li>
+<li>Expected: 8 | Found: 11</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: `</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 397 | Found: 99</li>
+<li>Expected: 340 | Found: 85</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 79 | Found: 19</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 1739 | Found: 200</li>
+<li>Expected: 204 | Found: 50</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 67 | Found: 16</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 128 | Found: 300</li>
+<li>Expected: 340 | Found: 1</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: maxelementaldamage</li>
+<li>Expected:  | Found: maxelementaldamage</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1179 | Found: 294</li>
+<li>Expected: 341 | Found: 85</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 49 | Found: 12</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 1432 | Found: </li>
+<li>Expected: 513 | Found: </li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 159 | Found: 95</li>
+<li>Expected: 19 | Found: 3</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: ModItemMonColdSunder | Found: jr5</li>
+<li>Expected: ModItemMonColdSunder | Found: jr5</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 158 | Found: 160</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 187 | Found: 144</li>
+<li>Expected: 34 | Found: 25</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 102 | Found: 25</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 49 | Found: 12</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 91 | Found: 22</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 5486 | Found: 1000</li>
+<li>Expected: 102 | Found: 100</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 43 | Found: 10</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 451 | Found: 300</li>
+<li>Expected: 512 | Found: 1</li>
+<li>Expected: 6 | Found: 11</li>
+<li>Expected: 8 | Found: 11</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: minelementaldamage</li>
+<li>Expected:  | Found: minelementaldamage</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 106 | Found: 26</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: ModStr6j | Found: </li>
+<li>Expected: ModStr6j | Found: </li>
+<li>Expected: 82 | Found: 20</li>
+<li>Expected: 1024 | Found: 256</li>
+<li>Expected: 75 | Found: 18</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 1058 | Found: 264</li>
+<li>Expected: 340 | Found: 85</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 38 | Found: 9</li>
+<li>Expected: 170 | Found: 42</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 99 | Found: 24</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 2493 | Found: 100</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 451 | Found: 2</li>
+<li>Expected: 410 | Found: 2</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 30 | Found: 1000</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 30 | Found: 1000</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 183 | Found: 300</li>
+<li>Expected: 20 | Found: 1</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 112 | Found: 125</li>
+<li>Expected: 128 | Found: </li>
+<li>Expected: 7 | Found: 11</li>
+<li>Expected: 7 | Found: 14</li>
+<li>Expected:  | Found: damagedbymissile</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 190 | Found: </li>
+<li>Expected: 256 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 158 | Found: 160</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 17 | Found: 300</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: 9 | Found: 12</li>
+<li>Expected: 10 | Found: 14</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: maxelementaldamage</li>
+<li>Expected:  | Found: maxelementaldamage</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 511 | Found: 127</li>
+<li>Expected: 1024 | Found: 256</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 1739 | Found: 200</li>
+<li>Expected: 204 | Found: 50</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 56 | Found: 14</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 49523 | Found: 2500</li>
+<li>Expected: 1560 | Found: 250</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 8</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 213 | Found: 53</li>
+<li>Expected: 1024 | Found: 256</li>
+<li>Expected: 9 | Found: 16</li>
+<li>Expected: 577 | Found: 144</li>
+<li>Expected: 102 | Found: 25</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 15 | Found: 16</li>
+<li>Expected: 9 | Found: 11</li>
+<li>Expected: 181 | Found: </li>
+<li>Expected: 327 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 9 | Found: 14</li>
+<li>Expected: 81 | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: ItemModifierNonClassSkill | Found: </li>
+<li>Expected: ItemModifierNonClassSkill | Found: </li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 56 | Found: 14</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 85 | Found: 21</li>
+<li>Expected: 11 | Found: 2</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 118 | Found: 29</li>
+<li>Expected: 512 | Found: 128</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 9 | Found: 14</li>
+<li>Expected: 157 | Found: </li>
+<li>Expected: 16 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: ModitemAura | Found: </li>
+<li>Expected: ModitemAura | Found: </li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 1117 | Found: 279</li>
+<li>Expected: 415 | Found: 50</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected:  | Found: strModEleMasteryAll</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 92 | Found: 23</li>
+<li>Expected: 64 | Found: 16</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 298</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: ignorebeastphysicalresist</li>
+<li>Expected:  | Found: ignorebeastphysicalresist</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 1739 | Found: 200</li>
+<li>Expected: 204 | Found: 50</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 159 | Found: 1000</li>
+<li>Expected: 33 | Found: 20</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 0 | Found: 500</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: StrSkill184</li>
+<li>Expected:  | Found: StrSkill184</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 0 | Found: 250</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 0 | Found: 250</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 88</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 1432 | Found: 269</li>
+<li>Expected: 513 | Found: 42</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 159 | Found: 100</li>
+<li>Expected: ModItemMonPoisonSunder | Found: magicmaxdamagedesc</li>
+<li>Expected: ModItemMonPoisonSunder | Found: magicmaxdamagedesc</li>
+<li>Expected:  | Found: increaseswithplaylevelX</li>
+<li>Expected: 1987 | Found: 5000</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 1432 | Found: </li>
+<li>Expected: 513 | Found: </li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 159 | Found: 94</li>
+<li>Expected: 19 | Found: 3</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: ModItemMonFireSunder | Found: jr6</li>
+<li>Expected: ModItemMonFireSunder | Found: jr6</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected: 5 | Found: 9</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 43 | Found: 10</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 1432 | Found: 358</li>
+<li>Expected: 513 | Found: 128</li>
+<li>Expected: 159 | Found: 100</li>
+<li>Expected: 9 | Found: 16</li>
+<li>Expected: 1044 | Found: 261</li>
+<li>Expected: 341 | Found: 85</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 12 | Found: 300</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: 6 | Found: 11</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: minelementaldamage</li>
+<li>Expected:  | Found: minelementaldamage</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 5096 | Found: 1274</li>
+<li>Expected: 988 | Found: 100</li>
+<li>Expected: 19 | Found: 4</li>
+<li>Expected: 14 | Found: 3</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 98 | Found: 24</li>
+<li>Expected: 40 | Found: 10</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 9 | Found: 2</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 104 | Found: 26</li>
+<li>Expected: 64 | Found: 16</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 23 | Found: 5</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: domeleedamage | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: domissiledamage | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: 15123 | Found: 10000</li>
+<li>Expected: 4096 | Found: 250</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 3 | Found: 7</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 156 | Found: 158</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 207 | Found: 51</li>
+<li>Expected: 340 | Found: 85</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 54 | Found: 13</li>
+<li>Expected: 204 | Found: 51</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 3 | Found: 8</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 76 | Found: 19</li>
+<li>Expected: 1024 | Found: 256</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 3 | Found: 7</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 155 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: ModStr3i | Found: </li>
+<li>Expected: ModStr3i | Found: </li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 814 | Found: 203</li>
+<li>Expected: 1024 | Found: 256</li>
+<li>Expected: 89 | Found: 22</li>
+<li>Expected: 204 | Found: 51</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 15011 | Found: 3752</li>
+<li>Expected: 2048 | Found: 512</li>
+<li>Expected: 666 | Found: 166</li>
+<li>Expected: 12 | Found: 3</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 15 | Found: 3</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 190 | Found: </li>
+<li>Expected: 256 | Found: </li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 158 | Found: 160</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 30 | Found: 50</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 30 | Found: 50</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 31 | Found: 7</li>
+<li>Expected: 25 | Found: 6</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 5486 | Found: 1000</li>
+<li>Expected: 102 | Found: 100</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModAbsorbElemental</li>
+<li>Expected:  | Found: strModAbsorbElemental</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 86 | Found: 21</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 1484 | Found: 371</li>
+<li>Expected: 72 | Found: 18</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected:  | Found: 11</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 3876 | Found: 969</li>
+<li>Expected: 156 | Found: 39</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected:  | Found: 11</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected: 117 | Found: 29</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 77 | Found: 300</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1984 | Found: 100</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected:  | Found: strModPierceResAll</li>
+<li>Expected: 101 | Found: 25</li>
+<li>Expected: 40 | Found: 10</li>
+<li>Expected: 1065 | Found: 266</li>
+<li>Expected: 72 | Found: 18</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 20 | Found: 100</li>
+<li>Expected:  | Found: 11</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected:  | Found: allspeeds</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 53 | Found: 13</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected: 122 | Found: 30</li>
+<li>Expected: 25 | Found: 6</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 56452 | Found: 1000</li>
+<li>Expected: 204 | Found: 100</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 10 | Found: 100</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 10 | Found: 100</li>
+<li>Expected:  | Found: item_mana_perlevel</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 24 | Found: 6</li>
+<li>Expected: -20 | Found: -5</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 128 | Found: 200</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 128 | Found: 200</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: 11 | Found: 300</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: 8 | Found: 11</li>
+<li>Expected: 8 | Found: 11</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: minelementaldamage</li>
+<li>Expected:  | Found: minelementaldamage</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 152 | Found: 38</li>
+<li>Expected: 68 | Found: 17</li>
+<li>Expected: 29 | Found: 19</li>
+<li>Expected: ModStr2uPercentNegative | Found: ModStr2uPercent</li>
+<li>Expected: 106 | Found: 26</li>
+<li>Expected: 256 | Found: 64</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 298</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: ignoredemonphysicalresist</li>
+<li>Expected:  | Found: ignoredemonphysicalresist</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 88</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: passiveavoiddesc</li>
+<li>Expected:  | Found: passiveavoiddesc</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 19</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: passivedodgedesc</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 81 | Found: 20</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 8 | Found: 11</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 11 | Found: 16</li>
+<li>Expected: 125 | Found: 31</li>
+<li>Expected: 55 | Found: 13</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 32 | Found: 150</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 105 | Found: 26</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 30 | Found: 7</li>
+<li>Expected: 101 | Found: 25</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: 45 | Found: 11</li>
+<li>Expected: 20 | Found: 5</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 90 | Found: 22</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 1432 | Found: </li>
+<li>Expected: 513 | Found: </li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 159 | Found: 100</li>
+<li>Expected: 15 | Found: 3</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 181 | Found: 45</li>
+<li>Expected: 128 | Found: 32</li>
+</ul>
+</div>
+</body>
+</html>

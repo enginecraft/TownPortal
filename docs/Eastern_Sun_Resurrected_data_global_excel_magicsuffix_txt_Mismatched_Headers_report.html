@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/magicsuffix.txt (1849)</summary>
+<ul>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 45 | Found: 54</li>
+<li>Expected: 37 | Found: 54</li>
+<li>Expected: 4 | Found: 18</li>
+<li>Expected: 14 | Found: 15</li>
+<li>Expected: 41 | Found: 56</li>
+<li>Expected: 63 | Found: 80</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 51 | Found: 45</li>
+<li>Expected: 4 | Found: 9</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: circ | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 25 | Found: 38</li>
+<li>Expected: 18 | Found: 38</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected: 15 | Found: 31</li>
+<li>Expected: 20 | Found: 40</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 45</li>
+<li>Expected: 26 | Found: 33</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 4 | Found: 11</li>
+<li>Expected: 4 | Found: 15</li>
+<li>Expected: dblu | Found: dred</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 43 | Found: 42</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: shld | Found: amul</li>
+<li>Expected: helm | Found: ring</li>
+<li>Expected: amul | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 39 | Found: 45</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: 10 | Found: 800</li>
+<li>Expected: 20 | Found: 1500</li>
+<li>Expected: tors | Found: helm</li>
+<li>Expected: shld | Found: tors</li>
+<li>Expected: circ | Found: shld</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected: 1 | Found: 16</li>
+<li>Expected: 4 | Found: 30</li>
+<li>Expected: 125 | Found: 50</li>
+<li>Expected: 125 | Found: 50</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 45</li>
+<li>Expected: 26 | Found: 33</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 4 | Found: 11</li>
+<li>Expected: 4 | Found: 15</li>
+<li>Expected:  | Found: cblu</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected:  | Found: att/lvl</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: rod | Found: amul</li>
+<li>Expected: miss | Found: ring</li>
+<li>Expected: glov | Found: helm</li>
+<li>Expected: ring | Found: </li>
+<li>Expected: amul | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: lred</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: helm | Found: ring</li>
+<li>Expected: shld | Found: armo</li>
+<li>Expected: ring | Found: staf</li>
+<li>Expected: amul | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 24 | Found: 32</li>
+<li>Expected: mana | Found: enr</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: 10 | Found: 6</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: rod | Found: amul</li>
+<li>Expected: ring | Found: helm</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 14 | Found: 22</li>
+<li>Expected:  | Found: 56</li>
+<li>Expected: 10 | Found: 22</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected: 8 | Found: 13</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 2 | Found: 18</li>
+<li>Expected: 37 | Found: 34</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: weap | Found: mele</li>
+<li>Expected: thro | Found: srkn</li>
+<li>Expected: miss | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: glov | Found: amul</li>
+<li>Expected: boot | Found: ring</li>
+<li>Expected: ring | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 17 | Found: 25</li>
+<li>Expected:  | Found: 59</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 19 | Found: 20</li>
+<li>Expected: 5 | Found: 76</li>
+<li>Expected: 5 | Found: 150</li>
+<li>Expected: scep | Found: armo</li>
+<li>Expected: amul | Found: scep</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 1 | Found: 16</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: dmg-pois | Found: pois-min</li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: 103 | Found: 307</li>
+<li>Expected: 103 | Found: 307</li>
+<li>Expected:  | Found: pois-max</li>
+<li>Expected:  | Found: 614</li>
+<li>Expected:  | Found: 614</li>
+<li>Expected:  | Found: pois-len</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected:  | Found: att/lvl</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: whit</li>
+<li>Expected: armo | Found: amul</li>
+<li>Expected: rod | Found: ring</li>
+<li>Expected: miss | Found: armo</li>
+<li>Expected: ring | Found: </li>
+<li>Expected: amul | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: armo | Found: amul</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 35 | Found: 19</li>
+<li>Expected: move3 | Found: move2</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: stamdrain | Found: stam</li>
+<li>Expected: 80 | Found: 100</li>
+<li>Expected: 90 | Found: 200</li>
+<li>Expected:  | Found: cblu</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 14 | Found: 15</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: 10 | Found: 11</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: armo | Found: amul</li>
+<li>Expected: rod | Found: ring</li>
+<li>Expected: ring | Found: armo</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected: 36 | Found: 70</li>
+<li>Expected: 36 | Found: 62</li>
+<li>Expected: war | Found: </li>
+<li>Expected: 30 | Found: </li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 44 | Found: 10</li>
+<li>Expected: charged | Found: dmg-fire</li>
+<li>Expected: 401 | Found: </li>
+<li>Expected: -60 | Found: 550</li>
+<li>Expected: -3 | Found: 1050</li>
+<li>Expected:  | Found: pierce-fire</li>
+<li>Expected:  | Found: 21</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: staf | Found: weap</li>
+<li>Expected: knif | Found: </li>
+<li>Expected: head | Found: </li>
+<li>Expected: 33 | Found: 34</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 25 | Found: 39</li>
+<li>Expected: 2 | Found: 10</li>
+<li>Expected: 16 | Found: 10</li>
+<li>Expected: 150 | Found: 100</li>
+<li>Expected: 171 | Found: 1638</li>
+<li>Expected: 171 | Found: 1638</li>
+<li>Expected:  | Found: pierce-pois</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: rod | Found: </li>
+<li>Expected: orb | Found: </li>
+<li>Expected: 1 | Found: 100</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 7 | Found: 22</li>
+<li>Expected: 28 | Found: 29</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: cred | Found: cblu</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 2 | Found: 15</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 40 | Found: 10</li>
+<li>Expected: 60 | Found: 20</li>
+<li>Expected:  | Found: dgld</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: circ</li>
+<li>Expected:  | Found: boot</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 7 | Found: 24</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 7 | Found: 24</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 66 | Found: Amplify Damage</li>
+<li>Expected: -60 | Found: 40</li>
+<li>Expected: -10 | Found: 20</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: wand | Found: amul</li>
+<li>Expected: knif | Found: ring</li>
+<li>Expected: head | Found: circ</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: necr</li>
+<li>Expected: 50 | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected: 42 | Found: 10</li>
+<li>Expected: ama | Found: </li>
+<li>Expected: 30 | Found: </li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 7</li>
+<li>Expected: charged | Found: kill-skill</li>
+<li>Expected: 31 | Found: Freezing Arrow</li>
+<li>Expected: -30 | Found: 18</li>
+<li>Expected: -4 | Found: 5</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected: miss | Found: arrm</li>
+<li>Expected: abow | Found: boqm</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 13 | Found: 18</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 4 | Found: 16</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 48</li>
+<li>Expected: 66 | Found: Amplify Damage</li>
+<li>Expected: 5 | Found: 3</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: orb | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 75 | Found: Clay Golem</li>
+<li>Expected: -60 | Found: 30</li>
+<li>Expected: -8 | Found: 16</li>
+<li>Expected:  | Found: cgrn</li>
+<li>Expected: wand | Found: amul</li>
+<li>Expected: knif | Found: ring</li>
+<li>Expected: head | Found: circ</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: necr</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 30 | Found: 58</li>
+<li>Expected:  | Found: 71</li>
+<li>Expected: 22 | Found: 50</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 34 | Found: 30</li>
+<li>Expected: dgld | Found: cred</li>
+<li>Expected: boot | Found: amul</li>
+<li>Expected: belt | Found: shld</li>
+<li>Expected: amul | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: mele</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 15 | Found: 16</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: 10 | Found: 41</li>
+<li>Expected: 20 | Found: 70</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 17 | Found: 16</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 2 | Found: 25</li>
+<li>Expected:  | Found: cblu</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 85</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 10 | Found: 17</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected: shld | Found: amul</li>
+<li>Expected: boot | Found: ring</li>
+<li>Expected: glov | Found: armo</li>
+<li>Expected: ring | Found: </li>
+<li>Expected: amul | Found: </li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 18 | Found: 6</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 52 | Found: Enchant</li>
+<li>Expected: -20 | Found: 30</li>
+<li>Expected: -3 | Found: 25</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: staf | Found: amul</li>
+<li>Expected: orb | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: sorc</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 45 | Found: 75</li>
+<li>Expected: 37 | Found: 70</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: 10 | Found: 21</li>
+<li>Expected: 25 | Found: 30</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: amul | Found: tors</li>
+<li>Expected: circ | Found: shld</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 13 | Found: 18</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected:  | Found: lred</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: ring</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: 55 | Found: 80</li>
+<li>Expected: 7 | Found: 11</li>
+<li>Expected: 27 | Found: 28</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 9 | Found: 12</li>
+<li>Expected:  | Found: manasteal</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected: orb | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 22 | Found: 42</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 16 | Found: 34</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 34 | Found: 30</li>
+<li>Expected: dgld | Found: dred</li>
+<li>Expected: mele | Found: amul</li>
+<li>Expected: belt | Found: ring</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected:  | Found: mele</li>
+<li>Expected: wand | Found: </li>
+<li>Expected: staf | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 17</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected:  | Found: att/lvl</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: lyel</li>
+<li>Expected: rod | Found: amul</li>
+<li>Expected: miss | Found: ring</li>
+<li>Expected: ring | Found: helm</li>
+<li>Expected: amul | Found: glov</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 6 | Found: 13</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 17 | Found: 18</li>
+<li>Expected: balance3 | Found: balance2</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: dyel | Found: lyel</li>
+<li>Expected: glov | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 30 | Found: 16</li>
+<li>Expected:  | Found: cgrn</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: helm | Found: ring</li>
+<li>Expected: shld | Found: armo</li>
+<li>Expected: amul | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 20 | Found: 37</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 41 | Found: 35</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: amul | Found: circ</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 19 | Found: 34</li>
+<li>Expected: 14 | Found: 26</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 18 | Found: 26</li>
+<li>Expected:  | Found: 42</li>
+<li>Expected: 13 | Found: 19</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 34 | Found: 30</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: mele | Found: amul</li>
+<li>Expected: belt | Found: ring</li>
+<li>Expected: ring | Found: armo</li>
+<li>Expected: amul | Found: mele</li>
+<li>Expected: wand | Found: </li>
+<li>Expected: staf | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 18 | Found: 26</li>
+<li>Expected:  | Found: 42</li>
+<li>Expected: 13 | Found: 19</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 16 | Found: 31</li>
+<li>Expected:  | Found: dgrn</li>
+<li>Expected: scep | Found: amul</li>
+<li>Expected: boot | Found: armo</li>
+<li>Expected: glov | Found: ring</li>
+<li>Expected: ring | Found: </li>
+<li>Expected: amul | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 44 | Found: 50</li>
+<li>Expected:  | Found: gethit-skill</li>
+<li>Expected:  | Found: Static Field</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 11 | Found: 10</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 2 | Found: 21</li>
+<li>Expected: 6 | Found: 40</li>
+<li>Expected:  | Found: lred</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 71 | Found: Dim Vision</li>
+<li>Expected: -60 | Found: 40</li>
+<li>Expected: -8 | Found: 6</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: wand | Found: amul</li>
+<li>Expected: knif | Found: ring</li>
+<li>Expected: head | Found: circ</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: necr</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 22 | Found: 42</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 16 | Found: 34</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 24 | Found: 32</li>
+<li>Expected: mana | Found: enr</li>
+<li>Expected: 16 | Found: 11</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: dgld | Found: dblu</li>
+<li>Expected: rod | Found: amul</li>
+<li>Expected: amul | Found: helm</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 40 | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected: 30 | Found: 10</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 50</li>
+<li>Expected: 62 | Found: Hydra</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: cred | Found: dyel</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 8 | Found: 256</li>
+<li>Expected: 8 | Found: 256</li>
+<li>Expected: pois-max | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: pois-len | Found: </li>
+<li>Expected: 75 | Found: </li>
+<li>Expected: 75 | Found: </li>
+<li>Expected:  | Found: lgrn</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: scep | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 21</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: 3 | Found: 100</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: tors | Found: helm</li>
+<li>Expected: helm | Found: tors</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 35 | Found: 46</li>
+<li>Expected: 27 | Found: 46</li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 14 | Found: 15</li>
+<li>Expected: 21 | Found: 41</li>
+<li>Expected: 40 | Found: 55</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 3 | Found: 21</li>
+<li>Expected: 5 | Found: 40</li>
+<li>Expected: 43 | Found: 35</li>
+<li>Expected: 37 | Found: 8</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 3 | Found: 24</li>
+<li>Expected: 26 | Found: 27</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: belt | Found: ring</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected: phlm | Found: staf</li>
+<li>Expected: circ | Found: wand</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected: 11 | Found: 10</li>
+<li>Expected: ama | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 7</li>
+<li>Expected: charged | Found: kill-skill</li>
+<li>Expected: 6 | Found: Magic Arrow</li>
+<li>Expected: -30 | Found: 18</li>
+<li>Expected: -10 | Found: 5</li>
+<li>Expected:  | Found: whit</li>
+<li>Expected: miss | Found: arrm</li>
+<li>Expected: abow | Found: boqm</li>
+<li>Expected: 76 | Found: 60</li>
+<li>Expected: 68 | Found: 51</li>
+<li>Expected: 4 | Found: 14</li>
+<li>Expected: 15 | Found: 14</li>
+<li>Expected: 15 | Found: 16</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 43 | Found: 45</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: circ | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected:  | Found: lgld</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 43 | Found: 44</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: belt | Found: amul</li>
+<li>Expected: amul | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 3 | Found: 24</li>
+<li>Expected: 26 | Found: 27</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: belt | Found: armo</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected: phlm | Found: wand</li>
+<li>Expected: circ | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 2 | Found: 25</li>
+<li>Expected:  | Found: lgld</li>
+<li>Expected: 30 | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected: 30 | Found: 10</li>
+<li>Expected: dru | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: 44 | Found: 48</li>
+<li>Expected: charged | Found: hit-skill</li>
+<li>Expected: 244 | Found: Volcano</li>
+<li>Expected: -30 | Found: 1</li>
+<li>Expected: -6 | Found: 15</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: club | Found: mele</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 35 | Found: 19</li>
+<li>Expected: move1 | Found: move2</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 30 | Found: 16</li>
+<li>Expected:  | Found: lgrn</li>
+<li>Expected: armo | Found: amul</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 41 | Found: 71</li>
+<li>Expected: 33 | Found: 63</li>
+<li>Expected: 3 | Found: 18</li>
+<li>Expected: 23 | Found: 32</li>
+<li>Expected: dgld | Found: cblu</li>
+<li>Expected: orb | Found: helm</li>
+<li>Expected: circ | Found: staf</li>
+<li>Expected: staf | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 30 | Found: 58</li>
+<li>Expected:  | Found: 71</li>
+<li>Expected: 22 | Found: 50</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 16 | Found: 31</li>
+<li>Expected: dgld | Found: cgrn</li>
+<li>Expected: miss | Found: amul</li>
+<li>Expected: glov | Found: shld</li>
+<li>Expected: amul | Found: miss</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 16 | Found: 15</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 20 | Found: 7</li>
+<li>Expected: 35 | Found: 15</li>
+<li>Expected: boot | Found: amul</li>
+<li>Expected: glov | Found: circ</li>
+<li>Expected: amul | Found: boot</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 35</li>
+<li>Expected: 19 | Found: 24</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: amul | Found: ring</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 44 | Found: 48</li>
+<li>Expected:  | Found: hit-skill</li>
+<li>Expected:  | Found: Orb of Winter</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected:  | Found: weap</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: 47</li>
+<li>Expected: 26 | Found: 30</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 7 | Found: 400</li>
+<li>Expected: 9 | Found: 600</li>
+<li>Expected: tors | Found: helm</li>
+<li>Expected: shld | Found: tors</li>
+<li>Expected: circ | Found: shld</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 37</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 42 | Found: 38</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: belt | Found: amul</li>
+<li>Expected: amul | Found: circ</li>
+<li>Expected:  | Found: pelt</li>
+<li>Expected:  | Found: phlm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected:  | Found: 34</li>
+<li>Expected: 9 | Found: 15</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 1 | Found: 31</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: 3 | Found: 51</li>
+<li>Expected: 4 | Found: 75</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: orb | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 37</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 42 | Found: 40</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected:  | Found: 22</li>
+<li>Expected: 8 | Found: 6</li>
+<li>Expected:  | Found: cblu</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 20 | Found: 37</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 41 | Found: 36</li>
+<li>Expected: circ | Found: amul</li>
+<li>Expected: amul | Found: circ</li>
+<li>Expected: pelt | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 25 | Found: 80</li>
+<li>Expected: 18 | Found: 75</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: rod | Found: weap</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected:  | Found: lgry</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 5 | Found: 7</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected: rod | Found: circ</li>
+<li>Expected: ring | Found: rod</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: dclb</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 77 | Found: 60</li>
+<li>Expected: 69 | Found: 43</li>
+<li>Expected: 26 | Found: 24</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 18 | Found: 27</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected: 32 | Found: 896</li>
+<li>Expected: 32 | Found: 896</li>
+<li>Expected: pois-max | Found: </li>
+<li>Expected: 72 | Found: </li>
+<li>Expected: 72 | Found: </li>
+<li>Expected: pois-len | Found: </li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: scep | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 22 | Found: 42</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 16 | Found: 34</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 16 | Found: 31</li>
+<li>Expected:  | Found: dgrn</li>
+<li>Expected: scep | Found: amul</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 18 | Found: 27</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 11 | Found: 10</li>
+<li>Expected: 10 | Found: 86</li>
+<li>Expected: 10 | Found: 125</li>
+<li>Expected: 10 | Found: 126</li>
+<li>Expected: 20 | Found: 190</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 35 | Found: 19</li>
+<li>Expected: move3 | Found: move2</li>
+<li>Expected:  | Found: cblu</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 38 | Found: 40</li>
+<li>Expected:  | Found: 80</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 19 | Found: 20</li>
+<li>Expected: 11 | Found: 151</li>
+<li>Expected: 15 | Found: 250</li>
+<li>Expected: scep | Found: armo</li>
+<li>Expected: amul | Found: scep</li>
+<li>Expected: circ | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 2 | Found: 12</li>
+<li>Expected: 41 | Found: 37</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: circ | Found: amul</li>
+<li>Expected: pelt | Found: circ</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected: tors | Found: ring</li>
+<li>Expected: helm | Found: armo</li>
+<li>Expected: shld | Found: </li>
+<li>Expected: ring | Found: </li>
+<li>Expected: amul | Found: </li>
+<li>Expected: 31 | Found: 30</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected: 23 | Found: 14</li>
+<li>Expected: 26 | Found: 24</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 7 | Found: 15</li>
+<li>Expected: 7 | Found: 15</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 34 | Found: 30</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: belt | Found: amul</li>
+<li>Expected: amul | Found: armo</li>
+<li>Expected:  | Found: mele</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 20 | Found: 21</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: scep | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 34</li>
+<li>Expected: 11 | Found: 15</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 16 | Found: 81</li>
+<li>Expected: 16 | Found: 180</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: boot</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: lgry</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: rod | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 16 | Found: 31</li>
+<li>Expected:  | Found: dgrn</li>
+<li>Expected: scep | Found: amul</li>
+<li>Expected: boot | Found: armo</li>
+<li>Expected: glov | Found: ring</li>
+<li>Expected: ring | Found: </li>
+<li>Expected: amul | Found: </li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 3 | Found: 18</li>
+<li>Expected: 37 | Found: 34</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: weap | Found: mele</li>
+<li>Expected: thro | Found: srkn</li>
+<li>Expected: miss | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 37</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 42 | Found: 39</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: helm | Found: amul</li>
+<li>Expected: amul | Found: circ</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 22 | Found: 37</li>
+<li>Expected: 16 | Found: 29</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 35 | Found: 19</li>
+<li>Expected: move3 | Found: move2</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 6 | Found: 17</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 17 | Found: 18</li>
+<li>Expected: balance1 | Found: balance2</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected: glov | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: rod | Found: circ</li>
+<li>Expected:  | Found: rod</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: dclb</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 35</li>
+<li>Expected: 19 | Found: 24</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 91 | Found: Lower Resist</li>
+<li>Expected: -60 | Found: 40</li>
+<li>Expected: -3 | Found: 6</li>
+<li>Expected:  | Found: dpur</li>
+<li>Expected: wand | Found: amul</li>
+<li>Expected: knif | Found: ring</li>
+<li>Expected: head | Found: circ</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: necr</li>
+<li>Expected: 19 | Found: 25</li>
+<li>Expected: 14 | Found: 21</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: 35 | Found: 19</li>
+<li>Expected: move3 | Found: move2</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 7 | Found: 16</li>
+<li>Expected: 15 | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected: 16 | Found: 10</li>
+<li>Expected: ama | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 7</li>
+<li>Expected: charged | Found: kill-skill</li>
+<li>Expected: 11 | Found: Cold Arrow</li>
+<li>Expected: -30 | Found: 18</li>
+<li>Expected: -8 | Found: 5</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected: miss | Found: arrm</li>
+<li>Expected: abow | Found: boqm</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 20 | Found: 56</li>
+<li>Expected: 15 | Found: 48</li>
+<li>Expected:  | Found: 22</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 20 | Found: 50</li>
+<li>Expected:  | Found: 22</li>
+<li>Expected: 8 | Found: 7</li>
+<li>Expected: 10 | Found: 9</li>
+<li>Expected:  | Found: manasteal</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 9</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 24 | Found: 32</li>
+<li>Expected: mana | Found: enr</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: helm</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 44 | Found: 50</li>
+<li>Expected:  | Found: gethit-skill</li>
+<li>Expected:  | Found: Chilling Armor</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 34</li>
+<li>Expected: 11 | Found: 15</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 11 | Found: 10</li>
+<li>Expected: 2 | Found: 41</li>
+<li>Expected: 2 | Found: 60</li>
+<li>Expected: 6 | Found: 61</li>
+<li>Expected: 11 | Found: 85</li>
+<li>Expected:  | Found: lred</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 30 | Found: 16</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: helm | Found: ring</li>
+<li>Expected: shld | Found: armo</li>
+<li>Expected: amul | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 8 | Found: 31</li>
+<li>Expected: 8 | Found: 80</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: boot</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected:  | Found: 80</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected:  | Found: 22</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected:  | Found: manasteal</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: circ</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected:  | Found: 76</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 11 | Found: 14</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 8 | Found: 14</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: armo | Found: amul</li>
+<li>Expected: rod | Found: ring</li>
+<li>Expected: ring | Found: armo</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 26 | Found: 39</li>
+<li>Expected: 2 | Found: 10</li>
+<li>Expected: 13 | Found: 10</li>
+<li>Expected: ltng-min | Found: dmg-ltng</li>
+<li>Expected: 6 | Found: 550</li>
+<li>Expected: ltng-max | Found: pierce-ltng</li>
+<li>Expected: 41 | Found: 5</li>
+<li>Expected: 120 | Found: 10</li>
+<li>Expected: dyel | Found: lyel</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected: wand | Found: </li>
+<li>Expected: orb | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 17 | Found: 16</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 2 | Found: 25</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 16 | Found: 31</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: dgrn</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: miss</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 28</li>
+<li>Expected: 39 | Found: 34</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 44 | Found: 48</li>
+<li>Expected:  | Found: hit-skill</li>
+<li>Expected:  | Found: Rain of Fire</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected:  | Found: weap</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected:  | Found: dgry</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 19 | Found: 20</li>
+<li>Expected: 3 | Found: 25</li>
+<li>Expected: 3 | Found: 75</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: scep | Found: armo</li>
+<li>Expected: belt | Found: scep</li>
+<li>Expected: ring | Found: staf</li>
+<li>Expected: amul | Found: wand</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected:  | Found: lblu</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 32 | Found: 24</li>
+<li>Expected: -20 | Found: -25</li>
+<li>Expected: -20 | Found: -25</li>
+<li>Expected:  | Found: lpur</li>
+<li>Expected: tors | Found: weap</li>
+<li>Expected: weap | Found: tors</li>
+<li>Expected: rod | Found: </li>
+<li>Expected: 7 | Found: 9</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 8</li>
+<li>Expected:  | Found: lgrn</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 44 | Found: 50</li>
+<li>Expected:  | Found: gethit-skill</li>
+<li>Expected:  | Found: Frozen Armor</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected:  | Found: armo</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 18 | Found: 1</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 54 | Found: Teleport</li>
+<li>Expected: -30 | Found: 40</li>
+<li>Expected: -6 | Found: 6</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected: staf | Found: amul</li>
+<li>Expected: orb | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: sorc</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 18 | Found: 48</li>
+<li>Expected:  | Found: 76</li>
+<li>Expected: 13 | Found: 39</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected: 4 | Found: 11</li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 34 | Found: 30</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: mele | Found: amul</li>
+<li>Expected: shld | Found: ring</li>
+<li>Expected: ring | Found: armo</li>
+<li>Expected: amul | Found: mele</li>
+<li>Expected: wand | Found: </li>
+<li>Expected: staf | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected:  | Found: dgry</li>
+<li>Expected: ring | Found: circ</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected:  | Found: dpur</li>
+<li>Expected: 3 | Found: 18</li>
+<li>Expected: 31 | Found: 30</li>
+<li>Expected: dgld | Found: cred</li>
+<li>Expected: belt | Found: shld</li>
+<li>Expected: club | Found: helm</li>
+<li>Expected: hamm | Found: tors</li>
+<li>Expected: circ | Found: mele</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected: 9 | Found: 27</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected:  | Found: dgry</li>
+<li>Expected: ring | Found: amul</li>
+<li>Expected: amul | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 16 | Found: 30</li>
+<li>Expected:  | Found: 45</li>
+<li>Expected: 12 | Found: 16</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: -25 | Found: -50</li>
+<li>Expected: -40 | Found: -75</li>
+<li>Expected:  | Found: lgry</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 30 | Found: 58</li>
+<li>Expected:  | Found: 71</li>
+<li>Expected: 22 | Found: 50</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 24 | Found: 32</li>
+<li>Expected: mana | Found: enr</li>
+<li>Expected: 21 | Found: 16</li>
+<li>Expected: 30 | Found: 20</li>
+<li>Expected: dgld | Found: cblu</li>
+<li>Expected: rod | Found: amul</li>
+<li>Expected: ring | Found: helm</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 18 | Found: 27</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 32 | Found: 181</li>
+<li>Expected: 32 | Found: 360</li>
+<li>Expected: dyel | Found: lyel</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 30 | Found: 12</li>
+<li>Expected:  | Found: 36</li>
+<li>Expected: 26 | Found: 10</li>
+<li>Expected: ama | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 7</li>
+<li>Expected: charged | Found: kill-skill</li>
+<li>Expected: 16 | Found: Exploding Arrow</li>
+<li>Expected: -30 | Found: 18</li>
+<li>Expected: -6 | Found: 5</li>
+<li>Expected:  | Found: lred</li>
+<li>Expected: miss | Found: arrm</li>
+<li>Expected: abow | Found: boqm</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: armo | Found: amul</li>
+<li>Expected: rod | Found: ring</li>
+<li>Expected: ring | Found: armo</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 4 | Found: 15</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected:  | Found: dgry</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 34</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 2 | Found: 150</li>
+<li>Expected: 6 | Found: 300</li>
+<li>Expected: tors | Found: helm</li>
+<li>Expected: helm | Found: tors</li>
+<li>Expected: 18 | Found: 9</li>
+<li>Expected: 13 | Found: 6</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected: 37 | Found: 25</li>
+<li>Expected:  | Found: 52</li>
+<li>Expected: 29 | Found: 20</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 1 | Found: 100</li>
+<li>Expected: 5 | Found: 200</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: 15 | Found: 16</li>
+<li>Expected:  | Found: 58</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected: 3 | Found: 25</li>
+<li>Expected: 6 | Found: 26</li>
+<li>Expected: 10 | Found: 45</li>
+<li>Expected: 43 | Found: 34</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 35 | Found: 39</li>
+<li>Expected: 2 | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: fire-min | Found: dmg-fire</li>
+<li>Expected: 10 | Found: 200</li>
+<li>Expected: 20 | Found: 300</li>
+<li>Expected: fire-max | Found: pierce-fire</li>
+<li>Expected: 21 | Found: 5</li>
+<li>Expected: 75 | Found: 10</li>
+<li>Expected: dred | Found: cred</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected: wand | Found: </li>
+<li>Expected: orb | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 6 | Found: 14</li>
+<li>Expected: 39 | Found: 34</li>
+<li>Expected:  | Found: oran</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 19 | Found: 30</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected: 11 | Found: 21</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: blac | Found: cred</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 25 | Found: 50</li>
+<li>Expected:  | Found: 80</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 32 | Found: 24</li>
+<li>Expected: -40 | Found: -50</li>
+<li>Expected: -40 | Found: -50</li>
+<li>Expected:  | Found: lpur</li>
+<li>Expected: tors | Found: weap</li>
+<li>Expected: weap | Found: tors</li>
+<li>Expected: rod | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 25 | Found: 46</li>
+<li>Expected: 18 | Found: 38</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected:  | Found: dred</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 1 | Found: 100</li>
+<li>Expected:  | Found: 35</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 17 | Found: 20</li>
+<li>Expected: 17 | Found: 20</li>
+<li>Expected:  | Found: dyel</li>
+<li>Expected: tors | Found: armo</li>
+<li>Expected: belt | Found: </li>
+<li>Expected: shld | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected: 43 | Found: 41</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: glov | Found: ring</li>
+<li>Expected: amul | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: shld</li>
+<li>Expected: 11 | Found: 35</li>
+<li>Expected: 8 | Found: 21</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 6 | Found: 7</li>
+<li>Expected: 9 | Found: 15</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 18 | Found: 25</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected: 13 | Found: 27</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 9 | Found: 10</li>
+<li>Expected: 4 | Found: 76</li>
+<li>Expected: 4 | Found: 100</li>
+<li>Expected: 4 | Found: 101</li>
+<li>Expected: 12 | Found: 200</li>
+<li>Expected: 150 | Found: 100</li>
+<li>Expected: 150 | Found: 100</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected:  | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 45 | Found: 34</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected: 37 | Found: 39</li>
+<li>Expected: 2 | Found: 10</li>
+<li>Expected: cold-min | Found: dmg-cold</li>
+<li>Expected:  | Found: 150</li>
+<li>Expected: 5 | Found: 201</li>
+<li>Expected: 9 | Found: 250</li>
+<li>Expected: cold-max | Found: pierce-cold</li>
+<li>Expected: 16 | Found: 5</li>
+<li>Expected: 50 | Found: 10</li>
+<li>Expected: cold-len | Found: </li>
+<li>Expected: 150 | Found: </li>
+<li>Expected: 150 | Found: </li>
+<li>Expected: dblu | Found: cblu</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected: wand | Found: </li>
+<li>Expected: orb | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 11 | Found: 35</li>
+<li>Expected:  | Found: 65</li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected:  | Found: 76</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 20 | Found: 1</li>
+<li>Expected: 20 | Found: 2</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 14</li>
+<li>Expected: 39 | Found: 34</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: blac</li>
+<li>Expected: weap | Found: mele</li>
+<li>Expected: thro | Found: </li>
+<li>Expected: miss | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 18 | Found: 26</li>
+<li>Expected:  | Found: 42</li>
+<li>Expected: 13 | Found: 19</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 24 | Found: 32</li>
+<li>Expected: mana | Found: enr</li>
+<li>Expected: 11 | Found: 7</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected: rod | Found: amul</li>
+<li>Expected: ring | Found: helm</li>
+<li>Expected: amul | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 72 | Found: 71</li>
+<li>Expected: 64 | Found: 63</li>
+<li>Expected: 3 | Found: 18</li>
+<li>Expected: 17 | Found: 31</li>
+<li>Expected: dgld | Found: cgrn</li>
+<li>Expected: miss | Found: shld</li>
+<li>Expected: circ | Found: miss</li>
+<li>Expected:  | Found: helm</li>
+<li>Expected:  | Found: tors</li>
+<li>Expected:  | Found: glov</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 30 | Found: 24</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 30 | Found: 24</li>
+<li>Expected: 24 | Found: 18</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 44 | Found: 51</li>
+<li>Expected: 149 | Found: Battle Orders</li>
+<li>Expected: -60 | Found: 30</li>
+<li>Expected: -5 | Found: 5</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: phlm | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected:  | Found: belt</li>
+<li>Expected:  | Found: barb</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 1 | Found: 100</li>
+<li>Expected: 4 | Found: 250</li>
+<li>Expected:  | Found: cred</li>
+<li>Expected: 2 | Found: 10</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 10 | Found: 24</li>
+<li>Expected:  | Found: dgld</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected:  | Found: 34</li>
+<li>Expected: 11 | Found: 15</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected:  | Found: 75</li>
+<li>Expected: 16 | Found: 426</li>
+<li>Expected: 16 | Found: 426</li>
+<li>Expected: pois-max | Found: </li>
+<li>Expected: 48 | Found: </li>
+<li>Expected: 48 | Found: </li>
+<li>Expected: pois-len | Found: </li>
+<li>Expected: 75 | Found: </li>
+<li>Expected: 75 | Found: </li>
+<li>Expected:  | Found: lgrn</li>
+<li>Expected:  | Found: amul</li>
+<li>Expected:  | Found: ring</li>
+<li>Expected:  | Found: circ</li>
+<li>Expected: scep | Found: staf</li>
+<li>Expected:  | Found: wand</li>
+<li>Expected:  | Found: orb</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 24 | Found: 25</li>
+<li>Expected:  | Found: 65</li>
+<li>Expected:  | Found: 24</li>
+<li>Expected: tors | Found: amul</li>
+<li>Expected: helm | Found: ring</li>
+<li>Expected: shld | Found: armo</li>
+<li>Expected: ring | Found: staf</li>
+<li>Expected: amul | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: -10 | Found: -25</li>
+<li>Expected: -20 | Found: -50</li>
+<li>Expected:  | Found: lgry</li>
+<li>Expected: mele | Found: weap</li>
+<li>Expected: wand | Found: staf</li>
+<li>Expected: staf | Found: wand</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 12 | Found: 22</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: 9 | Found: 16</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 35 | Found: 19</li>
+<li>Expected:  | Found: dblu</li>
+<li>Expected:  | Found: circ</li>
+</ul>
+</div>
+</body>
+</html>

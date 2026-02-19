@@ -1,0 +1,4147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/treasureclassex.txt (4082)</summary>
+<ul>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 42 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 (N) Uitem C | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (N) Cpot C | Found: Act 1 (N) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 40 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 (N) Uitem A | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (N) Cpot A | Found: Act 1 (N) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 41 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 (N) Uitem B | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (N) Cpot B | Found: Act 1 (N) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 48 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 (N) Uitem A | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 (N) Cpot A | Found: Act 3 (N) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 57 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 (N) Uitem B | Found: Sets05</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 (N) Cpot B | Found: Act 4 (N) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 (N) Uitem B | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 (N) Cpot B | Found: Act 3 (N) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 54 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 (N) Uitem A | Found: Sets05</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 (N) Cpot A | Found: Act 4 (N) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 51 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 (N) Uitem C | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 (N) Cpot C | Found: Act 3 (N) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 44 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 (N) Uitem A | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 (N) Cpot A | Found: Act 2 (N) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 46 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 (N) Uitem C | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 (N) Cpot C | Found: Act 2 (N) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 45 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 (N) Uitem B | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 (N) Cpot B | Found: Act 2 (N) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 1 Junk | Found: Potion 2</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 2 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 0 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 62 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 (N) Uitem A | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 (N) Cpot A | Found: Act 5 (N) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 63 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 (N) Uitem B | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 (N) Cpot B | Found: Act 5 (N) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 66 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 (N) Uitem C | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 (N) Cpot C | Found: Act 5 (N) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 Cpot A | Found: Cpot 2</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 Cpot B | Found: Cpot 2</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 72 | Found: 85</li>
+<li>Expected: Act 2 (H) Champ C | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Champ C</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 Cpot C | Found: Cpot 2</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Blemished Gem</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: Flawed Gem | Found: Perfect Gem</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: Normal Gem | Found: Runes 16</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 16 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: -3 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Act 1 (H) Uitem C | Found: Act 1 (N) Ultra</li>
+<li>Expected: 1 | Found: 80</li>
+<li>Expected: Act 1 (N) Melee B | Found: Uni Ore 9</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Jewelry C | Found: Jewelry B</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Flawless Gem</li>
+<li>Expected: 6 | Found: 1</li>
+<li>Expected: Flawed Gem | Found: Blemished Gem</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Normal Gem | Found: Runes 8</li>
+<li>Expected: 28 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: Runes 8 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Sets03</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: Act 4 Equip A | Found: Mephisto Base</li>
+<li>Expected: 52 | Found: 245</li>
+<li>Expected: Act 4 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 Good | Found: Act 3 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 Good | Found: Act 3 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 Good | Found: Act 3 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Act 4 Ultra</li>
+<li>Expected: 14 | Found: 1</li>
+<li>Expected: Act 4 Equip B | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: Act 4 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 80 | Found: 90</li>
+<li>Expected: Act 4 (H) Champ B | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Champ B</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 983 | Found: 820</li>
+<li>Expected: 983 | Found: 820</li>
+<li>Expected: 983 | Found: 922</li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: "gld,mul=768"</li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected: Act 5 (H) Equip B | Found: Act 5 (H) Equip C</li>
+<li>Expected: 52 | Found: 180</li>
+<li>Expected: 5 | Found: 12</li>
+<li>Expected: Act 5 (H) Good | Found: Act 5 (H) UGood</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: fed | Found: Uni Ore 1</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 6</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 74 | Found: 86</li>
+<li>Expected: Act 3 (H) Champ A | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Champ A</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 5 (N) Equip A | Found: Sets04</li>
+<li>Expected: 52 | Found: 5</li>
+<li>Expected: Act 5 (N) Good | Found: Diablo (N) Base</li>
+<li>Expected: 3 | Found: 250</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Sets06</li>
+<li>Expected: 11 | Found: 2</li>
+<li>Expected: Act 2 (H) Equip A | Found: Andariel (H) Base</li>
+<li>Expected: 19 | Found: 245</li>
+<li>Expected: Act 2 (H) Junk | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 2 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: tes | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: tsc | Found: Sets04</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Duriel (N) - Base | Found: Duriel (N) Base</li>
+<li>Expected: 2 | Found: 245</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 4 Equip A | Found: Sets03</li>
+<li>Expected: 52 | Found: 5</li>
+<li>Expected: Act 4 Good | Found: Mephisto Base</li>
+<li>Expected: 3 | Found: 245</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 3 Cpot B | Found: Cpot 3</li>
+<li>Expected: Act 3 Cpot C | Found: Cpot 3</li>
+<li>Expected: Act 3 Cpot A | Found: Cpot 3</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: 820</li>
+<li>Expected: 900 | Found: 820</li>
+<li>Expected: 900 | Found: 922</li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: "gld,mul=768"</li>
+<li>Expected: 14 | Found: 15</li>
+<li>Expected: Act 5 (N) Equip B | Found: Act 5 (N) Equip C</li>
+<li>Expected: 19 | Found: 180</li>
+<li>Expected: 5 | Found: 12</li>
+<li>Expected: Act 5 (N) Good | Found: Act 5 (N) UGood</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected:  | Found: Uni Ore 0</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 77 | Found: 88</li>
+<li>Expected: Act 3 (H) Unique C | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Unique C</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 4 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 983 | Found: 820</li>
+<li>Expected: 983 | Found: 820</li>
+<li>Expected: 983 | Found: 922</li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=768"</li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected: Act 1 (N) Equip A | Found: Act 5 Equip C</li>
+<li>Expected: 52 | Found: 180</li>
+<li>Expected: Act 1 (N) Junk | Found: Act 5 Junk</li>
+<li>Expected: 5 | Found: 12</li>
+<li>Expected: Act 1 (N) Good | Found: Act 5 UGood</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected:  | Found: Uni Ore 1</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 4 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 87 | Found: 91</li>
+<li>Expected: Act 4 (H) Super C | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Super C</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 75 | Found: 87</li>
+<li>Expected: Act 3 (H) Super B | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Super B</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 (H) Good | Found: </li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 (H) Good | Found: Act 5 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 (H) Good | Found: Act 5 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 68 | Found: 83</li>
+<li>Expected: Act 2 (H) Super A | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Super A</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 (H) Good | Found: Act 3 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 (H) Good | Found: Act 3 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 (H) Good | Found: Act 3 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 (H) Good | Found: Act 1 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 (H) Good | Found: Act 1 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 (H) Good | Found: Act 1 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: gfk</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Act 4 (N) Ultra</li>
+<li>Expected: 14 | Found: 1</li>
+<li>Expected: Act 4 (N) Equip B | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: Act 4 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 4 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 4 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Jewelry C | Found: Jewelry A</li>
+<li>Expected: 50 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Normal Gem</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: Flawed Gem | Found: Flawless Gem</li>
+<li>Expected: Normal Gem | Found: Runes 7</li>
+<li>Expected: 24 | Found: 6</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Runes 7 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 5 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 5 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 5 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 38 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 Uitem C | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 Cpot C | Found: Act 5 Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 36 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 Uitem B | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 Cpot B | Found: Act 5 Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 34 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 Uitem A | Found: Sets04</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 Cpot A | Found: Act 5 Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 Junk | Found: Act 1 Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 Equip A | Found: Act 1 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 Junk | Found: Act 1 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 Equip B | Found: Act 1 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 5 (H) Equip A | Found: Sets08</li>
+<li>Expected: 52 | Found: 5</li>
+<li>Expected: Act 5 (H) Good | Found: Diablo (H) Base</li>
+<li>Expected: 3 | Found: 250</li>
+<li>Expected: bet | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 Junk | Found: Act 1 Equip C</li>
+<li>Expected: 12 | Found: 22</li>
+<li>Expected: Act 2 Junk | Found: Act 1 Junk</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: Act 1 Equip C | Found: Act 1 Good</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 Good | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Sets04</li>
+<li>Expected: 11 | Found: 2</li>
+<li>Expected: Act 2 (N) Equip A | Found: Andariel (N) Base</li>
+<li>Expected: 19 | Found: 245</li>
+<li>Expected: Act 2 (N) Junk | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 2 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 85 | Found: 96</li>
+<li>Expected: -2 | Found: -3</li>
+<li>Expected: Act 5 (H) Champ C | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Endgame Maps Tier 1 Campaign</li>
+<li>Expected:  | Found: Act 5 (H) Champ C</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 66 | Found: 81</li>
+<li>Expected: Act 1 (H) Unique B | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Unique B</li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: gld | Found: A5C</li>
+<li>Expected: 19 | Found: 3840</li>
+<li>Expected: Act 5 Equip A | Found: Act 5 Junk</li>
+<li>Expected: 19 | Found: 768</li>
+<li>Expected: Act 5 Junk | Found: Nothing</li>
+<li>Expected: 19 | Found: 1792</li>
+<li>Expected: Act 5 Good | Found: Uni Ore 10</li>
+<li>Expected: 3 | Found: 2</li>
+<li>Expected:  | Found: zzz</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: tsc | Found: Sets06</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Duriel (H) - Base | Found: Duriel (H) Base</li>
+<li>Expected: 2 | Found: 245</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 68 | Found: 82</li>
+<li>Expected: Act 1 (H) Unique C | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Unique C</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Act 4 (N) Ultra</li>
+<li>Expected: 14 | Found: 80</li>
+<li>Expected: Act 5 (N) Equip A | Found: Uni Ore 6</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 5 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 1 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 1 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 1 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 66 | Found: 81</li>
+<li>Expected: Act 1 (H) Champ B | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Champ B</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 7</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 3 | Found: 60</li>
+<li>Expected: 3 | Found: 60</li>
+<li>Expected: 7 | Found: 140</li>
+<li>Expected: 7 | Found: 140</li>
+<li>Expected:  | Found: Act 2 Coupon A</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 405</li>
+<li>Expected: 7 | Found: 200</li>
+<li>Expected: 7 | Found: 200</li>
+<li>Expected:  | Found: Act 1 Coupon C</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 405</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected:  | Found: Act 2 Coupon B</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 364</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 90 | Found: 92</li>
+<li>Expected: Act 5 (H) Super Ax | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Super Ax</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 68 | Found: 82</li>
+<li>Expected: Act 1 (H) Super C | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Super C</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 983 | Found: 820</li>
+<li>Expected: 983 | Found: 820</li>
+<li>Expected: 983 | Found: 922</li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: "gld,mul=768"</li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected: Act 1 (H) Equip A | Found: Act 5 (N) Equip C</li>
+<li>Expected: 52 | Found: 180</li>
+<li>Expected: Act 1 (H) Junk | Found: Act 5 (N) Junk</li>
+<li>Expected: 5 | Found: 12</li>
+<li>Expected: Act 1 (H) Good | Found: Act 5 (N) UGood</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected:  | Found: Uni Ore 1</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 (H) Junk | Found: Act 1 (H) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 (H) Equip B | Found: Act 1 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Blemished Gem</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: Flawed Gem | Found: Perfect Gem</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: Normal Gem | Found: Runes 14</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 14 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 (H) Good | Found: Act 2 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 29 | Found: </li>
+<li>Expected: 99 | Found: </li>
+<li>Expected: -1 | Found: -5</li>
+<li>Expected: Baal Item (H) Desecrated | Found: Worldstone Shards</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: Endgame Maps Tier 1 Campaign</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Baal (H)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 (H) Junk | Found: Act 1 (H) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 (H) Equip A | Found: Act 1 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 (H) Junk | Found: Act 1 (H) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 (H) Equip B | Found: Act 1 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 (H) Good | Found: Act 2 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 (H) Good | Found: Act 2 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 Uitem C | Found: Sets01</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 Cpot C | Found: Act 1 Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 Uitem B | Found: Sets01</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 Cpot B | Found: Act 1 Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Act 4 (H) Ultra</li>
+<li>Expected: 14 | Found: 40</li>
+<li>Expected: Act 5 (H) Equip A | Found: Uni Ore 6</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 5 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Runes 8 | Found: Runes 11</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected:  | Found: Runes 5</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: ROP Charm</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 850 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Act 1 (H) Uitem C | Found: Act 5 (H) Ultra</li>
+<li>Expected: Act 1 (H) Melee B | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: tsc | Found: Sets04</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: Durielq (N) - Base | Found: Duriel (N) Base</li>
+<li>Expected: 2 | Found: 245</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 Uitem A | Found: Sets01</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 Cpot A | Found: Act 1 Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: tsc | Found: Sets02</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: Durielq - Base | Found: Duriel Base</li>
+<li>Expected: 2 | Found: 245</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: Jewelry C | Found: Jewelry B</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Flawless Gem</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: Flawed Gem | Found: Blemished Gem</li>
+<li>Expected: 10 | Found: 5</li>
+<li>Expected: Normal Gem | Found: Runes 11</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 11 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: rin | Found: Jewelry A</li>
+<li>Expected: 8 | Found: 129</li>
+<li>Expected: amu | Found: Unique Charm 2</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: jew | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: cm3 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: cm2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: cm1 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Blemished Gem</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: Flawed Gem | Found: Perfect Gem</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: Normal Gem | Found: Runes 13</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 13 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: rin | Found: Jewelry A</li>
+<li>Expected: 8 | Found: 129</li>
+<li>Expected: amu | Found: Unique Charm 1</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: jew | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: cm3 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: cm2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: cm1 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: rin | Found: Rings</li>
+<li>Expected: 8 | Found: 72</li>
+<li>Expected: amu | Found: Amulets</li>
+<li>Expected: 4 | Found: 48</li>
+<li>Expected: jew | Found: Jewels</li>
+<li>Expected: 2 | Found: 36</li>
+<li>Expected: cm3 | Found: ppp</li>
+<li>Expected: 2 | Found: 9</li>
+<li>Expected: cm2 | Found: Regular Charms</li>
+<li>Expected: 2 | Found: 72</li>
+<li>Expected: cm1 | Found: DDD1</li>
+<li>Expected: 2 | Found: 18</li>
+<li>Expected:  | Found: sdo</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 84 | Found: 90</li>
+<li>Expected: Act 4 (H) Super Bx | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Super Bx</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 87 | Found: 91</li>
+<li>Expected: Act 4 (H) Super Cx | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Super Cx</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Sets01</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: Act 5 Equip A | Found: Diablo Base</li>
+<li>Expected: 52 | Found: 250</li>
+<li>Expected: Act 5 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 7</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 4 Cpot B | Found: Cpot 4</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 4 Cpot A | Found: Cpot 4</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 2 (H) Equip A | Found: Act 3 (H) Coupon B</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 2 (H) Equip A</li>
+<li>Expected:  | Found: 12004</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 60</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: Act 3 (H) Equip B | Found: Act 5 (H) Coupon A</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 3 (H) Equip B</li>
+<li>Expected:  | Found: 13520</li>
+<li>Expected: 36 | Found: 424</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 1 (H) Equip A | Found: Act 2 (H) Coupon B</li>
+<li>Expected: 1785 | Found: 4</li>
+<li>Expected:  | Found: Act 1 (H) Equip A</li>
+<li>Expected:  | Found: 10792</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1827 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: weap69 | Found: weap72</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: armo69 | Found: armo72</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: weap72 | Found: weap75</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: armo72 | Found: armo75</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: weap75 | Found: weap78</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: armo75 | Found: armo78</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: weap78 | Found: weap81</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: armo78 | Found: armo81</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 4 (H) Equip A | Found: Act 5 (H) Coupon B</li>
+<li>Expected: 1785 | Found: 4</li>
+<li>Expected:  | Found: Act 4 (H) Equip A</li>
+<li>Expected:  | Found: 13944</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1827 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 1 (H) Equip A | Found: Act 2 (H) Coupon A</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 1 (H) Equip A</li>
+<li>Expected:  | Found: 10428</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 0.9770 | Found: 0.977</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 5 (N) Equip C | Found: Act 1 (H) Coupon C</li>
+<li>Expected: 1785 | Found: 4</li>
+<li>Expected:  | Found: Act 5 (N) Equip C</li>
+<li>Expected:  | Found: 10004</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1827 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 60</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: Act 4 (N) Equip A | Found: Act 5 (N) Coupon B</li>
+<li>Expected: 1360 | Found: 4</li>
+<li>Expected:  | Found: Act 4 (N) Equip A</li>
+<li>Expected:  | Found: 8428</li>
+<li>Expected: 36 | Found: 424</li>
+<li>Expected: 1396 | Found: </li>
+<li>Expected: 0.9742 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 3 (N) Equip B | Found: Act 5 (N) Coupon A</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 3 (N) Equip B</li>
+<li>Expected:  | Found: 8004</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1572 | Found: </li>
+<li>Expected: 0.9733 | Found: </li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 81 | Found: 91</li>
+<li>Expected: Act 5 (H) Unique A | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Unique A</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 2 (N) Equip A | Found: Act 3 (N) Coupon B</li>
+<li>Expected: 1318 | Found: 4</li>
+<li>Expected:  | Found: Act 2 (N) Equip A</li>
+<li>Expected:  | Found: 6428</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1360 | Found: </li>
+<li>Expected: 0.9691 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 1 (N) Equip B | Found: Act 2 (N) Coupon C</li>
+<li>Expected: 1233 | Found: 4</li>
+<li>Expected:  | Found: Act 1 (N) Equip B</li>
+<li>Expected:  | Found: 5640</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1275 | Found: </li>
+<li>Expected: 0.9671 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 2 (N) Equip A | Found: Act 3 (N) Coupon A</li>
+<li>Expected: 1105 | Found: 4</li>
+<li>Expected:  | Found: Act 2 (N) Equip A</li>
+<li>Expected:  | Found: 6064</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1141 | Found: </li>
+<li>Expected: 0.9684 | Found: </li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: gld | Found: A5C (H)</li>
+<li>Expected: 19 | Found: 3840</li>
+<li>Expected: Act 5 (H) Equip B | Found: Act 5 (H) Junk</li>
+<li>Expected: 19 | Found: 768</li>
+<li>Expected: Act 5 (H) Junk | Found: Nothing</li>
+<li>Expected: 19 | Found: 1792</li>
+<li>Expected: Act 5 (H) Good | Found: Uni Ore 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected:  | Found: zzz</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 67 | Found: 81</li>
+<li>Expected: Act 1 (H) Super B | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Super B</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 Junk | Found: Act 3 Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 Equip C | Found: Act 3 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 Junk | Found: Act 3 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 Equip B | Found: Act 3 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 Junk | Found: Act 3 Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 Equip A | Found: Act 3 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 850 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Act 1 (H) Uitem C | Found: Act 5 (H) Ultra</li>
+<li>Expected: Act 1 (N) Melee B | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 3 Junk | Found: Potion 4</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 4 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 650 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: 0</li>
+<li>Expected: "gld,mul=1280" | Found: Council Base</li>
+<li>Expected: 9 | Found: 220</li>
+<li>Expected: Act 4 Equip A | Found: Uni Ore 3</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected: Act 4 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Act 4 Magic A | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Diablo (N) | Found: ROP Charm</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: Annihilus | Found: ROP (N) - Base</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 68 | Found: 82</li>
+<li>Expected: Act 1 (H) Champ C | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Champ C</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 7</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 Good | Found: Act 1 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 Good | Found: Act 1 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 Good | Found: Act 1 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Sets02</li>
+<li>Expected: 11 | Found: 2</li>
+<li>Expected: Act 2 Equip A | Found: Andariel Base</li>
+<li>Expected: 19 | Found: 245</li>
+<li>Expected: Act 2 Junk | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 2 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: aqv | Found: aq2</li>
+<li>Expected: cqv | Found: cq2</li>
+<li>Expected:  | Found: Nothing</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 3 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 75 | Found: 87</li>
+<li>Expected: Act 3 (H) Super Bx | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Super Bx</li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 3 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Jewelry C | Found: Jewelry B</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Blemished Gem</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: Flawed Gem | Found: Perfect Gem</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: Normal Gem | Found: Runes 12</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 12 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 3 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 6</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Misc 0 | Found: Ammo</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: hp4 | Found: hp3</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: hp5 | Found: hp4</li>
+<li>Expected: mp4 | Found: hp5</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: mp5 | Found: mp3</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: rvs | Found: mp4</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: vps | Found: mp5</li>
+<li>Expected: yps | Found: rvs</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: wms | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: hp3 | Found: hp4</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: hp4 | Found: mp4</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: hp5 | Found: rvs</li>
+<li>Expected: 6 | Found: 1</li>
+<li>Expected: mp5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: rvs | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: vps | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: yps | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: wms | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: hp3 | Found: hp2</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: hp4 | Found: hp3</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: hp5 | Found: hp4</li>
+<li>Expected: mp4 | Found: mp2</li>
+<li>Expected: 3 | Found: 2</li>
+<li>Expected: mp5 | Found: mp3</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: rvs | Found: mp4</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: vps | Found: rvs</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: yps | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: wms | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: hp4 | Found: mp2</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: mp4 | Found: rvs</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: rvs | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: vps | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: yps | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: wms | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: mp2 | Found: mp1</li>
+<li>Expected: mp3 | Found: mp2</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: rvs | Found: mp3</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: vps | Found: rvs</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: yps | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: wms | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: vps | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 100 | Found: 66</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: Act 4 Equip A | Found: A4A</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 75 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 (H) Uitem B | Found: Sets07</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 (H) Cpot B | Found: Act 3 (H) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 7 | Found: -2</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: 0</li>
+<li>Expected: Act 1 (N) Equip A | Found: ag0</li>
+<li>Expected: 52 | Found: 1</li>
+<li>Expected: Act 1 (N) Good | Found: Baal</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 73 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 (H) Uitem A | Found: Sets07</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 (H) Cpot A | Found: Act 3 (H) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 78 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 (H) Uitem C | Found: Sets07</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 (H) Cpot C | Found: Act 3 (H) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Act 5 Cpot B | Found: Cpot 5</li>
+<li>Expected: Act 5 Cpot C | Found: Cpot 5</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 5 Cpot A | Found: Cpot 5</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 75 | Found: 87</li>
+<li>Expected: Act 3 (H) Champ B | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Champ B</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 4 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 3 Equip C | Found: Act 5 Coupon A</li>
+<li>Expected: 430 | Found: 4</li>
+<li>Expected:  | Found: Act 3 Equip C</li>
+<li>Expected:  | Found: 2548</li>
+<li>Expected: 33 | Found: 364</li>
+<li>Expected: 463 | Found: </li>
+<li>Expected: 0.9287 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 3 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 4 Equip A | Found: Act 5 Coupon B</li>
+<li>Expected: 500 | Found: 4</li>
+<li>Expected:  | Found: Act 4 Equip A</li>
+<li>Expected:  | Found: 2912</li>
+<li>Expected: 32 | Found: 364</li>
+<li>Expected: 532 | Found: </li>
+<li>Expected: 0.9398 | Found: </li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 69 | Found: 83</li>
+<li>Expected: Act 2 (H) Champ A | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Champ A</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: tsc | Found: Sets06</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: Durielq (H) - Base | Found: Duriel (H) Base</li>
+<li>Expected: 2 | Found: 245</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 (N) Good | Found: Act 3 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 (N) Good | Found: Act 3 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 (N) Good | Found: Act 3 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: gsk</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 (N) Junk | Found: Act 3 (N) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 (N) Equip B | Found: Act 3 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: ops | Found: vps</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: gps | Found: yps</li>
+<li>Expected:  | Found: wms</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 (N) Junk | Found: Act 3 (N) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 (N) Equip B | Found: Act 3 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: opl | Found: vps</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: gpl | Found: yps</li>
+<li>Expected:  | Found: wms</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 4 (N) Equip A | Found: Sets05</li>
+<li>Expected: 52 | Found: 5</li>
+<li>Expected: Act 4 (N) Good | Found: Mephisto (N) Base</li>
+<li>Expected: 3 | Found: 245</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 (N) Junk | Found: Act 3 (N) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 (N) Equip A | Found: Act 3 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: opm | Found: vps</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: gpm | Found: yps</li>
+<li>Expected:  | Found: wms</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 4 (H) Equip A | Found: Sets07</li>
+<li>Expected: 52 | Found: 5</li>
+<li>Expected: Act 4 (H) Good | Found: Mephisto (H) Base</li>
+<li>Expected: 3 | Found: 245</li>
+<li>Expected: ceh | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 20 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 Uitem A | Found: Sets03</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 Cpot A | Found: Act 3 Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 22 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 Uitem B | Found: Sets03</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 Cpot B | Found: Act 3 Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 3 Uitem C | Found: Sets03</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 3 Cpot C | Found: Act 3 Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: -2 | Found: -6</li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Countess Item | Found: Act 1 Ultra</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 72 | Found: 85</li>
+<li>Expected: Act 2 (H) Unique C | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Unique C</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: -2 | Found: -3</li>
+<li>Expected: Act 5 (H) Super Cx | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Endgame Maps Tier 1 Campaign</li>
+<li>Expected:  | Found: Act 5 (H) Super Cx</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 90 | Found: 92</li>
+<li>Expected: Act 5 (H) Super A | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Super A</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 81 | Found: 91</li>
+<li>Expected: Act 5 (H) Champ A | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Champ A</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: gld | Found: A5C (N)</li>
+<li>Expected: 19 | Found: 3840</li>
+<li>Expected: Act 5 (N) Equip A | Found: Act 5 (N) Junk</li>
+<li>Expected: 19 | Found: 768</li>
+<li>Expected: Act 5 (N) Junk | Found: Nothing</li>
+<li>Expected: 19 | Found: 1792</li>
+<li>Expected: Act 5 (N) Good | Found: Uni Ore 10</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected:  | Found: zzz</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 5 Equip A | Found: Sets01</li>
+<li>Expected: 52 | Found: 5</li>
+<li>Expected: Act 5 Good | Found: Diablo Base</li>
+<li>Expected: 3 | Found: 250</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: tsc | Found: Sets02</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Duriel - Base | Found: Duriel Base</li>
+<li>Expected: 2 | Found: 245</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 (H) Junk | Found: Act 3 (H) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 (H) Equip A | Found: Act 3 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 (H) Junk | Found: Act 3 (H) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 (H) Equip B | Found: Act 3 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 3 (H) Junk | Found: Act 3 (H) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 3 (H) Equip B | Found: Act 3 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 78 | Found: 89</li>
+<li>Expected: Act 4 (H) Unique A | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Unique A</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 69 | Found: 83</li>
+<li>Expected: Act 2 (H) Unique A | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Unique A</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: Act 2 (H) Equip A | Found: Sets06</li>
+<li>Expected: 19 | Found: 5</li>
+<li>Expected: Act 2 (H) Good | Found: Andariel (H) Base</li>
+<li>Expected: 3 | Found: 245</li>
+<li>Expected: tes | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 Junk | Found: Act 5 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 Equip B | Found: Act 5 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 83 | Found: 92</li>
+<li>Expected: Act 5 (H) Unique B | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Unique B</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 Junk | Found: Act 5 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 Equip B | Found: Act 5 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 Junk | Found: Act 5 Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 Equip A | Found: Act 5 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: gck</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Act 2 (H) Ultra</li>
+<li>Expected: 11 | Found: 40</li>
+<li>Expected: Act 3 (H) Equip C | Found: Uni Ore 8</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 3 (H) Junk | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 3 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Jewelry B | Found: Jewelry A</li>
+<li>Expected: 20 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Flawed Gem</li>
+<li>Expected: 12 | Found: 14</li>
+<li>Expected: Flawed Gem | Found: Runes 2</li>
+<li>Expected: Runes 1 | Found: Runes 3</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: Runes 2 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 Junk | Found: Act 2 Equip C</li>
+<li>Expected: 12 | Found: 22</li>
+<li>Expected: Act 3 Junk | Found: Act 2 Junk</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: Act 2 Equip C | Found: Act 2 Good</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 Good | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Act 4 Ultra</li>
+<li>Expected: 14 | Found: 160</li>
+<li>Expected: Act 5 Equip A | Found: Uni Ore 6</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 5 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 Junk | Found: Act 2 Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 Equip A | Found: Act 2 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 Junk | Found: Act 2 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 Equip B | Found: Act 2 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 60</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: Act 5 Equip B | Found: Act 1 (N) Coupon B</li>
+<li>Expected: 833 | Found: 4</li>
+<li>Expected:  | Found: Act 5 Equip B</li>
+<li>Expected:  | Found: 4064</li>
+<li>Expected: 35 | Found: 424</li>
+<li>Expected: 868 | Found: </li>
+<li>Expected: 0.9597 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 4 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 5 Equip A | Found: Act 1 (N) Coupon A</li>
+<li>Expected: 731 | Found: 4</li>
+<li>Expected:  | Found: Act 5 Equip A</li>
+<li>Expected:  | Found: 3700</li>
+<li>Expected: 35 | Found: 364</li>
+<li>Expected: 766 | Found: </li>
+<li>Expected: 0.9543 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 3 | Found: 70</li>
+<li>Expected: 7 | Found: 60</li>
+<li>Expected: 5 | Found: 30</li>
+<li>Expected: Act 4 Equip B | Found: Act 5 Coupon C</li>
+<li>Expected: 629 | Found: 4</li>
+<li>Expected:  | Found: Act 4 Equip B</li>
+<li>Expected:  | Found: 3276</li>
+<li>Expected: 41 | Found: 424</li>
+<li>Expected: 670 | Found: </li>
+<li>Expected: 0.9388 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 4 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Jewelry C | Found: Jewelry B</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Flawless Gem</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: Flawed Gem | Found: Blemished Gem</li>
+<li>Expected: 10 | Found: 3</li>
+<li>Expected: Normal Gem | Found: Runes 9</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 9 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: gld | Found: "gld,mul=256"</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 4 Junk | Found: Potion 5</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 5 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: gpv | Found: gvb</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: gpy | Found: gyb</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: gpb | Found: gbb</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: gpg | Found: ggb</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: gpr | Found: grb</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: gpw | Found: gwb</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: skz | Found: skb</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: gpk</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 Cpot B | Found: Cpot 1</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 Cpot C | Found: Cpot 1</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 1 Cpot A | Found: Cpot 1</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Jewelry C | Found: Jewelry A</li>
+<li>Expected: 20 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Flawed Gem</li>
+<li>Expected: 8 | Found: 21</li>
+<li>Expected: Flawed Gem | Found: Runes 3</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: Runes 3 | Found: Runes 4</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: Runes 4 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Sets04</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: Act 5 (N) Equip A | Found: Diablo (N) Base</li>
+<li>Expected: 52 | Found: 250</li>
+<li>Expected: Act 5 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 72 | Found: 85</li>
+<li>Expected: Act 2 (H) Super C | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Super C</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 1 Equip C | Found: Act 2 Coupon C</li>
+<li>Expected: 30 | Found: 4</li>
+<li>Expected:  | Found: Act 1 Equip C</li>
+<li>Expected:  | Found: 364</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 66 | Found: </li>
+<li>Expected: 0.4545 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 2 Equip B | Found: Act 3 Coupon B</li>
+<li>Expected: 80 | Found: 4</li>
+<li>Expected:  | Found: Act 2 Equip B</li>
+<li>Expected:  | Found: 1092</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 116 | Found: </li>
+<li>Expected: 0.6897 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 2 Equip A | Found: Act 3 Coupon A</li>
+<li>Expected: 60 | Found: 4</li>
+<li>Expected:  | Found: Act 2 Equip A</li>
+<li>Expected:  | Found: 728</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 96 | Found: </li>
+<li>Expected: 0.6250 | Found: </li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 69 | Found: 84</li>
+<li>Expected: Act 2 (H) Super Bx | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Super Bx</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 67 | Found: 80</li>
+<li>Expected: Act 1 (H) Super Ax | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Super Ax</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: gzk</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 80 | Found: 90</li>
+<li>Expected: Act 4 (H) Unique B | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Unique B</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: Act 2 (N) Equip A | Found: Sets04</li>
+<li>Expected: 19 | Found: 5</li>
+<li>Expected: Act 2 (N) Good | Found: Andariel (N) Base</li>
+<li>Expected: 3 | Found: 245</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 68 | Found: 82</li>
+<li>Expected: Act 1 (H) Super Cx | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Super Cx</li>
+<li>Expected: Act 3 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: Act 3 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: Act 5 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: Act 3 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected: Act 5 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: Act 1 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: Act 5 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: Act 1 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: -3 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Act 1 Uitem C | Found: Act 1 Ultra</li>
+<li>Expected: 1 | Found: 160</li>
+<li>Expected: Act 1 Melee B | Found: Uni Ore 9</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (N) Cpot C | Found: Cpot 6</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 6</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 Cpot A | Found: Cpot 3</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 Cpot C | Found: Cpot 3</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 78 | Found: 88</li>
+<li>Expected: Act 3 (H) Super Cx | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Super Cx</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 2 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 Cpot B | Found: Cpot 3</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 83 | Found: 92</li>
+<li>Expected: Act 5 (H) Champ B | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Champ B</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Act 2 (N) Ultra</li>
+<li>Expected: 11 | Found: 80</li>
+<li>Expected: Act 3 (N) Equip B | Found: Uni Ore 8</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 3 (N) Junk | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 3 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Blemished Gem</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: Flawed Gem | Found: Perfect Gem</li>
+<li>Expected: 10 | Found: 3</li>
+<li>Expected: Normal Gem | Found: Runes 16</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 17 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 67 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 (H) Uitem B | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (H) Cpot B | Found: Act 1 (H) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 67 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 (H) Uitem A | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (H) Cpot A | Found: Act 1 (H) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 68 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 1 (H) Uitem C | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 1 (H) Cpot C | Found: Act 1 (H) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 93 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 (H) Uitem B | Found: Sets08</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 (H) Cpot B | Found: Act 5 (H) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 90 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 (H) Uitem A | Found: Sets08</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 (H) Cpot A | Found: Act 5 (H) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 96 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 5 (H) Uitem C | Found: Sets08</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 5 (H) Cpot C | Found: Act 5 (H) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 74 | Found: 86</li>
+<li>Expected: Act 3 (H) Unique A | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Unique A</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 68 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 (H) Uitem A | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 (H) Cpot A | Found: Act 2 (H) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 69 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 (H) Uitem B | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 (H) Cpot B | Found: Act 2 (H) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 72 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 (H) Uitem C | Found: Sets06</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 (H) Cpot C | Found: Act 2 (H) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Act 1 (H) Ultra</li>
+<li>Expected: 14 | Found: 40</li>
+<li>Expected: Act 1 (H) Equip B | Found: Uni Ore 11</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 1 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 1 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Runes 12 | Found: Runes 16</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected:  | Found: Runes 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 (N) Junk | Found: Act 1 (N) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 (N) Equip B | Found: Act 1 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 (N) Junk | Found: Act 1 (N) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 (N) Equip A | Found: Act 1 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 1 (N) Junk | Found: Act 1 (N) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 1 (N) Equip B | Found: Act 1 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 100 | Found: 66</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: Act 4 (N) Equip A | Found: A4A (N)</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 (N) Good | Found: Act 1 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 (N) Good | Found: Act 1 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 (N) Good | Found: Act 2 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 1 (N) Good | Found: Act 1 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 (N) Good | Found: Act 2 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 (N) Good | Found: Act 2 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 (N) Junk | Found: Act 4 (N) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 (N) Equip A | Found: Act 4 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 (N) Junk | Found: Act 4 (N) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 (N) Equip B | Found: Act 4 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 (N) Junk | Found: Act 5 (N) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 (N) Equip B | Found: Act 5 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 (N) Junk | Found: Act 4 (N) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 (N) Equip C | Found: Act 4 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 (N) Junk | Found: Act 5 (N) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 (N) Equip B | Found: Act 5 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 (N) Junk | Found: Act 5 (N) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 (N) Equip A | Found: Act 5 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 (N) Good | Found: Act 5 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 (N) Good | Found: Act 5 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 (N) Good | Found: Act 5 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 1 (H) Equip B | Found: Act 2 (H) Coupon C</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 1 (H) Equip B</li>
+<li>Expected:  | Found: 11216</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 2 (H) Equip A | Found: Act 3 (H) Coupon A</li>
+<li>Expected: 1785 | Found: 4</li>
+<li>Expected:  | Found: Act 2 (H) Equip A</li>
+<li>Expected:  | Found: 11580</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1827 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: weap87 | Found: weap90</li>
+<li>Expected: 1 | Found: 60</li>
+<li>Expected: armo87 | Found: armo90</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: Act 5 (H) Equip B | Found: Act 5 (H) Coupon C</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 5 (H) Equip B</li>
+<li>Expected:  | Found: 15216</li>
+<li>Expected: 35 | Found: 334</li>
+<li>Expected: 1565 | Found: </li>
+<li>Expected: 0.9776 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 5 Equip C | Found: Act 1 (N) Coupon C</li>
+<li>Expected: 935 | Found: 4</li>
+<li>Expected:  | Found: Act 5 Equip C</li>
+<li>Expected:  | Found: 4488</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 971 | Found: </li>
+<li>Expected: 0.9629 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 60</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: Act 5 (H) Equip A | Found: Act 5 (H) Coupon C</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 5 (H) Equip A</li>
+<li>Expected:  | Found: 14792</li>
+<li>Expected: 36 | Found: 424</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 60</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: Act 4 (H) Equip B | Found: Act 5 (H) Coupon C</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 4 (H) Equip B</li>
+<li>Expected:  | Found: 14368</li>
+<li>Expected: 36 | Found: 424</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: r03 | Found: r04</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r04 | Found: r05</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 1 | Found: r06</li>
+<li>Expected: 2 | Found: 25</li>
+<li>Expected:  | Found: 04l</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected:  | Found: 05l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 06l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 1</li>
+<li>Expected:  | Found: 180</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected:  | Found: r03</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 01l</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected:  | Found: 02l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 03l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 1 (N) Equip A | Found: Act 2 (N) Coupon B</li>
+<li>Expected: 1020 | Found: 4</li>
+<li>Expected:  | Found: Act 1 (N) Equip A</li>
+<li>Expected:  | Found: 5276</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1056 | Found: </li>
+<li>Expected: 0.9659 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 1 (N) Equip A | Found: Act 2 (N) Coupon A</li>
+<li>Expected: 1105 | Found: 4</li>
+<li>Expected:  | Found: Act 1 (N) Equip A</li>
+<li>Expected:  | Found: 4852</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1147 | Found: </li>
+<li>Expected: 0.9634 | Found: </li>
+<li>Expected: r11 | Found: r16</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r12 | Found: r17</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 5 | Found: r18</li>
+<li>Expected: 22 | Found: 25</li>
+<li>Expected:  | Found: 13l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 14l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 5</li>
+<li>Expected:  | Found: 720</li>
+<li>Expected: r09 | Found: r13</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r10 | Found: r14</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 4 | Found: r15</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected:  | Found: 11l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 12l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 4</li>
+<li>Expected:  | Found: 540</li>
+<li>Expected: r07 | Found: r10</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r08 | Found: r11</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 3 | Found: r12</li>
+<li>Expected: 7 | Found: 25</li>
+<li>Expected:  | Found: 09l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 10l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 3</li>
+<li>Expected:  | Found: 420</li>
+<li>Expected: r05 | Found: r07</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r06 | Found: r08</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 2 | Found: r09</li>
+<li>Expected: 5 | Found: 25</li>
+<li>Expected:  | Found: 07l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 08l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 2</li>
+<li>Expected:  | Found: 300</li>
+<li>Expected: r17 | Found: r25</li>
+<li>Expected: 3 | Found: 28</li>
+<li>Expected: r18 | Found: r26</li>
+<li>Expected: 2 | Found: 26</li>
+<li>Expected: Runes 8 | Found: r27</li>
+<li>Expected: 180 | Found: 24</li>
+<li>Expected:  | Found: 19l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 20l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 8</li>
+<li>Expected:  | Found: 1440</li>
+<li>Expected: r15 | Found: r22</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r16 | Found: r23</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 7 | Found: r24</li>
+<li>Expected: 90 | Found: 25</li>
+<li>Expected:  | Found: 17l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 18l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 7</li>
+<li>Expected:  | Found: 1140</li>
+<li>Expected: r13 | Found: r19</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: r14 | Found: r20</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 6 | Found: r21</li>
+<li>Expected: 45 | Found: 25</li>
+<li>Expected:  | Found: 15l</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: 16l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Runes 6</li>
+<li>Expected:  | Found: 900</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Act 1 (N) Ultra</li>
+<li>Expected: 14 | Found: 80</li>
+<li>Expected: Act 1 (N) Equip B | Found: Uni Ore 11</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 1 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 1 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 100 | Found: 66</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: Act 4 (H) Equip A | Found: A4A (H)</li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Diablo | Found: ROP Charm</li>
+<li>Expected:  | Found: ROP - Base</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 Good | Found: Act 5 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 Good | Found: Act 5 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 5 Good | Found: Act 5 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: -2 | Found: -3</li>
+<li>Expected: Act 5 (H) Super C | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Endgame Maps Tier 1 Campaign</li>
+<li>Expected:  | Found: Act 5 (H) Super C</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: Act 2 Equip A | Found: Sets02</li>
+<li>Expected: 19 | Found: 5</li>
+<li>Expected: Act 2 Good | Found: Andariel Base</li>
+<li>Expected: 3 | Found: 245</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 3 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 68 | Found: 83</li>
+<li>Expected: Act 2 (H) Super Ax | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Super Ax</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Act 2 (N) Ultra</li>
+<li>Expected: 9 | Found: 80</li>
+<li>Expected: Act 2 (N) Equip C | Found: Uni Ore 7</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected: Act 3 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 2 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Act 3 (N) Magic A | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Runes 4 | Found: Runes 6</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected:  | Found: Runes 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 73 | Found: 86</li>
+<li>Expected: Act 3 (H) Super A | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Super A</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 84 | Found: 90</li>
+<li>Expected: Act 4 (H) Super B | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Super B</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 2 Cpot B | Found: Cpot 2</li>
+<li>Expected: Act 2 Cpot A | Found: Cpot 2</li>
+<li>Expected: Act 2 Cpot C | Found: Cpot 2</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 67 | Found: 81</li>
+<li>Expected: Act 1 (H) Super Bx | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Super Bx</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 850 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Act 1 Uitem C | Found: Act 5 Ultra</li>
+<li>Expected: Act 1 Melee B | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: Act 4 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: Act 4 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 4 (N) Equip B | Found: Act 5 (N) Coupon C</li>
+<li>Expected: 1445 | Found: 4</li>
+<li>Expected:  | Found: Act 4 (N) Equip B</li>
+<li>Expected:  | Found: 8852</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1481 | Found: </li>
+<li>Expected: 0.9757 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 5 (N) Equip A | Found: Act 1 (H) Coupon A</li>
+<li>Expected: 1743 | Found: 4</li>
+<li>Expected:  | Found: Act 5 (N) Equip A</li>
+<li>Expected:  | Found: 9216</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1785 | Found: </li>
+<li>Expected: 0.9765 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 5 (N) Equip B | Found: Act 1 (H) Coupon B</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 5 (N) Equip B</li>
+<li>Expected:  | Found: 9640</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Act 2 Ultra</li>
+<li>Expected: 9 | Found: 160</li>
+<li>Expected: Act 2 Equip C | Found: Uni Ore 7</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected: Act 3 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 2 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Act 3 Magic A | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 2 Equip C | Found: Act 3 Coupon C</li>
+<li>Expected: 100 | Found: 4</li>
+<li>Expected:  | Found: Act 2 Equip C</li>
+<li>Expected:  | Found: 1456</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 136 | Found: </li>
+<li>Expected: 0.7353 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 3 Equip A | Found: Act 4 Coupon A</li>
+<li>Expected: 200 | Found: 4</li>
+<li>Expected:  | Found: Act 3 Equip A</li>
+<li>Expected:  | Found: 1820</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 236 | Found: </li>
+<li>Expected: 0.8475 | Found: </li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 78 | Found: 88</li>
+<li>Expected: Act 3 (H) Super C | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Super C</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 3 Equip B | Found: Act 4 Coupon B</li>
+<li>Expected: 340 | Found: 4</li>
+<li>Expected:  | Found: Act 3 Equip B</li>
+<li>Expected:  | Found: 2184</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 376 | Found: </li>
+<li>Expected: 0.9043 | Found: </li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 (H) Junk | Found: Act 5 (H) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 (H) Equip A | Found: Act 5 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 (H) Junk | Found: Act 5 (H) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 (H) Equip B | Found: Act 5 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 5 (H) Junk | Found: Act 5 (H) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 5 (H) Equip B | Found: Act 5 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 63 | Found: 80</li>
+<li>Expected: Act 1 (H) Champ A | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Champ A</li>
+<li>Expected: Act 1 Cpot A | Found: Cpot 1</li>
+<li>Expected: Act 1 Cpot C | Found: Cpot 1</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 85 | Found: 96</li>
+<li>Expected: -2 | Found: -3</li>
+<li>Expected: Act 5 (H) Unique C | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Endgame Maps Tier 1 Campaign</li>
+<li>Expected:  | Found: Act 5 (H) Unique C</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Act 1 Cpot B | Found: Cpot 1</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 93 | Found: 94</li>
+<li>Expected: Act 5 (H) Super B | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Super B</li>
+<li>Expected: Jewelry C | Found: Jewelry A</li>
+<li>Expected: 50 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Normal Gem</li>
+<li>Expected: 14 | Found: 18</li>
+<li>Expected: Flawed Gem | Found: Runes 4</li>
+<li>Expected: 28 | Found: 4</li>
+<li>Expected: Normal Gem | Found: Runes 5</li>
+<li>Expected: 42 | Found: 5</li>
+<li>Expected: Runes 5 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: Runes 6 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Sets07</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: Act 4 (H) Equip A | Found: Mephisto (H) Base</li>
+<li>Expected: 52 | Found: 245</li>
+<li>Expected: Act 4 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: ceh | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Act 4 (H) Ultra</li>
+<li>Expected: 14 | Found: 1</li>
+<li>Expected: Act 4 (H) Equip B | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: Act 4 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 71 | Found: 84</li>
+<li>Expected: Act 2 (H) Unique B | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Unique B</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 650 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: 0</li>
+<li>Expected: "gld,mul=1536" | Found: Council Base (N)</li>
+<li>Expected: 9 | Found: 110</li>
+<li>Expected: Act 4 (N) Equip A | Found: Uni Ore 3</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected: Act 4 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Act 4 (N) Magic A | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Act 1 Ultra</li>
+<li>Expected: 14 | Found: 160</li>
+<li>Expected: Act 1 Equip B | Found: Uni Ore 11</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 1 Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 1 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Act 4 Cpot A | Found: Cpot 4</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 81 | Found: 89</li>
+<li>Expected: Act 4 (H) Super Ax | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Super Ax</li>
+<li>Expected: Act 4 Cpot B | Found: Cpot 4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=1536" | Found: Sets05</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: Act 4 (N) Equip A | Found: Mephisto (N) Base</li>
+<li>Expected: 52 | Found: 245</li>
+<li>Expected: Act 4 (N) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 (N) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 78 | Found: 89</li>
+<li>Expected: Act 4 (H) Champ A | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Champ A</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 972 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Act 2 (H) Ultra</li>
+<li>Expected: 9 | Found: 40</li>
+<li>Expected: Act 2 (H) Equip C | Found: Uni Ore 7</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected: Act 3 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 2 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Act 3 (H) Magic A | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: pk2 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 6</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 93 | Found: 94</li>
+<li>Expected: Act 5 (H) Super Bx | Found: Worldstone Shards</li>
+<li>Expected: Act 1 Terrorize Act Consumable Desecrated  | Found: Act 5 (H) Super Bx</li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 71 | Found: 84</li>
+<li>Expected: Act 2 (H) Champ B | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Champ B</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 81 | Found: 89</li>
+<li>Expected: Act 4 (H) Super A | Found: Worldstone Shards</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: Act 4 (H) Super A</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 6</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 7 | Found: -2</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: 0</li>
+<li>Expected: Act 1 (H) Equip A | Found: ag1</li>
+<li>Expected: 52 | Found: 1</li>
+<li>Expected: Act 1 (H) Good | Found: Baal (N)</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 26 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 Uitem A | Found: Sets03</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 Cpot A | Found: Act 4 Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 29 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 Uitem B | Found: Sets03</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 Cpot B | Found: Act 4 Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 (H) Junk | Found: Act 2 (H) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 (H) Equip B | Found: Act 2 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 (H) Junk | Found: Act 2 (H) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 (H) Equip B | Found: Act 2 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 Cpot A | Found: Cpot 5</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 Cpot B | Found: Cpot 5</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 4 Good | Found: Act 4 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 (H) Junk | Found: Act 4 (H) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 (H) Equip B | Found: Act 4 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: 95 | Found: </li>
+<li>Expected: -1 | Found: -3</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: Nihlathak Item (H) Desecrated | Found: Worldstone Shards</li>
+<li>Expected:  | Found: Endgame Maps Tier 1 Campaign</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Nihlathak (H)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: -4 | Found: -5</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Act 5 Cpot C | Found: Cpot 5</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 (H) Junk | Found: Act 4 (H) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 (H) Equip B | Found: Act 4 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 (H) Junk | Found: Act 4 (H) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 (H) Equip A | Found: Act 4 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 4 Good | Found: Act 4 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 (H) Junk | Found: Act 2 (H) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 (H) Equip A | Found: Act 2 (H) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -2 | Found: -6</li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Countess Item (H) | Found: Act 1 (H) Ultra</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 73 | Found: 86</li>
+<li>Expected: Act 3 (H) Super Ax | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Super Ax</li>
+<li>Expected: 5 | Found: -2</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: 0</li>
+<li>Expected: "gld,mul=2048" | Found: Guardian Map Drop</li>
+<li>Expected: 14 | Found: 1</li>
+<li>Expected: Act 5 (H) Equip B | Found: Nihlathak (H) Base</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 5 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: pk3 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 36 | Found: 26</li>
+<li>Expected: 77 | Found: 88</li>
+<li>Expected: Act 3 (H) Champ C | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Champ C</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 67 | Found: 80</li>
+<li>Expected: Act 1 (H) Super A | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Super A</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 650 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 800 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: 0</li>
+<li>Expected: "gld,mul=2048" | Found: Council Base (H)</li>
+<li>Expected: 9 | Found: 55</li>
+<li>Expected: Act 4 (H) Equip A | Found: Uni Ore 3</li>
+<li>Expected: 15 | Found: 1</li>
+<li>Expected: Act 4 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 4 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: Act 4 (H) Magic A | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 84 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 (H) Uitem B | Found: Sets07</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 (H) Cpot B | Found: Act 4 (H) Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 87 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 (H) Uitem B | Found: Sets07</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 (H) Cpot B | Found: Act 4 (H) Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 81 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 4 (H) Uitem A | Found: Sets07</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 4 (H) Cpot A | Found: Act 4 (H) Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: Act 2 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Blemished Gem</li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: Flawed Gem | Found: Perfect Gem</li>
+<li>Expected: 10 | Found: 2</li>
+<li>Expected: Normal Gem | Found: Runes 15</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 15 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 Uitem A | Found: Sets02</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 Cpot A | Found: Act 1 Super A Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 Uitem B | Found: Sets02</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 Cpot B | Found: Act 1 Super B Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: -5 | Found: 1</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: 972 | Found: 864</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: Act 2 Uitem C | Found: Sets02</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Act 2 Cpot C | Found: Act 1 Super C Base</li>
+<li>Expected: 2 | Found: 75</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: 820</li>
+<li>Expected: 900 | Found: 820</li>
+<li>Expected: 900 | Found: 922</li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=768"</li>
+<li>Expected: 14 | Found: 15</li>
+<li>Expected: Act 5 Equip B | Found: Act 5 Equip C</li>
+<li>Expected: 19 | Found: 180</li>
+<li>Expected: 5 | Found: 12</li>
+<li>Expected: Act 5 Good | Found: Act 5 UGood</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected:  | Found: Uni Ore 0</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 63 | Found: 80</li>
+<li>Expected: Act 1 (H) Unique A | Found: Worldstone Shards</li>
+<li>Expected: Act 3 Terrorize Act Consumable Desecrated  | Found: Act 1 (H) Unique A</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 2 (H) Cpot B | Found: Cpot 7</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 2 (H) Cpot C | Found: Cpot 7</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: -3 | Found: -2</li>
+<li>Expected: Act 2 (H) Cpot A | Found: Cpot 7</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 (N) Junk | Found: Act 2 (N) Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 (N) Equip B | Found: Act 2 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 (N) Junk | Found: Act 2 (N) Equip C</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 (N) Equip B | Found: Act 2 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 4 (N) Good | Found: Act 4 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 2 Junk | Found: Potion 3</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 3 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 4 (N) Good | Found: Act 4 (N) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 2 (N) Junk | Found: Act 2 (N) Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 2 (N) Equip A | Found: Act 2 (N) Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 2 (H) Equip B | Found: Act 3 (H) Coupon C</li>
+<li>Expected: 1785 | Found: 4</li>
+<li>Expected:  | Found: Act 2 (H) Equip B</li>
+<li>Expected:  | Found: 12368</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1827 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: weap66 | Found: weap69</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: armo66 | Found: armo69</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: weap69 | Found: weap72</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: armo69 | Found: armo72</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: weap72 | Found: weap75</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: armo72 | Found: armo75</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: weap75 | Found: weap78</li>
+<li>Expected: 6 | Found: 20</li>
+<li>Expected: armo75 | Found: armo78</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: Act 3 (H) Equip A | Found: Act 4 (H) Coupon B</li>
+<li>Expected: 1785 | Found: 4</li>
+<li>Expected:  | Found: Act 3 (H) Equip A</li>
+<li>Expected:  | Found: 13156</li>
+<li>Expected: 42 | Found: 364</li>
+<li>Expected: 1827 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 2 (N) Equip B | Found: Act 3 (N) Coupon C</li>
+<li>Expected: 1190 | Found: 4</li>
+<li>Expected:  | Found: Act 2 (N) Equip B</li>
+<li>Expected:  | Found: 6852</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1226 | Found: </li>
+<li>Expected: 0.9706 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 3 (H) Equip A | Found: Act 4 (H) Coupon A</li>
+<li>Expected: 1530 | Found: 4</li>
+<li>Expected:  | Found: Act 3 (H) Equip A</li>
+<li>Expected:  | Found: 12792</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1566 | Found: </li>
+<li>Expected: 0.9770 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: Act 3 (N) Equip A | Found: Act 4 (N) Coupon B</li>
+<li>Expected: 1275 | Found: 4</li>
+<li>Expected:  | Found: Act 3 (N) Equip A</li>
+<li>Expected:  | Found: 7640</li>
+<li>Expected: 36 | Found: 364</li>
+<li>Expected: 1311 | Found: </li>
+<li>Expected: 0.9725 | Found: </li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: 1 | Found: 10</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: 14 | Found: 140</li>
+<li>Expected: 7 | Found: 70</li>
+<li>Expected: 6 | Found: 60</li>
+<li>Expected: 3 | Found: 30</li>
+<li>Expected: Act 3 (N) Equip A | Found: Act 4 (N) Coupon A</li>
+<li>Expected: 1445 | Found: 4</li>
+<li>Expected:  | Found: Act 3 (N) Equip A</li>
+<li>Expected:  | Found: 7216</li>
+<li>Expected: 42 | Found: 424</li>
+<li>Expected: 1487 | Found: </li>
+<li>Expected: 0.9718 | Found: </li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 75 | Found: 87</li>
+<li>Expected: Act 3 (H) Unique B | Found: Worldstone Shards</li>
+<li>Expected: Act 5 Terrorize Act Consumable Desecrated  | Found: Act 3 (H) Unique B</li>
+<li>Expected: 38 | Found: 26</li>
+<li>Expected: 69 | Found: 84</li>
+<li>Expected: Act 2 (H) Super B | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Super B</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: "gld,mul=2048" | Found: Sets08</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: Act 5 (H) Equip A | Found: Diablo (H) Base</li>
+<li>Expected: 52 | Found: 250</li>
+<li>Expected: Act 5 (H) Junk | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Act 5 (H) Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: bet | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 Good | Found: Act 2 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: r19 | Found: r28</li>
+<li>Expected: 3 | Found: 26</li>
+<li>Expected: r20 | Found: r29</li>
+<li>Expected: 2 | Found: 24</li>
+<li>Expected: Runes 9 | Found: r30</li>
+<li>Expected: 360 | Found: 22</li>
+<li>Expected:  | Found: 21l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 22l</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: Runes 9</li>
+<li>Expected:  | Found: 1740</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 3 Good | Found: Act 3 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: r21 | Found: r31</li>
+<li>Expected: 3 | Found: 24</li>
+<li>Expected: r22 | Found: r32</li>
+<li>Expected: 2 | Found: 22</li>
+<li>Expected: Runes 10 | Found: r33</li>
+<li>Expected: 720 | Found: 20</li>
+<li>Expected:  | Found: 23l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 24l</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: Runes 10</li>
+<li>Expected:  | Found: 2100</li>
+<li>Expected: 7 | Found: -2</li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 993 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 15 | Found: 0</li>
+<li>Expected: Act 5 (H) Equip B | Found: ag2</li>
+<li>Expected: 52 | Found: 1</li>
+<li>Expected: Act 5 (H) Good | Found: Baal (H)</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: fed | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 2 Good | Found: Act 2 UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: r27 | Found: r40</li>
+<li>Expected: 3 | Found: 18</li>
+<li>Expected: r28 | Found: r41</li>
+<li>Expected: 2 | Found: 16</li>
+<li>Expected: Runes 13 | Found: r42</li>
+<li>Expected: 2170 | Found: 14</li>
+<li>Expected:  | Found: 29l</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 30l</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: Runes 13</li>
+<li>Expected:  | Found: 3360</li>
+<li>Expected: r29 | Found: r43</li>
+<li>Expected: 3 | Found: 16</li>
+<li>Expected: r30 | Found: r44</li>
+<li>Expected: 2 | Found: 14</li>
+<li>Expected: Runes 14 | Found: r45</li>
+<li>Expected: 2941 | Found: 12</li>
+<li>Expected:  | Found: 31l</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 32l</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: Runes 14</li>
+<li>Expected:  | Found: 3840</li>
+<li>Expected: r23 | Found: r34</li>
+<li>Expected: 3 | Found: 22</li>
+<li>Expected: r24 | Found: r35</li>
+<li>Expected: 2 | Found: 20</li>
+<li>Expected: Runes 11 | Found: r36</li>
+<li>Expected: 1066 | Found: 18</li>
+<li>Expected:  | Found: 25l</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 26l</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: Runes 11</li>
+<li>Expected:  | Found: 2400</li>
+<li>Expected: r25 | Found: r37</li>
+<li>Expected: 3 | Found: 20</li>
+<li>Expected: r26 | Found: r38</li>
+<li>Expected: 2 | Found: 18</li>
+<li>Expected: Runes 12 | Found: r39</li>
+<li>Expected: 1519 | Found: 16</li>
+<li>Expected:  | Found: 27l</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 28l</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: Runes 12</li>
+<li>Expected:  | Found: 2880</li>
+<li>Expected: r31 | Found: r50</li>
+<li>Expected: 3 | Found: 24</li>
+<li>Expected: r32 | Found: r46</li>
+<li>Expected: 2 | Found: 30</li>
+<li>Expected: Runes 15 | Found: 33l</li>
+<li>Expected: 3957 | Found: 18</li>
+<li>Expected:  | Found: um8</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: um9</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: u20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Runes 15</li>
+<li>Expected:  | Found: 12960</li>
+<li>Expected: Jewelry C | Found: Jewelry B</li>
+<li>Expected: 60 | Found: 68</li>
+<li>Expected: Chipped Gem | Found: Flawless Gem</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: Flawed Gem | Found: Blemished Gem</li>
+<li>Expected: 10 | Found: 3</li>
+<li>Expected: Normal Gem | Found: Runes 10</li>
+<li>Expected: 14 | Found: 9</li>
+<li>Expected: Flawless Gem | Found: </li>
+<li>Expected: 28 | Found: </li>
+<li>Expected: Runes 10 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 7</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 5 | Found: 60</li>
+<li>Expected: 5 | Found: 48</li>
+<li>Expected:  | Found: Runes 1</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: Runes 2</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 800 | Found: 384</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 768</li>
+<li>Expected: "gld,mul=1280" | Found: "gld,mul=384"</li>
+<li>Expected: 37 | Found: 36</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: -2 | Found: -6</li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 883 | Found: </li>
+<li>Expected: 983 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Countess Item (N) | Found: Act 1 (N) Ultra</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: 39 | Found: 26</li>
+<li>Expected: 72 | Found: 85</li>
+<li>Expected: Act 2 (H) Super Cx | Found: Worldstone Shards</li>
+<li>Expected: Act 4 Terrorize Act Consumable Desecrated  | Found: Act 2 (H) Super Cx</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 900 | Found: </li>
+<li>Expected: 1024 | Found: </li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: "gld,mul=1280" | Found: Act 2 Ultra</li>
+<li>Expected: 11 | Found: 160</li>
+<li>Expected: Act 3 Equip B | Found: Uni Ore 8</li>
+<li>Expected: 19 | Found: 1</li>
+<li>Expected: Act 3 Junk | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Act 3 Good | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: Act 5 Junk | Found: Potion 7</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Potion 6 | Found: Ammo</li>
+<li>Expected: 8 | Found: 3</li>
+<li>Expected: Misc 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: Ammo | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 4 (H) Good | Found: Act 4 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 800 | Found: 512</li>
+<li>Expected: 800 | Found: 614</li>
+<li>Expected: 800 | Found: 820</li>
+<li>Expected: 58 | Found: 93</li>
+<li>Expected: Act 4 (H) Good | Found: Act 4 (H) UGood</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: Act 2 (N) Cpot A | Found: Cpot 6</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 Junk | Found: Act 4 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 Equip B | Found: Act 4 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 Junk | Found: Act 4 Equip A</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 Equip A | Found: Act 4 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: -5 | Found: -4</li>
+<li>Expected: -3 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Act 1 (H) Uitem C | Found: Act 1 (H) Ultra</li>
+<li>Expected: 1 | Found: 40</li>
+<li>Expected: Act 1 (H) Melee B | Found: Uni Ore 9</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: gld | Found: Gold</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: Act 4 Junk | Found: Act 4 Equip B</li>
+<li>Expected: 15 | Found: 22</li>
+<li>Expected: Act 4 Equip B | Found: Act 4 Junk</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: Act 2 (N) Cpot B | Found: Cpot 6</li>
+<li>Expected: Act 2 (N) Cpot C | Found: Cpot 6</li>
+</ul>
+</div>
+</body>
+</html>

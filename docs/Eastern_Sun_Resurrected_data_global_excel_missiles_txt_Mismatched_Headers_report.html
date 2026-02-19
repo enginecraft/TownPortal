@@ -1,0 +1,3010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/missiles.txt (2945)</summary>
+<ul>
+<li>Expected: 59 | Found: 15</li>
+<li>Expected: Missile Frames (Min=1) | Found: frames</li>
+<li>Expected: Missile Fall Rate (Used with Frames to determine Height) (Min=1) | Found: fallrate</li>
+<li>Expected: Missile Slide Rate (Used with Frames to determine Offset) (Min=1) | Found: sliderate</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: flames increment</li>
+<li>Expected: # of CltHitSubMissile1 created | Found: # submissile1</li>
+<li>Expected: # of CltHitSubMissile3 created | Found: # submissile3</li>
+<li>Expected: # of CltHitSubMissile4 created | Found: # submissile4</li>
+<li>Expected: 60 | Found: 16</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Meteor | Found: </li>
+<li>Expected: 346 | Found: 2052</li>
+<li>Expected: 1 | Found: 19</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 2 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 100</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected:  | Found: leapknockbackfury</li>
+<li>Expected:  | Found: leapknockbackfury</li>
+<li>Expected: 25 | Found: 1024</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 18 | Found: 24</li>
+<li>Expected: 24 | Found: 36</li>
+<li>Expected: 24 | Found: 36</li>
+<li>Expected: 24 | Found: 36</li>
+<li>Expected: 24 | Found: 36</li>
+<li>Expected: 18 | Found: 30</li>
+<li>Expected: 20 | Found: 26</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius</li>
+<li>Expected: 3 | Found: 0</li>
+<li>Expected: # of Subloops for SubMissile1 (if SubMissile1 is not null) | Found: # subloops</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: </li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: # subloops</li>
+<li>Expected: 15 | Found: 12</li>
+<li>Expected: 128 | Found: </li>
+<li>Expected:  | Found: 6</li>
+<li>Expected: 1 | Found: 7</li>
+<li>Expected:  | Found: 13</li>
+<li>Expected: 1 | Found: 7</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: Retarget Frame/Freeze Dur</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: retarget radius</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: Retarget Frame</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: retarget radius</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 50 | Found: 100</li>
+<li>Expected: IceBlast | Found: SnowSpirit</li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 55</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Ice Blast | Found: </li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: sorceress_icebolt_1 | Found: necromancer_bonespirit_1</li>
+<li>Expected: 85 | Found: 1906</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: 9 | Found: 5</li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: Missile Range (Duration) | Found: </li>
+<li>Expected: 0 | Found: 64</li>
+<li>Expected: "Disc Radius for HitSubMissile1 (If 0, then use Skill Calc1)" | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc2)" | Found: </li>
+<li>Expected: 0 | Found: 64</li>
+<li>Expected: "Missile Disc Radus (If 0, then use Skill Calc1)" | Found: </li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: Missile Disc Density (Larger value means less Missiles created) | Found: </li>
+<li>Expected: 24 | Found: 60</li>
+<li>Expected: 24 | Found: 60</li>
+<li>Expected: 40 | Found: 15</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: immolationfire | Found: immolationspawner</li>
+<li>Expected: firewall | Found: immolationspawner</li>
+<li>Expected: firesmall | Found: </li>
+<li>Expected: firemedium | Found: </li>
+<li>Expected: 90 | Found: 2906</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: damage radius</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: explosions radius</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: explosions density</li>
+<li>Expected: 24 | Found: 18</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: -1000 | Found: </li>
+<li>Expected: 13 | Found: 20</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected: 255 | Found: 178</li>
+<li>Expected: 255 | Found: 64</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: ElectricNova | Found: Fireball</li>
+<li>Expected: 13 | Found: 5</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Nova | Found: Immolation</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: fire</li>
+<li>Expected: 64 | Found: 32</li>
+<li>Expected: sorceress_nova | Found: sorceress_fireball_1</li>
+<li>Expected:  | Found: sorceress_fireball_impact_1</li>
+<li>Expected: lightning | Found: </li>
+<li>Expected: 225 | Found: 9216</li>
+<li>Expected: 37 | Found: 90</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected: skill('Firestorm'.blvl)*8 | Found: (skill('Firestorm'.blvl)+skill('Volcano'.blvl)+skill('Fire Claws'.blvl)+skill('Cycle of Life'.blvl))*skill('Molten Boulder'.par8)</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range (0=skill)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: max (0 = skill)</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range (0=skill)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: max (0 = skill)</li>
+<li>Expected:  | Found: (skill('Strafe Magic Conversion'.lvl)&gt;0)*100</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Strafe</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 128 | Found: </li>
+<li>Expected:  | Found: mag</li>
+<li>Expected:  | Found: strafearrowbolt</li>
+<li>Expected:  | Found: strafearrowbolt</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: Chain Lightning | Found: Conduit</li>
+<li>Expected: 1000 +  (lvl *  1) | Found: 1000+lvl</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: Random range</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: 10 +  (lvl *  2) | Found: 10</li>
+<li>Expected: 128 +  (lvl *  1) | Found: 128+lvl</li>
+<li>Expected: Spawn Radius for CltHitSubMissile1 (Min=3) | Found: radius</li>
+<li>Expected: 10 +  (lvl *  3) | Found: 10+lvl*3</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: 100 +  (lvl *  25) | Found: 100</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: Expansion\vines | Found: null</li>
+<li>Expected: 128 | Found: 1024</li>
+<li>Expected: 12 | Found: 1</li>
+<li>Expected: vines wither | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: Poison Length</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Missile Density (Higher value means less Missiles created) (Min=1) | Found: </li>
+<li>Expected: 9 | Found: 45</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 12 | Found: 60</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 70 | Found: 11</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: "Periodic Spawn Delay for SubMissile1 (If 0, then use Skill Calc4)" | Found: damage freq (0 = look at skill)</li>
+<li>Expected: "Radius to spawn SubMissile1 (If 0, then use Skill aurarangecalc)" | Found: radius (0 = look at skill)</li>
+<li>Expected: Start Frame for SubMissile1 | Found: start frame</li>
+<li>Expected: End Frame for SubMissile1 | Found: end frame</li>
+<li>Expected: Lob Start for SubMissile1 | Found: lob</li>
+<li>Expected: "Periodic Spawn Delay for CltSubMissile1 (If 0, then use Skill Calc4)" | Found: damage freq (0 = look at skill)</li>
+<li>Expected: "Radius to spawn CltSubMissile1 (If 0, then use Skill aurarangecalc)" | Found: radius (0 = look at skill)</li>
+<li>Expected: Start Frame for CltSubMissile1 | Found: start frame</li>
+<li>Expected: End Frame for CltSubMissile1 | Found: end frame</li>
+<li>Expected: Lob Start for CltSubMissile1 | Found: lob</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: Volcano | Found: VolcanoMon</li>
+<li>Expected: Disc Radius of CltHitSubMissile1 | Found: radius</li>
+<li>Expected: Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: density</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: none</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: Periodic  Spawn Delay for SubMissile1 (Min=0) | Found: freq</li>
+<li>Expected: Radius to spawn SubMissile1 | Found: radius</li>
+<li>Expected: 10 +  (lvl *  5) | Found: 10+lvl*5</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: "Mana Drain % (Min=1, Max=100)" | Found: mana drain %</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: % chance for softhit (#/128) | Found: softhit chance (128)</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: damage radius</li>
+<li>Expected: "Duration (If 0, then use Skill Calc1)" | Found: duration (0=skill)</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Duration (If 0, then use Skill calc1)" | Found: </li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: Minimum range</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 15 | Found: 18</li>
+<li>Expected: groundFiresmall | Found: groundFireSmall</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: Minimum range</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 214 | Found: 2096</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: skill('Magic Arrow'.blvl)*5</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 50 | Found: 30</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: Multiple Shot</li>
+<li>Expected: 96 | Found: </li>
+<li>Expected:  | Found: mag</li>
+<li>Expected:  | Found: multipleshotboltspawner</li>
+<li>Expected:  | Found: multipleshotboltspawner</li>
+<li>Expected: Periodic Delay until Retarget | Found: retarget frame</li>
+<li>Expected: Radius to search for Retarget | Found: retarget radius</li>
+<li>Expected: "Periodic Delay until Retarget (If 0, then default to 5)" | Found: Retarget Frame</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: Charged Bolt | Found: Power Overwhelming</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 7 | Found: 14</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 685 | Found: 2063</li>
+<li>Expected: 10 | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: skill('Berserk'.blvl)*5</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 12 | Found: 40</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: -1 | Found: </li>
+<li>Expected:  | Found: mag</li>
+<li>Expected: doubledamage1 | Found: </li>
+<li>Expected:  | Found: leapattacklivecheck</li>
+<li>Expected:  | Found: leapattacklivecheck</li>
+<li>Expected: 90 +  (lvl *  25) | Found: 90+lvl*25</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 10 | Found: 80</li>
+<li>Expected: 10 | Found: 120</li>
+<li>Expected: 10 | Found: 160</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 5 | Found: 20</li>
+<li>Expected: 5 | Found: 40</li>
+<li>Expected: 5 | Found: 80</li>
+<li>Expected: 5 | Found: 120</li>
+<li>Expected: 5 | Found: 160</li>
+<li>Expected: 14 | Found: 28</li>
+<li>Expected: 5 | Found: 20</li>
+<li>Expected: 5 | Found: 40</li>
+<li>Expected: 5 | Found: 80</li>
+<li>Expected: 5 | Found: 120</li>
+<li>Expected: 5 | Found: 160</li>
+<li>Expected: % Damage Dealt as Elemental | Found: convert to elemental%</li>
+<li>Expected: % Damage Dealt as Elemental baseline | Found: base conversion</li>
+<li>Expected: % Damage Dealt as Elemental per level | Found: conversion/lvl</li>
+<li>Expected: expansion\hurricane_vase | Found: h2</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 32 | Found: 16</li>
+<li>Expected: 32 | Found: 16</li>
+<li>Expected: 38 | Found: 16</li>
+<li>Expected: 44 | Found: 16</li>
+<li>Expected: 50 | Found: 16</li>
+<li>Expected: 56 | Found: 16</li>
+<li>Expected: 64 | Found: 32</li>
+<li>Expected: 32 | Found: 16</li>
+<li>Expected: 38 | Found: 16</li>
+<li>Expected: 44 | Found: 16</li>
+<li>Expected: 50 | Found: 16</li>
+<li>Expected: 56 | Found: 16</li>
+<li>Expected: 500 | Found: 400</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 37 | Found: 100</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Royal Strike Meteor Dot</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 22 | Found: 20</li>
+<li>Expected: 30 | Found: 20</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 17 | Found: 16</li>
+<li>Expected: 24 | Found: 20</li>
+<li>Expected: 32 | Found: 20</li>
+<li>Expected: (skill('Fists of Fire'.blvl)) * 6 | Found: (100+(skill('Fists of Fire'.blvl)+skill('Claws of Thunder'.blvl)+skill('Blades of Ice'.blvl)+skill('Blade Nova'.blvl))*5)*(100+skill('Royal Strike Meteor Dot'.pst1))/100-100</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: % chance for softhit (#/128) | Found: hit sound chance (128)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 85</li>
+<li>Expected: 24 | Found: 25</li>
+<li>Expected: 24 | Found: 25</li>
+<li>Expected: -1000 | Found: </li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Claws of Thunder</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 128</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 30 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: 35 | Found: </li>
+<li>Expected: 45 | Found: </li>
+<li>Expected: 65 | Found: </li>
+<li>Expected: (skill('Royal Strike'.blvl)) * 8 | Found: </li>
+<li>Expected: Periodic Spawn Delay for SubMissile1 (Min=1) | Found: Drop Trail delay</li>
+<li>Expected: Periodic Spawn Delay for CltSubMissile1 (Min=1) | Found: Drop Trail delay</li>
+<li>Expected: 213 | Found: 2095</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: skill('Magic Arrow'.blvl)*5</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 50 | Found: 30</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: Multiple Shot</li>
+<li>Expected: 96 | Found: </li>
+<li>Expected:  | Found: mag</li>
+<li>Expected:  | Found: multipleshotarrowspawner</li>
+<li>Expected:  | Found: multipleshotarrowspawner</li>
+<li>Expected: 100 +  (lvl *  25) | Found: 100+lvl*25</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 75 | Found: 100</li>
+<li>Expected: 24 | Found: 25</li>
+<li>Expected: 24 | Found: 60</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected: -1000 | Found: </li>
+<li>Expected: 14 | Found: 12</li>
+<li>Expected: FrostNova | Found: Icebolt</li>
+<li>Expected: 14 | Found: 6</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: sorceress_frostnova | Found: sorceress_icebolt_1</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Lightning | Found: Zap</li>
+<li>Expected: 10 | Found: 17</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 20 | Found: 27</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: 4 | Found: 16</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: 24 | Found: 15</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 6 | Found: 10</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: 60 | Found: 75</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: poisoncloudnec</li>
+<li>Expected:  | Found: poisoncloudnec</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: none</li>
+<li>Expected: Z Offset | Found: z offset</li>
+<li>Expected: Z Velocity Max | Found: z vel max</li>
+<li>Expected: Z Acceleration | Found: z accel</li>
+<li>Expected: 219 | Found: 2085</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: 1 | Found: 28</li>
+<li>Expected: 21 | Found: </li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: damage freq (0 = look at skill)</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: radius (0 = look at skill)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: start frame</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: end frame</li>
+<li>Expected:  | Found: 45</li>
+<li>Expected:  | Found: lob</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: damage freq (0 = look at skill)</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: radius (0 = look at skill)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: start frame</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: end frame</li>
+<li>Expected:  | Found: 45</li>
+<li>Expected:  | Found: lob</li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: -1000 | Found: </li>
+<li>Expected: 12 | Found: 26</li>
+<li>Expected: 192 | Found: 0</li>
+<li>Expected: 192 | Found: 0</li>
+<li>Expected: 192 | Found: 0</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: BAYellShockWave01 | Found: null</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 17</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 32 | Found: 1</li>
+<li>Expected: barbarian_circle_1 | Found: </li>
+<li>Expected:  | Found: battlecryspawner</li>
+<li>Expected:  | Found: battlecryspawner</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: damage radius</li>
+<li>Expected: Explosion Radius for CltHitSubMissile1 | Found: explosions radius</li>
+<li>Expected: Density for CltHitSubMissile1 (Higher value means less Missiles created) | Found: explosions density</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: 3</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius</li>
+<li>Expected: fire | Found: mag</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: Retarget Missile Every X Frames (Min=1) | Found: retarget frame</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected: Ring Density of CltHitSubMissile1 (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected: 60 | Found: 16</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: CltSubMissile1 Baseline Spawn Radius | Found: dest radius</li>
+<li>Expected: CltSubMissile1 Spawn Radius Offset | Found: init radius</li>
+<li>Expected: CltSubMissile1 Spawn Frequency (Min = 1) | Found: frequency</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: </li>
+<li>Expected: 5 +  (lvl *  3) | Found: 5+lvl*3</li>
+<li>Expected: Icebolt | Found: GlacialSpike</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 10 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 16 | Found: 24</li>
+<li>Expected: 22 | Found: 32</li>
+<li>Expected: 30 | Found: 32</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 17 | Found: 24</li>
+<li>Expected: 24 | Found: 32</li>
+<li>Expected: (skill('Royal Strike'.blvl)) * 6 | Found: (skill('Royal Strike'.blvl)+skill('Claws of Thunder'.blvl)+skill('Blades of Ice'.blvl)+skill('Dragon Claw'.blvl)+skill('Dragon Tail'.blvl)+skill('Dragon Flight'.blvl))*7</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 30 | Found: 25</li>
+<li>Expected: poisonNova | Found: BoneSpirit</li>
+<li>Expected: 30 | Found: 8</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: NecromageMissilePoison</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected: 1280 | Found: </li>
+<li>Expected: pois | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 14 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: monster_poisonbolt | Found: necromancer_bonespirit_1</li>
+<li>Expected:  | Found: paladin_holybolt_impact_1</li>
+<li>Expected:  | Found: necromagepoison</li>
+<li>Expected:  | Found: necromagepoison</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 30 | Found: 25</li>
+<li>Expected: Icebolt | Found: GlacialSpike</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: NecromageMissileCold</li>
+<li>Expected: cold | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: monster_icebolt_1 | Found: sorceress_glacialspike_1</li>
+<li>Expected:  | Found: sorceress_iceblast_impact_1</li>
+<li>Expected:  | Found: necromagecold</li>
+<li>Expected:  | Found: necromagecold</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 30 | Found: 25</li>
+<li>Expected: Firebolt | Found: Fireball</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: NecromageMissileFire</li>
+<li>Expected: fire | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 30 | Found: 25</li>
+<li>Expected: ChargedBolt | Found: DiabloLightning</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: NecromageMissileLightning</li>
+<li>Expected: ltng | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 11 | Found: </li>
+<li>Expected: 17 | Found: </li>
+<li>Expected: monster_chargedbolt_1 | Found: diablo_laser</li>
+<li>Expected:  | Found: necromagelightningone</li>
+<li>Expected:  | Found: necromagelightningone</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 8 | Found: 15</li>
+<li>Expected: 8 | Found: 15</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 14 | Found: 20</li>
+<li>Expected: 14 | Found: 20</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 10 +  (lvl *  10) | Found: 10</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: Periodic Delay until Repeat (Min=1) | Found: repeat frame</li>
+<li>Expected: Use skills srvdofunc # | Found: skill func</li>
+<li>Expected:  | Found: -1</li>
+<li>Expected:  | Found: no duration</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Duration (If 0, then use Skill calc1)" | Found: </li>
+<li>Expected: -500 | Found: 500</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Velocity for Increment 1 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Velocity for Increment 2 | Found: </li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: # of Missile Subloops | Found: Subloops</li>
+<li>Expected: necromancer_bonespear_1 | Found: sorceress_glacialspike_1</li>
+<li>Expected: paladin_holybolt_impact_1 | Found: sorceress_iceblast_impact_1</li>
+<li>Expected: teethexplode | Found: bonewallhit</li>
+<li>Expected:  | Found: 11</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: damage radius</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: Damage radius</li>
+<li>Expected: 16 | Found: 31</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: 25 | Found: 60</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected: 0 | Found: 255</li>
+<li>Expected: 0 | Found: 178</li>
+<li>Expected: 0 | Found: 64</li>
+<li>Expected: teethexplode | Found: IceBreakLarge</li>
+<li>Expected: 13 | Found: 15</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: retarget frame</li>
+<li>Expected: "Periodic Delay until Retarget (If 0, then default to 5)" | Found: retarget frame</li>
+<li>Expected: Range (Min=1) | Found: range</li>
+<li>Expected: Range for CltHitSubMissile1 (Min=1) | Found: range</li>
+<li>Expected: 7 +  (lvl *  2) | Found: 7+lvl*2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 13 | Found: 12</li>
+<li>Expected: 13 | Found: 12</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 75 | Found: 100</li>
+<li>Expected: 683 | Found: 1096</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: 29</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 22</li>
+<li>Expected:  | Found: 22</li>
+<li>Expected:  | Found: (skill('Strafe Magic Conversion'.lvl)&gt;0)*100</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 50 | Found: 5</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 128 | Found: 32</li>
+<li>Expected:  | Found: mag</li>
+<li>Expected:  | Found: strafeboltfury</li>
+<li>Expected:  | Found: strafeboltfury</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 40 | Found: 35</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: radius</li>
+<li>Expected: "Freeze Length (If 0, then use Skill auralencalc)" | Found: length (does nothing)</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: radius</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: variable duration</li>
+<li>Expected:  | Found: 75</li>
+<li>Expected:  | Found: density</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: firewall | Found: sfirewall</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: ChargedBolt | Found: SoulForgeRisingSoul</li>
+<li>Expected: 10 | Found: 33</li>
+<li>Expected: 2 | Found: 8</li>
+<li>Expected: 8 | Found: 19</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: sorceress_chargedbolt_1 | Found: quest_hellforge_soul_1</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 40 | Found: 35</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 40 | Found: 35</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 40 | Found: 35</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 40 | Found: 35</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: # of Subloops for SubMissile1 | Found: </li>
+<li>Expected: "Chance to flag CltSubMissile with NOLIGHT (Random 0 to X) (If 0, then use flag)" | Found: no light freq</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 40 | Found: 25</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: expansion\FirestormEmitter | Found: null</li>
+<li>Expected: 16 | Found: 1</li>
+<li>Expected: firesmall | Found: </li>
+<li>Expected: firemedium | Found: </li>
+<li>Expected: 90 +  (lvl *  25) | Found: 90+lvl*25</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: expansion\hurricane_tree | Found: h2</li>
+<li>Expected: 20 | Found: 7</li>
+<li>Expected: 10 +  (lvl *  5) | Found: 100</li>
+<li>Expected: 25 | Found: 2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 40 | Found: 20+lvl</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Stun Length (If 0 &amp; Skill is not null, then use Skill's Calc4 instead. If 0 &amp; Skill is null, then use casting Skill's Param1 &amp; Param2 as ln12)" | Found: </li>
+<li>Expected: 59 | Found: 25</li>
+<li>Expected: Missile Frames (Min=1) | Found: frames</li>
+<li>Expected: Missile Fall Rate (Used with Frames to determine Height) (Min=1) | Found: fallrate</li>
+<li>Expected: Missile Slide Rate (Used with Frames to determine Offset) (Min=1) | Found: sliderate</li>
+<li>Expected: "Kill Missile on hit after creating HitSubMissile? (0=off, 1=on)" | Found: explode immediately</li>
+<li>Expected: # of CltHitSubMissile1 created | Found: # submissile1</li>
+<li>Expected: # of CltHitSubMissile3 created | Found: # submissile3</li>
+<li>Expected: # of CltHitSubMissile4 created | Found: # submissile4</li>
+<li>Expected: 60 | Found: 24</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: expansion\hurricane_sack | Found: h2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 80 | Found: 45</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 5 | Found: 7</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: damage radius</li>
+<li>Expected: 9 | Found: 20</li>
+<li>Expected: 12 | Found: 48</li>
+<li>Expected: 14 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 18 | Found: 48</li>
+<li>Expected: 12 | Found: 48</li>
+<li>Expected: 14 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 10 | Found: 24</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 14 | Found: 24</li>
+<li>Expected: 7 | Found: 12</li>
+<li>Expected: 10 | Found: 27</li>
+<li>Expected: 10 | Found: 27</li>
+<li>Expected: 11 | Found: 27</li>
+<li>Expected: 11 | Found: 27</li>
+<li>Expected: 11 | Found: 27</li>
+<li>Expected: 11 | Found: 24</li>
+<li>Expected: 10 | Found: 27</li>
+<li>Expected: 10 | Found: 27</li>
+<li>Expected: 11 | Found: 27</li>
+<li>Expected: 11 | Found: 27</li>
+<li>Expected: 11 | Found: 27</li>
+<li>Expected: 7 | Found: 20</li>
+<li>Expected: 12 | Found: 48</li>
+<li>Expected: 14 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 14 | Found: 48</li>
+<li>Expected: 12 | Found: 48</li>
+<li>Expected: 14 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: 16 | Found: 48</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: expansion\hurricane_rocks | Found: h2</li>
+<li>Expected: 20 | Found: 7</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Nova | Found: Immolation</li>
+<li>Expected: 11 | Found: 1</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 75</li>
+<li>Expected:  | Found: pois</li>
+<li>Expected: Z Offset for CltHitSubMissile2 | Found: zoffset of missile 2</li>
+<li>Expected: nihlathakbonechips | Found: nehlithakbonechips</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: radius</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: flame increment</li>
+<li>Expected: 60 | Found: 25</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Royal Strike Meteor</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 20 | Found: 40</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 19 | Found: 50</li>
+<li>Expected: 29 | Found: 60</li>
+<li>Expected: 38 | Found: 80</li>
+<li>Expected: 46 | Found: 80</li>
+<li>Expected: 40 | Found: 80</li>
+<li>Expected: 10 | Found: 40</li>
+<li>Expected: 21 | Found: 60</li>
+<li>Expected: 33 | Found: 70</li>
+<li>Expected: 42 | Found: 90</li>
+<li>Expected: 50 | Found: 90</li>
+<li>Expected: (skill('Fists of Fire'.blvl)) * 10 | Found: (100+(skill('Fists of Fire'.blvl)+skill('Claws of Thunder'.blvl)+skill('Blades of Ice'.blvl)+skill('Blade Nova'.blvl))*5)*(100+skill('Royal Strike Meteor'.pst1))/100-100</li>
+<li>Expected: Damage % VS Undead | Found: bonus vs undead</li>
+<li>Expected: Damage % VS Demons | Found: bonus vs demons</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 69 | Found: 11</li>
+<li>Expected: 750 | Found: </li>
+<li>Expected: guts timeout | Found: </li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: expansion\FireTraumaMissile | Found: IceOrb</li>
+<li>Expected: 20 | Found: 16</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Max value for random Z Offset | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Frame to spawn | Found: frames</li>
+<li>Expected: Periodic Frame Delay to spawn (Min=1) | Found: frequency</li>
+<li>Expected: Activation Frame | Found: frames</li>
+<li>Expected: Periodic Frame Delay per Path Process (Min=1) | Found: frequency</li>
+<li>Expected: IceBolt | Found: FrostNova</li>
+<li>Expected: 6 | Found: 14</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Frozen Orb | Found: Orb of Winter</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: expansion\hurricane_swoosh | Found: h2</li>
+<li>Expected: 11 | Found: 7</li>
+<li>Expected: Distance between trail missiles | Found: spacing</li>
+<li>Expected: Draw Frame Delay | Found: Draw delay</li>
+<li>Expected: 36 | Found: 25</li>
+<li>Expected: 10 | Found: 5</li>
+<li>Expected: Thunder Storm | Found: Thunder Storm Sorc</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: thunderstormnova</li>
+<li>Expected:  | Found: thunderstormnova</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: Flamethrower2 | Found: DiabloLightning</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: Flamethrower | Found: DiabloLightning</li>
+<li>Expected: sorceress_inferno | Found: diablo_laser</li>
+<li>Expected:  | Found: diablolightning</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Radius for Area of Effect baseline (also gets +lvl/Param3) | Found: base radius</li>
+<li>Expected: Missile Spawn Rate baseline (also gets +lvl/Param3) (Min = 3) | Found: base freq</li>
+<li>Expected: Level Divisor (Min = 1) | Found: level divisor</li>
+<li>Expected: Radius for Area of Effect baseline (also gets +lvl/Param3) | Found: base radius</li>
+<li>Expected: Missile Spawn Rate baseline (also gets +lvl/CltParam3) | Found: base freq</li>
+<li>Expected: Level Divisor | Found: level divisor</li>
+<li>Expected: 25 +  (lvl *  15) | Found: 25+lvl*15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: MonBlizzard</li>
+<li>Expected:  | Found: 14</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: dl12 | Found: min(dl12,100)</li>
+<li>Expected: % Damage Dealt as Elemental | Found: convert to elemental%</li>
+<li>Expected: 3 | Found: 49</li>
+<li>Expected: % Damage Dealt as Elemental baseline | Found: base</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: % Damage Dealt as Elemental per level | Found: level</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 20 | Found: 40</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Cold Arrow | Found: </li>
+<li>Expected:  | Found: coldarrowspawner</li>
+<li>Expected:  | Found: coldarrowspawner</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: Expansion\Vines_Death | Found: null</li>
+<li>Expected: 128 | Found: 1024</li>
+<li>Expected: 12 | Found: 1</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 3 | Found: 2</li>
+<li>Expected: Periodic Delay until Repathing | Found: repath freq</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: repath freq</li>
+<li>Expected: % of Cold Length converted to Freeze Length | Found: cold len -&gt; freeze len</li>
+<li>Expected: 16 | Found: 30</li>
+<li>Expected: 16 | Found: 30</li>
+<li>Expected: 40 | Found: 35</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected:  | Found: Royal Strike Ice</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 16 | Found: 6</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 20 | Found: 18</li>
+<li>Expected: 28 | Found: 18</li>
+<li>Expected: 32 | Found: 12</li>
+<li>Expected: 4 | Found: 12</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 13 | Found: 18</li>
+<li>Expected: 21 | Found: 24</li>
+<li>Expected: 29 | Found: 24</li>
+<li>Expected: (skill('Blades of Ice'.blvl))*10 | Found: (100+(skill('Fists of Fire'.blvl)+skill('Claws of Thunder'.blvl)+skill('Blades of Ice'.blvl)+skill('Blade Nova'.blvl))*5)*(100+skill('Royal Strike Ice'.pst1))/100-100</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected:  | Found: 48</li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: Activation Frame to create CltSubMissile1 | Found: active frame</li>
+<li>Expected: Z Offset | Found: fall distance</li>
+<li>Expected: Z Fall Velocity | Found: fall speed</li>
+<li>Expected: Z Offset | Found: fall distance</li>
+<li>Expected: Z Fall Velocity | Found: fall speed</li>
+<li>Expected: Z Offset | Found: fall distance</li>
+<li>Expected: Z Fall Velocity | Found: fall speed</li>
+<li>Expected: andydebrisexplosion5 | Found: </li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: Activation Frame | Found: active frames</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: density</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 25 | Found: 13</li>
+<li>Expected: Hit Delay (Frames) | Found: Hit delay</li>
+<li>Expected: 100 +  (lvl *  25) | Found: 100</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: Expansion\vines | Found: null</li>
+<li>Expected: 128 | Found: 1024</li>
+<li>Expected: 12 | Found: 1</li>
+<li>Expected: plague vines wither | Found: </li>
+<li>Expected: 92 | Found: 2266</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: Damage % VS Undead | Found: </li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: Damage % VS Demons | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 30 | Found: </li>
+<li>Expected: 250 | Found: </li>
+<li>Expected: 120 | Found: </li>
+<li>Expected: 5 | Found: 3</li>
+<li>Expected: 222 | Found: 255</li>
+<li>Expected: 222 | Found: 255</li>
+<li>Expected: 6 | Found: 0</li>
+<li>Expected: blessedhammer | Found: SafeArrow</li>
+<li>Expected: 6 | Found: 1</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Blessed Hammer | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: mag | Found: </li>
+<li>Expected: 16 | Found: 32</li>
+<li>Expected: paladin_holybolt_impact_1 | Found: </li>
+<li>Expected:  | Found: blessedhammerfurytwo</li>
+<li>Expected:  | Found: blessedhammerfurytwo</li>
+<li>Expected: expansion\hurricane_cart | Found: h2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 255 | Found: 64</li>
+<li>Expected: 178 | Found: 255</li>
+<li>Expected: groundFireSmall | Found: PoisonSmokePuff</li>
+<li>Expected: 37 | Found: 26</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 36 | Found: </li>
+<li>Expected: fire | Found: pois</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: 7 | Found: 20</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 9 | Found: 30</li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: 7 | Found: 20</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 9 | Found: 30</li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected: (skill('Firestorm'.blvl)+skill('Molten Boulder'.blvl))*7 | Found: (skill('SBone Spear'.blvl)+skill('Eruption'.blvl)+skill('Twister'.blvl)+skill('Arctic Blast'.blvl)+skill('Tornado'.blvl)+skill('Sandstorm'.blvl))*skill('Armageddon'.par8)</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 60 | Found: 50</li>
+<li>Expected: Periodic Spawn Delay for SubMissile1 (Min=1) | Found: Drop Trail delay</li>
+<li>Expected: Periodic Spawn Delay for CltSubMissile1 (Min=1) | Found: Drop Trail delay</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 85</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 98 | Found: 50</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected:  | Found: Claws of Thunder</li>
+<li>Expected:  | Found: 32</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 128</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 40 | Found: </li>
+<li>Expected: 20 | Found: </li>
+<li>Expected: 40 | Found: </li>
+<li>Expected: 60 | Found: </li>
+<li>Expected: 80 | Found: </li>
+<li>Expected: 100 | Found: </li>
+<li>Expected: (skill('Royal Strike'.blvl)) * 8 | Found: </li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: poisonpuff | Found: </li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 30 | Found: 20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 12</li>
+<li>Expected: 4 | Found: 16</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 12</li>
+<li>Expected: 4 | Found: 16</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 24</li>
+<li>Expected: 82 | Found: 40</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 30 | Found: 20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 2 | Found: 4</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 12</li>
+<li>Expected: 4 | Found: 16</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 12</li>
+<li>Expected: 4 | Found: 16</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 24</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: "# of HitSubMissile1 created baseline (If sHitPar1 &amp; sHitPar2 = 0, then use Skill Calc4)" | Found: spikes (0 = skill)</li>
+<li>Expected: "# of HitSubMissile1 created per level (If sHitPar1 &amp; sHitPar2 = 0, then use Skill Calc4)" | Found: spikes per lvl</li>
+<li>Expected: "# of CltHitSubMissile1 created baseline (If both cHitPar1 &amp; cHitPart2 equal 0, then use Skill calc4)" | Found: spikes (0 = skill)</li>
+<li>Expected: "# of CltHitSubMissile1 created per level (If both cHitPar1 &amp; cHitPart2 equal 0, then use Skill calc4)" | Found: spikes per lvl</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: % of Cold Length converted to Freeze Length | Found: convert cold len to freeze</li>
+<li>Expected: Ice Arrow | Found: </li>
+<li>Expected: 232 | Found: 1183</li>
+<li>Expected: 8 | Found: 1</li>
+<li>Expected: 16 | Found: 30</li>
+<li>Expected: 12 | Found: 29</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: </li>
+<li>Expected: 0 | Found: 64</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: </li>
+<li>Expected: 0 | Found: 64</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: </li>
+<li>Expected:  | Found: min(100,dl12)</li>
+<li>Expected:  | Found: convert to elemental%</li>
+<li>Expected:  | Found: 49</li>
+<li>Expected:  | Found: base conversion</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: conversion/lvl</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 25 | Found: 8</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: lightning | Found: </li>
+<li>Expected:  | Found: lightningstrikefuryone</li>
+<li>Expected: lightninghit | Found: </li>
+<li>Expected:  | Found: lightningstrikefuryone</li>
+<li>Expected: Activation Frame for Mana Gain | Found: activate frame</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Spawn Frame for SubMissile1 | Found: </li>
+<li>Expected: Spawn Delay for CltSubMissile1 | Found: launch vines frame</li>
+<li>Expected: Spawn Delay for CltSubMissile2 | Found: active frame</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Spawn count for CltSubMissile1 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Radius to spawn CltSubMissile1 | Found: </li>
+<li>Expected: ` | Found: </li>
+<li>Expected: recycler vine | Found: </li>
+<li>Expected: recycler explosion | Found: </li>
+<li>Expected: Missile Ring Density 2 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Missile Ring Density 1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Missile Subloops | Found: subloops</li>
+<li>Expected: Ring 2 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Ring 1 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Subloops for CltHitSubMissile1 | Found: subloops</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: Periodic Spawn Frame Delay for CltSubMissile2 (Min=1) | Found: sfirewall frequency</li>
+<li>Expected: # of seconds to Camera Shake | Found: screen shake seconds</li>
+<li>Expected: 24 +  (lvl *  12) | Found: 24+lvl*12</li>
+<li>Expected: 148 | Found: 2080</li>
+<li>Expected: 1 | Found: 19</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected: 17 | Found: 29</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: -1000 | Found: </li>
+<li>Expected: 12 | Found: 3</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: BAYellShockWave01 | Found: WarcryShockwave</li>
+<li>Expected: 15 | Found: 16</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: barbarian_circle_1 | Found: </li>
+<li>Expected:  | Found: howldebuffnova</li>
+<li>Expected:  | Found: howlfreezenova</li>
+<li>Expected:  | Found: howldebuffnova</li>
+<li>Expected:  | Found: howlfreezenova</li>
+<li>Expected: 25 | Found: 60</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Retarget Frame Delay (Min=1) | Found: retarget frame</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1 or use Min=1)" | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 5 | Found: 20</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 47 | Found: 4</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: explosion radius</li>
+<li>Expected: "Chance to flag CltSubMissile with NOLIGHT (Random 0 to X) (If 0, then use flag)" | Found: no light freq</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: radius (0 = skill)</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected: # of CltHitSubMissile2 created | Found: # rocks</li>
+<li>Expected: Lob Velocity for CltHitSubMissile2 | Found: lob velocity</li>
+<li>Expected: "% chance modifier (If 1, then also do dParam2*2 to Small Monster. If &gt;1, then also do dParam2*3 for Small Monster and dParam2*2 to Large Monster)" | Found: size</li>
+<li>Expected: % chance for Knockback | Found: knockback%</li>
+<li>Expected: 8 | Found: 18</li>
+<li>Expected: 8 | Found: 18</li>
+<li>Expected: 50 | Found: 70</li>
+<li>Expected: firewall | Found: sfirewall</li>
+<li>Expected: 25 | Found: 50</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 55 | Found: 110</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected: 233 | Found: 2279</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: "Radius to create HitSubMissile1 (If 0, then use Skill aurarangecalc)" | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: "# of HitSubMissile1 created (If 0, then use Skill Calc1)" | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: "Radius to create CltHitSubMissile1 (If 0, then use Skill aurarangecalc)" | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: "Max # of CltHitSubMissile1 created (If 0, then use Skill calc4)" | Found: </li>
+<li>Expected: 10 | Found: 6</li>
+<li>Expected: fistoftheheavensbolt | Found: fistoftheheavensspawner</li>
+<li>Expected: fistoftheheavensbolt | Found: fistoftheheavensspawner</li>
+<li>Expected: Lightning | Found: Zap</li>
+<li>Expected: 193 | Found: 2138</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 13 | Found: 25</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Periodic Delay until Retarget | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Radius to search for Retarget | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: "Periodic Delay until Retarget (If 0, then default to 5)" | Found: </li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 128 | Found: 12</li>
+<li>Expected: BoneSpirit | Found: SafeArrow</li>
+<li>Expected: 8 | Found: 1</li>
+<li>Expected: -30 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected:  | Found: fire</li>
+<li>Expected: 8 | Found: 32</li>
+<li>Expected:  | Found: bonespiritfury</li>
+<li>Expected:  | Found: bonespiritfury</li>
+<li>Expected: 87 | Found: 1921</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Kill Missile on hit after creating HitSubMissile? (0=off, 1=on)" | Found: </li>
+<li>Expected: 24 | Found: 60</li>
+<li>Expected: 24 | Found: 60</li>
+<li>Expected: 40 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: Freezing Arrow</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 128 | Found: </li>
+<li>Expected: freezingarrowexp3 | Found: freezingarrowspawner</li>
+<li>Expected: freezingarrowexp1 | Found: freezingarrowspawner</li>
+<li>Expected: freezingarrowexp2 | Found: </li>
+<li>Expected: 96 | Found: 2783</li>
+<li>Expected: 1 | Found: 19</li>
+<li>Expected: 14 | Found: 30</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected: 13 | Found: 29</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 26</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Freeze Length (If 0, then use Skill auralencalc)" | Found: </li>
+<li>Expected:  | Found: 8</li>
+<li>Expected: 16 | Found: 40</li>
+<li>Expected: 16 | Found: 40</li>
+<li>Expected: 40 | Found: 15</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: frze | Found: </li>
+<li>Expected:  | Found: glacialspikefury</li>
+<li>Expected:  | Found: glacialspikefury</li>
+<li>Expected:  | Found: glacialspikefury</li>
+<li>Expected: freezingarrowexp1 | Found: glacialspikefury</li>
+<li>Expected: freezingarrowexp2 | Found: </li>
+<li>Expected: Periodic Delay until Repeat (Min=1) | Found: repeat frame</li>
+<li>Expected: Use skills srvdofunc # | Found: skill func</li>
+<li>Expected:  | Found: -1</li>
+<li>Expected:  | Found: no duration</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Duration (If 0, then use Skill calc1)" | Found: </li>
+<li>Expected: # of Subloops for SubMissile1 (if SubMissile1 is not null) | Found: #subloops</li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: #subloops</li>
+<li>Expected: 10 +  (lvl *  10) | Found: 10</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: Vel / level increase</li>
+<li>Expected: -500 | Found: 500</li>
+<li>Expected: Chain Lightning | Found: Conduit</li>
+<li>Expected: Distance between trail missiles | Found: spacing</li>
+<li>Expected: Draw Frame Delay | Found: Draw delay</li>
+<li>Expected: 36 | Found: 25</li>
+<li>Expected: 500 +  (lvl *  100) | Found: 500</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: # of Missile Subloops | Found: Subloops</li>
+<li>Expected: Missile Frames (Min=1) | Found: frames</li>
+<li>Expected: Missile Fall Rate (Used with Frames to determine Height) (Min=1) | Found: fallrate</li>
+<li>Expected: Missile Slide Rate (Used with Frames to determine Offset) (Min=1) | Found: sliderate</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: flames increment</li>
+<li>Expected: # of CltHitSubMissile1 created | Found: # submissile1</li>
+<li>Expected: # of CltHitSubMissile3 created | Found: # submissile3</li>
+<li>Expected: # of CltHitSubMissile4 created | Found: # submissile4</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: vampiremeteorfire | Found: meteorfire</li>
+<li>Expected: 60 | Found: 16</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: radius (0 = aurarng calc from skill)</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 5 | Found: 3</li>
+<li>Expected: expansion\FireTraumaGround | Found: IceBreakSmoke</li>
+<li>Expected: 1 | Found: 12</li>
+<li>Expected:  | Found: impact_shatter_1</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 10 | Found: 24</li>
+<li>Expected: 10 | Found: 24</li>
+<li>Expected: 8 | Found: </li>
+<li>Expected:  | Found: spikeboltone</li>
+<li>Expected:  | Found: spikeboltone</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 13 | Found: 24</li>
+<li>Expected: 13 | Found: 24</li>
+<li>Expected: 7 | Found: </li>
+<li>Expected:  | Found: spikebolttwo</li>
+<li>Expected:  | Found: spikebolttwo</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 16 | Found: 24</li>
+<li>Expected: 16 | Found: 24</li>
+<li>Expected: 6 | Found: </li>
+<li>Expected:  | Found: spikeboltthree</li>
+<li>Expected:  | Found: spikeboltthree</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 20 | Found: 24</li>
+<li>Expected: 20 | Found: 24</li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: spikeboltfour</li>
+<li>Expected:  | Found: spikeboltfour</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: spikeboltfive</li>
+<li>Expected:  | Found: spikeboltfive</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Frozen Orb | Found: Orb of Winter</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected:  | Found: 193</li>
+<li>Expected:  | Found: 103</li>
+<li>Expected: 15 | Found: 25</li>
+<li>Expected: 15 | Found: 25</li>
+<li>Expected: 40 | Found: 30</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1792 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 2560 | Found: 128</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 1280 | Found: 64</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 64 | Found: 512</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 32 | Found: 256</li>
+<li>Expected: 400 | Found: 50</li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: none</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 9 | Found: 18</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected: 250 | Found: 500</li>
+<li>Expected: Blade Fury | Found: Blade Shield</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius (0 = skill)</li>
+<li>Expected: "Freeze Length (If 0, then use Skill auralencalc)" | Found: freeze length (0 = skill)</li>
+<li>Expected: 60 | Found: 24</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: Lightning | Found: Zap</li>
+<li>Expected: Lightning | Found: Zap</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 230 | Found: 1909</li>
+<li>Expected: % chance for softhit (#/128) | Found: softhit chance (128)</li>
+<li>Expected: 100 | Found: 50</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: Immolation Arrow</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 2 | Found: </li>
+<li>Expected:  | Found: -1</li>
+<li>Expected: fire | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 24 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: skill('Fire Arrow'.blvl) * 5 | Found: </li>
+<li>Expected: 8 | Found: 19</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 10 +  (lvl *  2) | Found: 10+lvl*2</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: sentrylightningfury</li>
+<li>Expected: lightninghit | Found: sentrylightningfury</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: Poison Length</li>
+<li>Expected: Missile Ring Density 2 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Missile Ring Density 1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Missile Subloops | Found: subloops</li>
+<li>Expected: Ring 2 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Ring 1 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Subloops for CltHitSubMissile1 | Found: subloops</li>
+<li>Expected: 25 | Found: 1024</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 50 | Found: 12</li>
+<li>Expected: 5 | Found: 3</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: 178 | Found: 255</li>
+<li>Expected: 64 | Found: 255</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: Flamethrower2 | Found: expansion\icecavequest_magic</li>
+<li>Expected: 15 | Found: 30</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Inferno Sentry | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: mag</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 32 | Found: 64</li>
+<li>Expected: 82 | Found: </li>
+<li>Expected: sorceress_inferno | Found: </li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: Subloops</li>
+<li>Expected: 12 | Found: 30</li>
+<li>Expected: 12 | Found: 30</li>
+<li>Expected: 50 | Found: 10+lvl*2</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 178 | Found: 255</li>
+<li>Expected: 64 | Found: 255</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: Flamethrower | Found: null</li>
+<li>Expected: 15 | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 32 | Found: 64</li>
+<li>Expected: 82 | Found: </li>
+<li>Expected: sorceress_inferno | Found: druid_arcticblast</li>
+<li>Expected:  | Found: sorceress_inferno</li>
+<li>Expected:  | Found: inferno sentry 2</li>
+<li>Expected: # of Subloops for SubMissile1 | Found: subloops</li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: subloops</li>
+<li>Expected: Disc Radius for HitSubMissile1 | Found: bolts</li>
+<li>Expected: "Use catapultchargedballbolt Missile Path? (0=off, 1=on)" | Found: random path</li>
+<li>Expected: # of CltHitSubMissile1 created | Found: bolts</li>
+<li>Expected: Modify Function (Random Path) | Found: random path</li>
+<li>Expected:  | Found: *16</li>
+<li>Expected:  | Found: *12</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: 60 | Found: 35</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: Royal Strike Lightning</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 40 | Found: 16</li>
+<li>Expected: 20 | Found: 10</li>
+<li>Expected: 40 | Found: 16</li>
+<li>Expected: 60 | Found: 20</li>
+<li>Expected: 80 | Found: 28</li>
+<li>Expected: 100 | Found: 28</li>
+<li>Expected: (skill('Claws of Thunder'.blvl))*13 | Found: (100+(skill('Fists of Fire'.blvl)+skill('Claws of Thunder'.blvl)+skill('Blades of Ice'.blvl)+skill('Blade Nova'.blvl))*5)*(100+skill('Royal Strike Lightning'.pst1))/100-100</li>
+<li>Expected: 235 | Found: 2067</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 1 | Found: 28</li>
+<li>Expected: 7 | Found: </li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: damage freq (0 = look at skill)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: radius (0 = look at skill)</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: start frame</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: end frame</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: lob</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: damage freq (0 = look at skill)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: radius (0 = look at skill)</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: start frame</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: end frame</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: lob</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Stun Length (If 0 &amp; Skill is not null, then use Skill's Calc4 instead. If 0 &amp; Skill is null, then use casting Skill's Param1 &amp; Param2 as ln12)" | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: -600 | Found: </li>
+<li>Expected: 16 | Found: 6</li>
+<li>Expected: 192 | Found: 0</li>
+<li>Expected: 192 | Found: 0</li>
+<li>Expected: 192 | Found: 0</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: WarcryShockwave | Found: null</li>
+<li>Expected: 16 | Found: 30</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 17</li>
+<li>Expected:  | Found: 18</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: War Cry | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 32 | Found: 1</li>
+<li>Expected: barbarian_warcry_circle | Found: </li>
+<li>Expected: doubledamage1 | Found: </li>
+<li>Expected:  | Found: warcrynova</li>
+<li>Expected:  | Found: warcrynova</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: Expansion\Vines_Death | Found: null</li>
+<li>Expected: 128 | Found: 1024</li>
+<li>Expected: 12 | Found: 1</li>
+<li>Expected: 16 | Found: 7</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: increment</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: </li>
+<li>Expected: # of CltHitSubMissile1 created | Found: # rocks</li>
+<li>Expected: Lob Velocity for CltHitSubMissile1 | Found: lob velocity</li>
+<li>Expected:  | Found: 90</li>
+<li>Expected:  | Found: Poison Length</li>
+<li>Expected: Missile Ring Density 2 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Missile Ring Density 1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Missile Subloops | Found: subloops</li>
+<li>Expected: Ring 2 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Ring 1 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Subloops for CltHitSubMissile1 | Found: subloops</li>
+<li>Expected: Start Frame to begin creating izual lightning Missiles | Found: Lightning Start</li>
+<li>Expected: End Frame to stop creating izual lightning Missiles | Found: Lightning Stop</li>
+<li>Expected: 59 | Found: 2781</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected: 12 | Found: 60</li>
+<li>Expected: 12 | Found: 60</li>
+<li>Expected: 50 | Found: 25</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 48</li>
+<li>Expected:  | Found: iceboltbolt</li>
+<li>Expected:  | Found: iceboltbolt</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 10 +  (lvl *  10) | Found: 10</li>
+<li>Expected:  | Found: 280</li>
+<li>Expected:  | Found: drop height</li>
+<li>Expected:  | Found: 70</li>
+<li>Expected:  | Found: drop speed</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: UnHolyBolt</li>
+<li>Expected: mag | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 7 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: UnHolyBolt</li>
+<li>Expected: mag | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: UnHolyBolt</li>
+<li>Expected: mag | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected: Spawn Rate for CltSubMissile1 | Found: sfirewall frequency</li>
+<li>Expected: Spawn Rate for CltSubMissile2 | Found: rock frequency</li>
+<li>Expected: Spawn Radius For CltSubMissile1 &amp; CltSubMissile2 | Found: radius</li>
+<li>Expected: Missile Ring Density 2 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Missile Ring Density 1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Missile Subloops | Found: subloops</li>
+<li>Expected: Ring 2 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Ring 1 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Subloops for CltHitSubMissile1 | Found: subloops</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: range</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: targets</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: UnHolyBolt</li>
+<li>Expected: mag | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 6 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected: 9 | Found: </li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected:  | Found: unholyboltchain</li>
+<li>Expected: "Chance to flag CltSubMissile with NOLIGHT (Random 0 to X) (If 0, then use flag)" | Found: no light freq</li>
+<li>Expected: expansion\EruptionCrack | Found: expansion\deathmaulerfingers</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: fire_hit | Found: </li>
+<li>Expected: 10 | Found: 25</li>
+<li>Expected: 10 | Found: 25</li>
+<li>Expected: 25 +  (lvl *  2) | Found: 14+lvl*2</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: Wake of Fire Sentry | Found: Charged Bolt Sentry</li>
+<li>Expected: sorceress_inferno | Found: </li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: % chance for softhit (#/128) | Found: softhit chance (128)</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: skill('Inferno'.blvl)*3 | Found: (skill('Immolation'.blvl)+skill('Fire Ball'.blvl)+skill('Fire Bolt'.blvl))*5</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 25 | Found: 15</li>
+<li>Expected: Lightning | Found: Zap</li>
+<li>Expected: Fade Frames | Found: Fade frames</li>
+<li>Expected: Lightning Missile Delay | Found: Lightning delay</li>
+<li>Expected: Radius to create Lightning Missiles | Found: radius</li>
+<li>Expected: Levels ID # for portal destination | Found: destination level</li>
+<li>Expected: Frame Delay until portal spawns | Found: portal delay</li>
+<li>Expected: Fade Frames | Found: Fade frames</li>
+<li>Expected: CltSubMissile1 Spawn Frame Delay | Found: Lightning delay</li>
+<li>Expected: CltSubMissile1 Spawn Radius | Found: radius</li>
+<li>Expected: "Duration (If 0, then use Skill Calc1)" | Found: duration (0=skill)</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Duration (If 0, then use Skill calc1)" | Found: </li>
+<li>Expected: 100 +  (lvl *  50) | Found: 100+lvl*50</li>
+<li>Expected: BoneSpearTrail | Found: BoneSpiritExplode</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: Diablogeddon | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: diablogeddonfire | Found: uberdiablometeorcenter</li>
+<li>Expected: 10 +  (lvl *  10) | Found: 10</li>
+<li>Expected: 90 +  (lvl *  25) | Found: 90+lvl*25</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 10 +  (lvl *  2) | Found: 10+lvl*2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 16 | Found: 14</li>
+<li>Expected: 16 | Found: 14</li>
+<li>Expected: 5 | Found: 3</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Firebolt | Found: ChargedBolt</li>
+<li>Expected: 5 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected: monster_firebolt_1 | Found: sorceress_chargedbolt_1</li>
+<li>Expected: sorceress_firebolt_impact_1 | Found: </li>
+<li>Expected:  | Found: lightning</li>
+<li>Expected: fireexplode | Found: </li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 8 | Found: 15</li>
+<li>Expected: 8 | Found: 15</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: Wake of Fire Sentry | Found: Charged Bolt Sentry</li>
+<li>Expected: 55 | Found: 2277</li>
+<li>Expected: 9 | Found: 4</li>
+<li>Expected: 7 | Found: 5</li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: 1 | Found: 11</li>
+<li>Expected: "Impact Allies To Heal? (0=disabled, 1=enabled)" | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: "Deal Full Damage? (0=All Enemies, 1=Undead Only, 2=Demons Only, 3=Undead &amp; Demons Only)" | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Destroy on Unit Impact? (0=Never, 1=On Heal, 2=On Full Damage, 3=On Heal Or Full Damage)" | Found: </li>
+<li>Expected: 1 | Found: 11</li>
+<li>Expected: "Impact Allies To Heal? (0=disabled, 1=enabled)" | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: "Deal Full Damage? (0=All Enemies, 1=Undead Only, 2=Demons Only, 3=Undead &amp; Demons Only)" | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Destroy on Unit Impact? (0=Never, 1=On Heal, 2=On Full Damage, 3=On Heal Or Full Damage)" | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: Total Damage % if target is not allowed Monster Type (see sHitPar2) | Found: </li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 50 | Found: 35</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: mag | Found: </li>
+<li>Expected: healing | Found: </li>
+<li>Expected:  | Found: holyboltbolt</li>
+<li>Expected: teethexplode | Found: holyboltbolt</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected: 16 | Found: 12</li>
+<li>Expected: 16 | Found: 12</li>
+<li>Expected: 50 | Found: 25+lvl</li>
+<li>Expected: teethMissile | Found: bonewall</li>
+<li>Expected: 30 | Found: 5</li>
+<li>Expected: 16 | Found: 2</li>
+<li>Expected:  | Found: 75</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: teethexplode | Found: bonewallhit</li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: "Kill Missile on hit after creating HitSubMissile? (0=off, 1=on)" | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Explosion Radius for CltHitSubMissile1 | Found: </li>
+<li>Expected: Density for CltHitSubMissile1 (Higher value means less Missiles created) | Found: </li>
+<li>Expected:  | Found: min(dl12,100)</li>
+<li>Expected:  | Found: convert to elemental%</li>
+<li>Expected:  | Found: 49</li>
+<li>Expected:  | Found: base</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: level</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: Exploding Arrow</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: 128 | Found: </li>
+<li>Expected: explodingarrowexp | Found: explodingarrowvis</li>
+<li>Expected: explodingarrowexp2 | Found: explodingarrowspawner</li>
+<li>Expected: fireexplosion2 | Found: explodingarrowspawner</li>
+<li>Expected: # of Subloops for SubMissile1 (if SubMissile1 is not null) | Found: #subloops</li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: #subloops</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: fire_hit | Found: </li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Client Missile Fall Distance (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall distance</li>
+<li>Expected: Client Missile Fall Rate (Used By pCltDoFunc 13 under CltHitSubMissile) | Found: fall rate</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: Rand Light Radius Add</li>
+<li>Expected: 180 +  (lvl *  60) | Found: 180+lvl*60</li>
+<li>Expected: -500 | Found: 500</li>
+<li>Expected: IceBolt | Found: GlacialSpike</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: Spawn Rate for CltSubMissile1 (Random from 0 to X) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Spawn Radius For CltSubMissile1 | Found: radius</li>
+<li>Expected: 10 +  (lvl *  5) | Found: 10+lvl*5</li>
+<li>Expected: Periodic # of Frames until Retarget | Found: repath frame</li>
+<li>Expected: Max Distance for activation | Found: activation dist</li>
+<li>Expected: Distance delta (Min=1) | Found: delta</li>
+<li>Expected: CltSubMissile1 Spawn Frame Rate (Min=1) | Found: spawn frame</li>
+<li>Expected: Total Frame Count | Found: spawn life</li>
+<li>Expected: Retarget Frame Delay (Default=5) | Found: repath frame</li>
+<li>Expected: Retarget Target Max Distance | Found: activation dist</li>
+<li>Expected: Retarget Position Delta | Found: delta</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: 80 | Found: 50</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 7 | Found: 14</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 12 | Found: 24</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 7 | Found: 14</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: Expansion\bladefury_B | Found: expansion\catapultpoisonbomb</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: Expansion\bladefury_C | Found: expansion\catapultpoisonbomb</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Activation Frame | Found: active frames</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: Expansion\bladefury | Found: expansion\catapultpoisonbomb</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 6 | Found: 5</li>
+<li>Expected: 8 | Found: 6</li>
+<li>Expected: 10 | Found: 7</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 6 | Found: 5</li>
+<li>Expected: 8 | Found: 6</li>
+<li>Expected: 10 | Found: 7</li>
+<li>Expected: Delay after opening chest | Found: start delay</li>
+<li>Expected: Periodic Item Spawn Rate (#*4) (Min=1) | Found: spawn interval divisor</li>
+<li>Expected: Radius to spawn items | Found: radius</li>
+<li>Expected: Delay after opening chest before starting CltParam2 | Found: start delay</li>
+<li>Expected: Periodic Rate to create CltSubMissile1 | Found: spawn interval divisor</li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: Radius to create CltSubMissile1 | Found: </li>
+<li>Expected: 400 +  (lvl *  1) | Found: 400+lvl</li>
+<li>Expected: 67 | Found: 2864</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected: 8 | Found: 5</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected: 19 | Found: </li>
+<li>Expected: % chance for softhit (#/128) | Found: </li>
+<li>Expected: 90 +  (lvl *  25) | Found: 1</li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 255 | Found: 143</li>
+<li>Expected: 178 | Found: 143</li>
+<li>Expected: 64 | Found: 255</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: groundFireBig | Found: BlueNovaB</li>
+<li>Expected: 37 | Found: 8</li>
+<li>Expected: 16 | Found: 8</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 36 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Blaze | Found: </li>
+<li>Expected: 32 | Found: </li>
+<li>Expected: 1 | Found: 64</li>
+<li>Expected: object_fire_loop_magic | Found: </li>
+<li>Expected:  | Found: blazenovadebuff</li>
+<li>Expected:  | Found: blazenova</li>
+<li>Expected:  | Found: blazenovadebuff</li>
+<li>Expected:  | Found: blazenova</li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Spawn Rate for CltSubMissile1 | Found: spawn rate</li>
+<li>Expected: Spawn Count for CltSubMissile1 | Found: number</li>
+<li>Expected: Spawn Radius for CltSubMissile1 | Found: radius</li>
+<li>Expected: Poison Javelin | Found: </li>
+<li>Expected: Velocity for Increment 1 | Found: "Slow drift speed, fourths."</li>
+<li>Expected: Velocity for Increment 2 | Found: "Fast drift speed, fourths."</li>
+<li>Expected: Missile Spawn Rate (CltSubMissile1) | Found: spawn rate</li>
+<li>Expected: # of Missiles created (CltSubMissile1) | Found: number</li>
+<li>Expected: Radius to randomly create Missiles (CltSubMissile1) | Found: radius</li>
+<li>Expected: # of Subloops for SubMissile1 | Found: subloops</li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: subloops</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: damage radius</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 62 | Found: 2846</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 1 | Found: 5</li>
+<li>Expected: 0 | Found: 64</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: </li>
+<li>Expected: 3 | Found: 64</li>
+<li>Expected: Explosion Radius for CltHitSubMissile1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Density for CltHitSubMissile1 (Higher value means less Missiles created) | Found: </li>
+<li>Expected: 20 | Found: 40</li>
+<li>Expected: 20 | Found: 40</li>
+<li>Expected: 50 | Found: 30</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Fire Ball | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected:  | Found: 32</li>
+<li>Expected:  | Found: fireballmainspawner</li>
+<li>Expected: fireexplosion2 | Found: fireballmainspawner</li>
+<li>Expected: CltSubMissile1 Spawn Radius | Found: radius</li>
+<li>Expected: "Periodic Damage Delay (If 0, then use Skill Calc4)" | Found: damage freq (0 = look at skill)</li>
+<li>Expected: "Damage Radius (If 0, then use Skill aurarangecalc)" | Found: radius (0 = look at skill)</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: 4 | Found: 5</li>
+<li>Expected: Missile Spawn Rate (Min=1) | Found: frequency</li>
+<li>Expected: Direction Index Increment | Found: direction increment</li>
+<li>Expected: CltSubMissile1 Spawn Rate (Min=1) | Found: frequency</li>
+<li>Expected: CltSubMissile1 Direction Index Increment (Max = 64) | Found: direction increment</li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected: Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: increment</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 30 | Found: 20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: "Stun Length (If 0 &amp; Skill is not null, then use Skill's Calc2 instead)" | Found: stun len (0 = skill)</li>
+<li>Expected: 50 | Found: 100</li>
+<li>Expected: expansion\twister | Found: bug</li>
+<li>Expected: 40 | Found: 5</li>
+<li>Expected: 16 | Found: 5</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 18 | Found: </li>
+<li>Expected: 36 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 25 | Found: </li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 32 | Found: 96</li>
+<li>Expected: 30 | Found: 24</li>
+<li>Expected: 0 | Found: 255</li>
+<li>Expected: 0 | Found: 255</li>
+<li>Expected: 0 | Found: 255</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: poisonNova | Found: AndarielSpell</li>
+<li>Expected: 30 | Found: 24</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 722 | Found: 2036</li>
+<li>Expected: 1 | Found: 19</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected: 1 | Found: 15</li>
+<li>Expected: 23 | Found: 29</li>
+<li>Expected: 50 | Found: 25</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: 25</li>
+<li>Expected: 163 | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected: par1 | Found: 24</li>
+<li>Expected: skill('Apocalypse'.rng) | Found: </li>
+<li>Expected: 255 | Found: 0</li>
+<li>Expected: 178 | Found: 0</li>
+<li>Expected: 64 | Found: 0</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: PoisonSparks | Found: expansion\volcano_rock</li>
+<li>Expected: 16 | Found: 15</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Apocalypse | Found: </li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: Warlock_Skill_Apocalypse_01 | Found: </li>
+<li>Expected:  | Found: apocalypsefire</li>
+<li>Expected:  | Found: apocalypsespawner</li>
+<li>Expected:  | Found: apocalypsefire</li>
+<li>Expected:  | Found: apocalypsespawner</li>
+<li>Expected: Disc Radius of CltHitSubMissile2 | Found: radius</li>
+<li>Expected: Density of CltHitSubMissile2 (Higher value means less Missiles created) | Found: density</li>
+<li>Expected: 14 | Found: 20</li>
+<li>Expected: 14 | Found: 20</li>
+<li>Expected: 3 | Found: 11</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 6 | Found: 14</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: Periodic Delay until Repeat (Min=1) | Found: repeat frame</li>
+<li>Expected: Use skills srvdofunc # | Found: skill func</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Duration (If 0, then use Skill calc1)" | Found: </li>
+<li>Expected: 200 | Found: 200+lvl*25</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: Damage radius</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected:  | Found: frames that acid lasts</li>
+<li>Expected: 6 +  (lvl *  2) | Found: 6+lvl*2</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: 20 | Found: 15</li>
+<li>Expected: 50 | Found: 75</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1792 | Found: 24</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 1280 | Found: 16</li>
+<li>Expected: 32 | Found: 192</li>
+<li>Expected: 38 | Found: 228</li>
+<li>Expected: 44 | Found: 264</li>
+<li>Expected: 40 | Found: 240</li>
+<li>Expected: 46 | Found: 276</li>
+<li>Expected: 52 | Found: 312</li>
+<li>Expected: 64 | Found: 384</li>
+<li>Expected: 38 | Found: 228</li>
+<li>Expected: 44 | Found: 264</li>
+<li>Expected: 40 | Found: 240</li>
+<li>Expected: 46 | Found: 276</li>
+<li>Expected: 52 | Found: 312</li>
+<li>Expected: 800 | Found: 250</li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 10 | Found: </li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: explosion radius</li>
+<li>Expected: Bounce Count for CltHitSubMissile1 | Found: bounces</li>
+<li>Expected: Bounce Damping % for CltHitSubMissile1 | Found: damping</li>
+<li>Expected: Lob for CltHitSubmissile1 | Found: lob</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 8 | Found: 27</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 8 | Found: 27</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 600 | Found: 50</li>
+<li>Expected: # of Subloops for SubMissile1 (if SubMissile1 is not null) | Found: #subloops</li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: #subloops</li>
+<li>Expected: Poison Javelin | Found: </li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 5 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 7 | Found: 24</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 7 | Found: 24</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 500 | Found: 50</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 6 | Found: 21</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 6 | Found: 21</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 400 | Found: 50</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 300 | Found: 50</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 3 | Found: </li>
+<li>Expected: 4 | Found: 15</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 4 | Found: 15</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 3 | Found: 12</li>
+<li>Expected: 200 | Found: 50</li>
+<li>Expected: 16 | Found: 12</li>
+<li>Expected: 10 | Found: </li>
+<li>Expected: 12 | Found: 30</li>
+<li>Expected: 12 | Found: 30</li>
+<li>Expected: 98 | Found: 25</li>
+<li>Expected: 3 | Found: 2</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 255 | Found: 178</li>
+<li>Expected: 255 | Found: 64</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: ChargedBolt | Found: Expansion\rock_lava_explosion</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 64 | Found: 32</li>
+<li>Expected: sorceress_chargedbolt_1 | Found: sorceress_firebolt_1</li>
+<li>Expected:  | Found: sorceress_firebolt_impact_1</li>
+<li>Expected: Retarget Frame Delay (Min=1) | Found: retarget frame</li>
+<li>Expected: "Duration (If 0, then use Skill Calc1)" | Found: duration (0=skill)</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: "Duration (If 0, then use Skill calc1)" | Found: </li>
+<li>Expected: Destination Radius | Found: dest radius</li>
+<li>Expected: Spawn Radius | Found: init radius</li>
+<li>Expected: Process Missile Frame Frequency | Found: frequency</li>
+<li>Expected: Lightning | Found: Zap</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill aurarangecalc)" | Found: damage radius</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 36 | Found: 45</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 4 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 12 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 5 | Found: 20</li>
+<li>Expected: 5 | Found: 30</li>
+<li>Expected: 5 | Found: 40</li>
+<li>Expected: 5 | Found: 50</li>
+<li>Expected: 5 | Found: 50</li>
+<li>Expected: 25 | Found: 30</li>
+<li>Expected: 5 | Found: 30</li>
+<li>Expected: 5 | Found: 40</li>
+<li>Expected: 5 | Found: 50</li>
+<li>Expected: 5 | Found: 60</li>
+<li>Expected: 5 | Found: 60</li>
+<li>Expected: 41 | Found: 10</li>
+<li>Expected: "# of HitSubMissile1 created baseline (If sHitPar1 &amp; sHitPar2 = 0, then use Skill Calc4)" | Found: Charged bolts</li>
+<li>Expected: "# of HitSubMissile1 created per level (If sHitPar1 &amp; sHitPar2 = 0, then use Skill Calc4)" | Found: Charged bolts per level</li>
+<li>Expected: "# of CltHitSubMissile1 created baseline (If both cHitPar1 &amp; cHitPar2 equal 0, then use Skill calc4)" | Found: Charged bolts</li>
+<li>Expected: "# of CltHitSubMissile1 created per level (If both cHitPar1 &amp; cHitPar2 equal 0, then use Skill calc4)" | Found: Charged bolts per level</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: "Range (If 0, then use Skill aurarangecalc)" | Found: range (0 = skill)</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 25 | Found: 15</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: expansion\EruptionSmoke | Found: expansion\deathmaulermissile</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: 25 | Found: 50</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 66 | Found: 100</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 16 | Found: 25</li>
+<li>Expected: 82 | Found: 40</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Nova | Found: Immolation</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected:  | Found: Poison Length</li>
+<li>Expected: Missile Ring Density 2 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Missile Ring Density 1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Missile Subloops | Found: subloops</li>
+<li>Expected: Ring 2 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Ring 1 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Subloops for CltHitSubMissile1 | Found: subloops</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Nova | Found: Immolation</li>
+<li>Expected: "Chance to flag CltSubMissile with NOLIGHT (Random 0 to X) (If 0, then use flag)" | Found: no light freq</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: % Damage Dealt as Elemental | Found: convert to elemental%</li>
+<li>Expected: % Damage Dealt as Elemental baseline | Found: base conversion</li>
+<li>Expected: % Damage Dealt as Elemental per level | Found: conversion/lvl</li>
+<li>Expected: Lightning Bolt | Found: </li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected:  | Found: 64</li>
+<li>Expected: dl12 | Found: min(dl12,100)</li>
+<li>Expected: % Damage Dealt as Elemental | Found: convert to elemental%</li>
+<li>Expected: 5 | Found: 49</li>
+<li>Expected: % Damage Dealt as Elemental baseline | Found: base</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: % Damage Dealt as Elemental per level | Found: level</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 24 | Found: 40</li>
+<li>Expected: 1 | Found: 2</li>
+<li>Expected:  | Found: magicarrowmeteorcenter</li>
+<li>Expected:  | Found: magicarrowmeteorcenter</li>
+<li>Expected: Missile Ring Density 2 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Missile Ring Density 1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Missile Subloops | Found: subloops</li>
+<li>Expected: Ring 2 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 2 density</li>
+<li>Expected: Ring 1 Density of CltHitSubMissile1 (Higher value means less Missiles created) | Found: ring 1 density</li>
+<li>Expected: # of Subloops for CltHitSubMissile1 | Found: subloops</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: damage radius</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: </li>
+<li>Expected: Periodic Delay until Retarget | Found: Retarget Frame</li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: Radius to search for Retarget | Found: </li>
+<li>Expected: "Periodic Delay until Retarget (If 0, then default to 5)" | Found: Retarget Frame</li>
+<li>Expected: 90 +  (lvl *  25) | Found: 90+lvl*25</li>
+<li>Expected: ChargedBolt | Found: mist</li>
+<li>Expected: Start Delay before randomly spawning SubMissile1/SubMissile2/Submissile3 | Found: initial delay</li>
+<li>Expected: Delay to spawn SubMissile1 | Found: missile 1 delay</li>
+<li>Expected: Delay to spawn SubMissile2 | Found: missile 2 delay</li>
+<li>Expected: Delay to spawn SubMissile3 | Found: missile 3 delay</li>
+<li>Expected: Start Delay before randomly spawning CltSubMissile1/CltSubMissile2/CltSubmissile3 | Found: initial delay</li>
+<li>Expected: Delay to spawn CltSubMissile1 | Found: missile 1 delay</li>
+<li>Expected: Delay to spawn CltSubMissile2 | Found: missile 2 delay</li>
+<li>Expected: Delay to spawn CltSubMissile3 | Found: missile 3 delay</li>
+<li>Expected: "Explosion Radius (If 0, then use Skill Calc1)" | Found: damage radius</li>
+<li>Expected: # of Subloops for CltSubMissile1 (Min=1) | Found: Subloops</li>
+<li>Expected: # of Subloops for SubMissile1 | Found: subloops</li>
+<li>Expected: # of Subloops for CltSubMissile1 | Found: subloops</li>
+<li>Expected: Disc Radius for HitSubMissile1 | Found: bolts</li>
+<li>Expected: "Use catapultchargedballbolt Missile Path? (0=off, 1=on)" | Found: random path</li>
+<li>Expected: # of CltHitSubMissile1 created | Found: bolts</li>
+<li>Expected: Modify Function (Random Path) | Found: random path</li>
+<li>Expected: "Radius to create HitSubMissile1 (If 0, then use Skill aurarangecalc)" | Found: range (0=skill)</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: "# of HitSubMissile1 created (If 0, then use Skill Calc1)" | Found: max (0 = skill)</li>
+<li>Expected: "Radius to create CltHitSubMissile1 (If 0, then use Skill aurarangecalc)" | Found: range (0=skill)</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: "Max # of CltHitSubMissile1 created (If 0, then use Skill calc1)" | Found: max (0 = skill)</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 30 | Found: 60</li>
+<li>Expected: 25 | Found: 20</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 12 | Found: 35</li>
+<li>Expected: 12 | Found: 35</li>
+<li>Expected: 98 | Found: 40</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: Charged Bolt | Found: Power Overwhelming</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: DiabFire</li>
+<li>Expected: fire | Found: </li>
+<li>Expected: 20 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: 8 | Found: </li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 255 | Found: 81</li>
+<li>Expected: 178 | Found: 81</li>
+<li>Expected: 64 | Found: 255</li>
+<li>Expected: expansion\FireTraumaXplosion | Found: IceOrbExplode</li>
+<li>Expected: 20 | Found: 16</li>
+<li>Expected: 16 | Found: 14</li>
+<li>Expected: sorceress_firebolt_impact_1 | Found: </li>
+<li>Expected: Increment for # of HitSubMissile1 created (Higher value means less Missiles created) (Min=1) | Found: increment</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected: 4 | Found: 20</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: "Mana Use, 16ths."</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: Baseline Range | Found: Minimum range</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected: 12 | Found: 25</li>
+<li>Expected:  | Found: cold</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 10</li>
+</ul>
+</div>
+</body>
+</html>

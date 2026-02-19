@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/superuniques.txt (284)</summary>
+<ul>
+<li>Expected: 9 | Found: 6</li>
+<li>Expected: Act 5 Super Cx | Found: Act 5 Super B</li>
+<li>Expected: Act 5 (N) Super Cx | Found: Act 5 (N) Super B</li>
+<li>Expected: Act 5 (H) Super Cx | Found: Act 5 (H) Super B</li>
+<li>Expected: Act 5 (H) Super Cx Desecrated | Found: Act 5 (H) Super B Desecrated</li>
+<li>Expected: 17 | Found: 7</li>
+<li>Expected:  | Found: Ancient Barb</li>
+<li>Expected:  | Found: Ancient Barb (N)</li>
+<li>Expected:  | Found: Ancient Barb (H)</li>
+<li>Expected:  | Found: Ancient Barb (H)</li>
+<li>Expected: smithdemon | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: Haphesto Desecrated A | Found: </li>
+<li>Expected: Haphesto (N) Desecrated A | Found: </li>
+<li>Expected: Haphesto (H) Desecrated A | Found: Haphesto (H) Desecrated</li>
+<li>Expected: 0 | Found: 26</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: Nihlathak Desecrated | Found: </li>
+<li>Expected: Nihlathak (N) Desecrated | Found: </li>
+<li>Expected: Grand Vizier of Chaos | Found: King Leoric</li>
+<li>Expected: fingermage3 | Found: leoric</li>
+<li>Expected: 5 | Found: 23</li>
+<li>Expected: 9 | Found: 25</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 9 | Found: 6</li>
+<li>Expected: 9 | Found: 6</li>
+<li>Expected: Act 4 Super B | Found: Seal</li>
+<li>Expected: Act 4 (N) Super B | Found: Seal (N)</li>
+<li>Expected: Act 4 (H) Super B | Found: Seal (H)</li>
+<li>Expected: Act 4 (H) Super B Desecrated | Found: Seal (H) Desecrated</li>
+<li>Expected: Act 1 Super C | Found: Act 2 Super A</li>
+<li>Expected: Act 1 (N) Super C | Found: Act 2 (N) Super A</li>
+<li>Expected: Act 1 (H) Super C | Found: Act 2 (H) Super A</li>
+<li>Expected: Act 1 (H) Super C Desecrated | Found: Act 2 (H) Super A Desecrated</li>
+<li>Expected: Act 5 Super Cx | Found: Act 5 Super B</li>
+<li>Expected: Act 5 (N) Super Cx | Found: Act 5 (N) Super B</li>
+<li>Expected: Act 5 (H) Super Cx | Found: Act 5 (H) Super B</li>
+<li>Expected: Act 5 (H) Super Cx Desecrated | Found: Act 5 (H) Super B Desecrated</li>
+<li>Expected: 9 | Found: 30</li>
+<li>Expected: 9 | Found: 29</li>
+<li>Expected: Act 1 Super A | Found: Act 1 Super B</li>
+<li>Expected: Act 1 (N) Super A | Found: Act 1 (N) Super B</li>
+<li>Expected: Act 1 (H) Super A | Found: Act 1 (H) Super B</li>
+<li>Expected: Act 1 (H) Super A Desecrated | Found: Act 1 (H) Super B Desecrated</li>
+<li>Expected:  | Found: Expansion</li>
+<li>Expected: 5 | Found: 28</li>
+<li>Expected: 18 | Found: 29</li>
+<li>Expected: 5 | Found: 7</li>
+<li>Expected: 5 | Found: 7</li>
+<li>Expected: Act 2 Super A | Found: Act 5 Super C</li>
+<li>Expected: Act 2 (N) Super A | Found: Act 5 (N) Super C</li>
+<li>Expected: Act 2 (H) Super A | Found: Act 5 (H) Super C</li>
+<li>Expected: Act 2 (H) Super A Desecrated | Found: Act 5 (H) Super C Desecrated</li>
+<li>Expected: Infector of Souls | Found: Sir Gorash</li>
+<li>Expected: megademon3 | Found: blackknight6</li>
+<li>Expected: 27 | Found: 7</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 9 | Found: 6</li>
+<li>Expected: 9 | Found: 6</li>
+<li>Expected: Act 4 Super B | Found: Seal</li>
+<li>Expected: Act 4 (N) Super B | Found: Seal (N)</li>
+<li>Expected: Act 4 (H) Super B | Found: Seal (H)</li>
+<li>Expected: Act 4 (H) Super B Desecrated | Found: Seal (H) Desecrated</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: Council Desecrated A | Found: </li>
+<li>Expected: Council (N) Desecrated A | Found: </li>
+<li>Expected: Council (H) Desecrated A | Found: Council (H) Desecrated</li>
+<li>Expected: Snapchip Shatter | Found: Nosliwyaj</li>
+<li>Expected: frozenhorror1 | Found: reporb</li>
+<li>Expected: 23 | Found: 24</li>
+<li>Expected: 23 | Found: 24</li>
+<li>Expected: 18 | Found: 27</li>
+<li>Expected: Act 1 Super A | Found: Act 1 Super B</li>
+<li>Expected: Act 1 (N) Super A | Found: Act 1 (N) Super B</li>
+<li>Expected: Act 1 (H) Super A | Found: Act 1 (H) Super B</li>
+<li>Expected: Act 1 (H) Super A Desecrated | Found: Act 1 (H) Super B Desecrated</li>
+<li>Expected: 17 | Found: 5</li>
+<li>Expected: 9 | Found: 7</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Council Desecrated A | Found: </li>
+<li>Expected: Council (N) Desecrated A | Found: </li>
+<li>Expected: Council (H) Desecrated A | Found: Council (H) Desecrated</li>
+<li>Expected: 17 | Found: 30</li>
+<li>Expected: Act 2 Super C | Found: Act 3 Super A</li>
+<li>Expected: Act 2 (N) Super C | Found: Act 3 (N) Super A</li>
+<li>Expected: Act 2 (H) Super C | Found: Act 3 (H) Super A</li>
+<li>Expected: Act 2 (H) Super C Desecrated | Found: Act 3 (H) Super A Desecrated</li>
+<li>Expected: Act 1 Super A | Found: Act 1 Super B</li>
+<li>Expected: Act 1 (N) Super A | Found: Act 1 (N) Super B</li>
+<li>Expected: Act 1 (H) Super A | Found: Act 1 (H) Super B</li>
+<li>Expected: Act 1 (H) Super A Desecrated | Found: Act 1 (H) Super B Desecrated</li>
+<li>Expected: Act 1 Super A | Found: Act 1 Super B</li>
+<li>Expected: Act 1 (N) Super A | Found: Act 1 (N) Super B</li>
+<li>Expected: Act 1 (H) Super A | Found: Act 1 (H) Super B</li>
+<li>Expected: Act 1 (H) Super A Desecrated | Found: Act 1 (H) Super B Desecrated</li>
+<li>Expected: 17 | Found: 7</li>
+<li>Expected: Act 2 Super B | Found: Act 2 Super C</li>
+<li>Expected: Act 2 (N) Super B | Found: Act 2 (N) Super C</li>
+<li>Expected: Act 2 (H) Super B | Found: Act 2 (H) Super C</li>
+<li>Expected: Act 2 (H) Super B Desecrated | Found: Act 2 (H) Super C Desecrated</li>
+<li>Expected:  | Found: Ancient Barb</li>
+<li>Expected:  | Found: Ancient Barb (N)</li>
+<li>Expected:  | Found: Ancient Barb (H)</li>
+<li>Expected:  | Found: Ancient Barb (H)</li>
+<li>Expected:  | Found: Ancient Barb</li>
+<li>Expected:  | Found: Ancient Barb (N)</li>
+<li>Expected:  | Found: Ancient Barb (H)</li>
+<li>Expected:  | Found: Ancient Barb (H)</li>
+<li>Expected: Act 2 Super B | Found: Act 2 Super C</li>
+<li>Expected: Act 2 (N) Super B | Found: Act 2 (N) Super C</li>
+<li>Expected: Act 2 (H) Super B | Found: Act 2 (H) Super C</li>
+<li>Expected: Act 2 (H) Super B Desecrated | Found: Act 2 (H) Super C Desecrated</li>
+<li>Expected: 18 | Found: 27</li>
+<li>Expected: Act 1 Super B | Found: Act 2 Super A</li>
+<li>Expected: Act 1 (N) Super B | Found: Act 2 (N) Super A</li>
+<li>Expected: Act 1 (H) Super B | Found: Act 2 (H) Super A</li>
+<li>Expected: Act 1 (H) Super B Desecrated | Found: Act 2 (H) Super A Desecrated</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: Council Desecrated A | Found: </li>
+<li>Expected: Council (N) Desecrated A | Found: </li>
+<li>Expected: Council (H) Desecrated A | Found: Council (H) Desecrated</li>
+<li>Expected: Act 2 Super B | Found: Act 2 Super C</li>
+<li>Expected: Act 2 (N) Super B | Found: Act 2 (N) Super C</li>
+<li>Expected: Act 2 (H) Super B | Found: Act 2 (H) Super C</li>
+<li>Expected: Act 2 (H) Super B Desecrated | Found: Act 2 (H) Super C Desecrated</li>
+<li>Expected: 18 | Found: 27</li>
+<li>Expected: Act 5 Super C | Found: Act 5 Super B</li>
+<li>Expected: Act 5 (N) Super C | Found: Act 5 (N) Super B</li>
+<li>Expected: Act 5 (H) Super C | Found: Act 5 (H) Super B</li>
+<li>Expected: Act 5 (H) Super C Desecrated | Found: Act 5 (H) Super B Desecrated</li>
+<li>Expected: Act 3 Super A | Found: Act 3 Super B</li>
+<li>Expected: Act 3 (N) Super A | Found: Act 3 (N) Super B</li>
+<li>Expected: Act 3 (H) Super A | Found: Act 3 (H) Super B</li>
+<li>Expected: Act 3 (H) Super A Desecrated | Found: Act 3 (H) Super B Desecrated</li>
+<li>Expected: 9 | Found: 29</li>
+<li>Expected: Act 1 Unique C | Found: Act 2 Super A</li>
+<li>Expected: Act 1 (N) Unique C | Found: Act 2 (N) Super A</li>
+<li>Expected: Act 1 (H) Unique C | Found: Act 2 (H) Super A</li>
+<li>Expected: Act 1 (H) Unique C Desecrated | Found: Act 2 (H) Super A Desecrated</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: Council Desecrated A | Found: </li>
+<li>Expected: Council (N) Desecrated A | Found: </li>
+<li>Expected: Council (H) Desecrated A | Found: Council (H) Desecrated</li>
+<li>Expected: 9 | Found: 7</li>
+<li>Expected: Countess Desecrated A | Found: </li>
+<li>Expected: Countess (N) Desecrated A | Found: </li>
+<li>Expected: Countess (H) Desecrated A | Found: Countess (H) Desecrated</li>
+<li>Expected: cowking | Found: hellbovine</li>
+<li>Expected: 17 | Found: 5</li>
+<li>Expected: Cow King Desecrated A | Found: </li>
+<li>Expected: Cow King (N) Desecrated A | Found: </li>
+<li>Expected: Cow King (H) Desecrated A | Found: Cow King (H) Desecrated</li>
+<li>Expected: 9 | Found: 29</li>
+<li>Expected: 17 | Found: 27</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Council Desecrated A | Found: </li>
+<li>Expected: Council (N) Desecrated A | Found: </li>
+<li>Expected: Council (H) Desecrated A | Found: Council (H) Desecrated</li>
+<li>Expected: Act 5 Super B | Found: Act 5 Super A</li>
+<li>Expected: Act 5 (N) Super B | Found: Act 5 (N) Super A</li>
+<li>Expected: Act 5 (H) Super B | Found: Act 5 (H) Super A</li>
+<li>Expected: Act 5 (H) Super B Desecrated | Found: Act 5 (H) Super A Desecrated</li>
+<li>Expected: Lord De Seis | Found: Black Jade</li>
+<li>Expected: doomknight3 | Found: hellspawn1</li>
+<li>Expected: 5 | Found: 29</li>
+<li>Expected: 24 | Found: 0</li>
+<li>Expected: Act 4 Super C | Found: Seal</li>
+<li>Expected: Act 4 (N) Super C | Found: Seal (N)</li>
+<li>Expected: Act 4 (H) Super C | Found: Seal (H)</li>
+<li>Expected: Act 4 (H) Super C Desecrated | Found: Seal (H) Desecrated</li>
+<li>Expected: pantherwoman1 | Found: bloodwitchthewild</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 0 | Found: 7</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: Act 2 Super A | Found: Bloodwitch the Wild</li>
+<li>Expected: Act 2 (N) Super A | Found: Bloodwitch the Wild (N)</li>
+<li>Expected: Act 2 (H) Super A | Found: Bloodwitch the Wild (H)</li>
+<li>Expected: Act 2 (H) Super A Desecrated | Found: Bloodwitch the Wild (H) Desecrated</li>
+<li>Expected: Act 3 Super A | Found: Act 3 Super B</li>
+<li>Expected: Act 3 (N) Super A | Found: Act 3 (N) Super B</li>
+<li>Expected: Act 3 (H) Super A | Found: Act 3 (H) Super B</li>
+<li>Expected: Act 3 (H) Super A Desecrated | Found: Act 3 (H) Super B Desecrated</li>
+<li>Expected: 17 | Found: 25</li>
+<li>Expected: Baal Subject 2 | Found: Andariel</li>
+<li>Expected: unraveler5 | Found: andariel_throne</li>
+<li>Expected:  | Found: andariel</li>
+<li>Expected: 3 | Found: 8</li>
+<li>Expected: 3 | Found: 8</li>
+<li>Expected: Act 5 Champ C | Found: Andariel</li>
+<li>Expected: Act 5 (N) Champ C | Found: Andariel (N)</li>
+<li>Expected: Act 5 (H) Champ C | Found: Andariel (H)</li>
+<li>Expected: Act 5 (H) Champ C Desecrated | Found: Andariel (H) Desecrated</li>
+<li>Expected: 9 | Found: 27</li>
+<li>Expected: Act 2 Super B | Found: Act 2 Super C</li>
+<li>Expected: Act 2 (N) Super B | Found: Act 2 (N) Super C</li>
+<li>Expected: Act 2 (H) Super B | Found: Act 2 (H) Super C</li>
+<li>Expected: Act 2 (H) Super B Desecrated | Found: Act 2 (H) Super C Desecrated</li>
+<li>Expected: Baal Subject 3 | Found: Duriel</li>
+<li>Expected: baalhighpriest | Found: duriel_throne</li>
+<li>Expected:  | Found: duriel</li>
+<li>Expected: 17 | Found: 7</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: 5 | Found: 6</li>
+<li>Expected: Act 5 Champ C | Found: Duriel</li>
+<li>Expected: Act 5 (N) Champ C | Found: Duriel (N)</li>
+<li>Expected: Act 5 (H) Champ C | Found: Duriel (H)</li>
+<li>Expected: Act 5 (H) Champ C Desecrated | Found: Duriel (H) Desecrated</li>
+<li>Expected: Radament Desecrated A | Found: </li>
+<li>Expected: Radament (N) Desecrated A | Found: </li>
+<li>Expected: Radament (H) Desecrated A | Found: Radament (H) Desecrated</li>
+<li>Expected: Baal Subject 4 | Found: Mephisto Tamer</li>
+<li>Expected: venomlord | Found: mephistotamer</li>
+<li>Expected: 8 | Found: 1</li>
+<li>Expected: 8 | Found: 1</li>
+<li>Expected: Act 5 Champ C | Found: Act 5 Super C</li>
+<li>Expected: Act 5 (N) Champ C | Found: Act 5 (N) Super C</li>
+<li>Expected: Act 5 (H) Champ C | Found: Act 5 (H) Super C</li>
+<li>Expected: Act 5 (H) Champ C Desecrated | Found: Act 5 (H) Super C Desecrated</li>
+<li>Expected: Baal Subject 5 | Found: Diablo</li>
+<li>Expected: baalminion1 | Found: diablo</li>
+<li>Expected:  | Found: diablo</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: Act 5 Champ C | Found: Diablo</li>
+<li>Expected: Act 5 (N) Champ C | Found: Diablo (N)</li>
+<li>Expected: Act 5 (H) Champ C | Found: Diablo (H)</li>
+<li>Expected: Act 5 (H) Champ C Desecrated | Found: Diablo (H) Desecrated</li>
+<li>Expected: corruptrogue5 | Found: sarinasmaiden</li>
+<li>Expected: Act 3 Super B | Found: Sarina</li>
+<li>Expected: Act 3 (N) Super B | Found: Sarina (N)</li>
+<li>Expected: Act 3 (H) Super B | Found: Sarina (H)</li>
+<li>Expected: Act 3 (H) Super B Desecrated | Found: Sarina (H) Desecrated</li>
+<li>Expected: darkelder | Found: hellbovine4</li>
+<li>Expected: Act 2 Super B | Found: Cow King</li>
+<li>Expected: Act 2 (N) Super B | Found: Cow King (N)</li>
+<li>Expected: Act 2 (H) Super B | Found: Cow King (H)</li>
+<li>Expected: Act 2 (H) Super B Desecrated | Found: Cow King (H) Desecrated</li>
+<li>Expected: 9 | Found: 30</li>
+<li>Expected: Baal Subject 1 | Found: Lister the Tormentor</li>
+<li>Expected: fallenshaman5 | Found: baalminion1</li>
+<li>Expected: 9 | Found: 5</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: 5 | Found: 8</li>
+<li>Expected: Act 5 Champ C | Found: Act 5 Super C</li>
+<li>Expected: Act 5 (N) Champ C | Found: Act 5 (N) Super C</li>
+<li>Expected: Act 5 (H) Champ C | Found: Act 5 (H) Super C</li>
+<li>Expected: Act 5 (H) Champ C Desecrated | Found: Act 5 (H) Super C Desecrated</li>
+<li>Expected: Act 1 Super B | Found: Treehead WoodFist</li>
+<li>Expected: Act 1 (N) Super B | Found: Treehead WoodFist (N)</li>
+<li>Expected: Act 1 (H) Super B | Found: Treehead WoodFist (H)</li>
+<li>Expected: Act 1 (H) Super B Desecrated | Found: Treehead WoodFist (H) Desecrated</li>
+<li>Expected: Summoner Desecrated A | Found: </li>
+<li>Expected: Summoner (N) Desecrated A | Found: </li>
+<li>Expected: Summoner (H) Desecrated A | Found: Summoner (H) Desecrated</li>
+<li>Expected: Act 5 Super B | Found: Act 5 Super A</li>
+<li>Expected: Act 5 (N) Super B | Found: Act 5 (N) Super A</li>
+<li>Expected: Act 5 (H) Super B | Found: Act 5 (H) Super A</li>
+<li>Expected: Act 5 (H) Super B Desecrated | Found: Act 5 (H) Super A Desecrated</li>
+<li>Expected: Griswold Desecrated A | Found: </li>
+<li>Expected: Griswold (N) Desecrated A | Found: </li>
+<li>Expected: Griswold (H) Desecrated A | Found: Griswold (H) Desecrated</li>
+<li>Expected: smith | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: Smith | Found: Act 2 Super A</li>
+<li>Expected: Smith Desecrated A | Found: </li>
+<li>Expected: Smith (N) | Found: Act 2 (N) Super A</li>
+<li>Expected: Smith (N) Desecrated A | Found: </li>
+<li>Expected: Smith (H) | Found: Act 2 (H) Super A</li>
+<li>Expected: Smith (H) Desecrated A | Found: Act 2 (H) Super A Desecrated</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: Council Desecrated A | Found: </li>
+<li>Expected: Council (N) Desecrated A | Found: </li>
+<li>Expected: Council (H) Desecrated A | Found: Council (H) Desecrated</li>
+</ul>
+</div>
+</body>
+</html>

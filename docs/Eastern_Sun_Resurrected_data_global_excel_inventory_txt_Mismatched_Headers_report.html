@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/inventory.txt (344)</summary>
+<ul>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: -1 | Found: 320</li>
+<li>Expected: -1 | Found: 640</li>
+<li>Expected: -1 | Found: 0</li>
+<li>Expected: -1 | Found: 441</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: -1 | Found: 339</li>
+<li>Expected: -1 | Found: 626</li>
+<li>Expected: -1 | Found: 211</li>
+<li>Expected: -1 | Found: 441</li>
+<li>Expected: 20 | Found: 340</li>
+<li>Expected: 75 | Found: 395</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 133 | Found: 453</li>
+<li>Expected: 189 | Found: 509</li>
+<li>Expected: 251 | Found: 566</li>
+<li>Expected: 306 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 135 | Found: 455</li>
+<li>Expected: 189 | Found: 509</li>
+<li>Expected: -1 | Found: 529</li>
+<li>Expected: -1 | Found: 552</li>
+<li>Expected: -1 | Found: 35</li>
+<li>Expected: -1 | Found: 59</li>
+<li>Expected: -1 | Found: 23</li>
+<li>Expected: -1 | Found: 24</li>
+<li>Expected: -1 | Found: 415</li>
+<li>Expected: -1 | Found: 438</li>
+<li>Expected: -1 | Found: 180</li>
+<li>Expected: -1 | Found: 204</li>
+<li>Expected: -1 | Found: 23</li>
+<li>Expected: -1 | Found: 24</li>
+<li>Expected: -1 | Found: 529</li>
+<li>Expected: -1 | Found: 552</li>
+<li>Expected: -1 | Found: 180</li>
+<li>Expected: -1 | Found: 204</li>
+<li>Expected: -1 | Found: 23</li>
+<li>Expected: -1 | Found: 24</li>
+<li>Expected: -1 | Found: 456</li>
+<li>Expected: -1 | Found: 508</li>
+<li>Expected: -1 | Found: 179</li>
+<li>Expected: -1 | Found: 204</li>
+<li>Expected: -1 | Found: 52</li>
+<li>Expected: -1 | Found: 25</li>
+<li>Expected: -1 | Found: 572</li>
+<li>Expected: -1 | Found: 626</li>
+<li>Expected: -1 | Found: 155</li>
+<li>Expected: -1 | Found: 207</li>
+<li>Expected: -1 | Found: 54</li>
+<li>Expected: -1 | Found: 52</li>
+<li>Expected: -1 | Found: 341</li>
+<li>Expected: -1 | Found: 395</li>
+<li>Expected: -1 | Found: 153</li>
+<li>Expected: -1 | Found: 205</li>
+<li>Expected: -1 | Found: 54</li>
+<li>Expected: -1 | Found: 53</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 10 | Found: 13</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 4 | Found: 13</li>
+<li>Expected: 10 | Found: 16</li>
+<li>Expected: 10 | Found: 13</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: 3 | Found: 16</li>
+<li>Expected: 4 | Found: 13</li>
+<li>Expected: 198 | Found: 97</li>
+<li>Expected: 285 | Found: 382</li>
+<li>Expected: 199 | Found: 75</li>
+<li>Expected: 313 | Found: 304</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 4 | Found: 13</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+<li>Expected: -1 | Found: 400</li>
+<li>Expected: -1 | Found: 720</li>
+<li>Expected: -1 | Found: 60</li>
+<li>Expected: -1 | Found: 501</li>
+<li>Expected: -1 | Found: 10</li>
+<li>Expected: -1 | Found: 8</li>
+<li>Expected: -1 | Found: 419</li>
+<li>Expected: -1 | Found: 706</li>
+<li>Expected: -1 | Found: 271</li>
+<li>Expected: -1 | Found: 501</li>
+<li>Expected: 100 | Found: 420</li>
+<li>Expected: 155 | Found: 475</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 213 | Found: 533</li>
+<li>Expected: 269 | Found: 589</li>
+<li>Expected: 331 | Found: 646</li>
+<li>Expected: 386 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 215 | Found: 535</li>
+<li>Expected: 269 | Found: 589</li>
+<li>Expected: -1 | Found: 609</li>
+<li>Expected: -1 | Found: 632</li>
+<li>Expected: -1 | Found: 95</li>
+<li>Expected: -1 | Found: 119</li>
+<li>Expected: -1 | Found: 23</li>
+<li>Expected: -1 | Found: 24</li>
+<li>Expected: -1 | Found: 495</li>
+<li>Expected: -1 | Found: 518</li>
+<li>Expected: -1 | Found: 240</li>
+<li>Expected: -1 | Found: 264</li>
+<li>Expected: -1 | Found: 23</li>
+<li>Expected: -1 | Found: 24</li>
+<li>Expected: -1 | Found: 609</li>
+<li>Expected: -1 | Found: 632</li>
+<li>Expected: -1 | Found: 240</li>
+<li>Expected: -1 | Found: 264</li>
+<li>Expected: -1 | Found: 23</li>
+<li>Expected: -1 | Found: 24</li>
+<li>Expected: -1 | Found: 536</li>
+<li>Expected: -1 | Found: 588</li>
+<li>Expected: -1 | Found: 239</li>
+<li>Expected: -1 | Found: 264</li>
+<li>Expected: -1 | Found: 52</li>
+<li>Expected: -1 | Found: 25</li>
+<li>Expected: -1 | Found: 652</li>
+<li>Expected: -1 | Found: 706</li>
+<li>Expected: -1 | Found: 217</li>
+<li>Expected: -1 | Found: 269</li>
+<li>Expected: -1 | Found: 54</li>
+<li>Expected: -1 | Found: 52</li>
+<li>Expected: -1 | Found: 421</li>
+<li>Expected: -1 | Found: 475</li>
+<li>Expected: -1 | Found: 215</li>
+<li>Expected: -1 | Found: 268</li>
+<li>Expected: -1 | Found: 54</li>
+<li>Expected: -1 | Found: 53</li>
+<li>Expected: 3 | Found: 16</li>
+<li>Expected: 4 | Found: 13</li>
+<li>Expected: 118 | Found: 16</li>
+<li>Expected: 205 | Found: 303</li>
+<li>Expected: 139 | Found: 16</li>
+<li>Expected: 253 | Found: 254</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 255 | Found: 211</li>
+<li>Expected: 368 | Found: 441</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 571 | Found: 566</li>
+<li>Expected: 626 | Found: 621</li>
+<li>Expected: 47 | Found: 27</li>
+<li>Expected: 159 | Found: 139</li>
+<li>Expected: 182 | Found: 155</li>
+<li>Expected: 234 | Found: 207</li>
+<li>Expected: 181 | Found: 153</li>
+<li>Expected: 234 | Found: 205</li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: 315 | Found: 271</li>
+<li>Expected: 428 | Found: 501</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 651 | Found: 646</li>
+<li>Expected: 706 | Found: 701</li>
+<li>Expected: 107 | Found: 89</li>
+<li>Expected: 219 | Found: 201</li>
+<li>Expected: 242 | Found: 217</li>
+<li>Expected: 294 | Found: 269</li>
+<li>Expected: 241 | Found: 215</li>
+<li>Expected: 294 | Found: 268</li>
+</ul>
+</div>
+</body>
+</html>

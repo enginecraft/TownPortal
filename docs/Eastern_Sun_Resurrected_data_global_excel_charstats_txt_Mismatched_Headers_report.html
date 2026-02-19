@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/charstats.txt (274)</summary>
+<ul>
+<li>Expected: 15 | Found: 35</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 100</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 6 | Found: 20</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 20 | Found: 4</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: 100 | Found: 125</li>
+<li>Expected: clb | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: buc | Found: hp1</li>
+<li>Expected: larm | Found: </li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: hp1 | Found: elk</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: tsc | Found: ag8</li>
+<li>Expected: isc | Found: tbk</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcy</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 30 | Found: 35</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 50</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 8 | Found: 36</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 16 | Found: 4</li>
+<li>Expected: 25 | Found: 5</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: 200 | Found: 150</li>
+<li>Expected: hax | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: buc | Found: hp1</li>
+<li>Expected: larm | Found: </li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: hp1 | Found: elk</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: tsc | Found: ag8</li>
+<li>Expected: isc | Found: tbk</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcv</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 75</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 8 | Found: 28</li>
+<li>Expected: 5 | Found: 2</li>
+<li>Expected: 6 | Found: 12</li>
+<li>Expected: 12 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 7 | Found: 4</li>
+<li>Expected: 25 | Found: 5</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: 150 | Found: 125</li>
+<li>Expected: ktr | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: buc | Found: hp1</li>
+<li>Expected: larm | Found: </li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: hp1 | Found: elk</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: tsc | Found: ag8</li>
+<li>Expected: isc | Found: tbk</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: tkf</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcr</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 125</li>
+<li>Expected: -15 | Found: 5</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 4 | Found: 12</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 8 | Found: 28</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 20 | Found: 4</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: fire bolt | Found: </li>
+<li>Expected: sst | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: tsc | Found: elk</li>
+<li>Expected: isc | Found: ag8</li>
+<li>Expected: 0 | Found: tbk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcb</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 25 | Found: 30</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 75</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 8 | Found: 32</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 12 | Found: 4</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: 30 | Found: 6</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: 150 | Found: 125</li>
+<li>Expected: ssd | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: buc | Found: hp1</li>
+<li>Expected: larm | Found: </li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: hp1 | Found: elk</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: tsc | Found: ag8</li>
+<li>Expected: isc | Found: tbk</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: aq2</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcw</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 125</li>
+<li>Expected: -10 | Found: 5</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 6 | Found: 24</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 20 | Found: 4</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: raise skeleton | Found: </li>
+<li>Expected: wnd | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: tsc | Found: elk</li>
+<li>Expected: isc | Found: ag8</li>
+<li>Expected: 0 | Found: tbk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: skc</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 25 | Found: 40</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 120 | Found: 75</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 8 | Found: 32</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 12 | Found: 4</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: 25 | Found: 5</li>
+<li>Expected: 12 | Found: 0</li>
+<li>Expected: 150 | Found: 125</li>
+<li>Expected: jav | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: buc | Found: hp1</li>
+<li>Expected: larm | Found: </li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: hp1 | Found: elk</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: tsc | Found: ag8</li>
+<li>Expected: isc | Found: tbk</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcg</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: aq2</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 25 | Found: 30</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 6 | Found: 9</li>
+<li>Expected: 9 | Found: 13</li>
+<li>Expected: 8 | Found: 24</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 6 | Found: 16</li>
+<li>Expected: 12 | Found: 4</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 25 | Found: 4</li>
+<li>Expected: Miasma Bolt | Found: </li>
+<li>Expected: dgr | Found: box</li>
+<li>Expected: rarm | Found: </li>
+<li>Expected: 4 | Found: 8</li>
+<li>Expected: tsc | Found: elk</li>
+<li>Expected: isc | Found: ag8</li>
+<li>Expected: 0 | Found: tbk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: ibk</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: tkf</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: gcr</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: u22</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: </li>
+</ul>
+</div>
+</body>
+</html>

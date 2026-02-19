@@ -144,8 +144,8 @@ public class HtmlReportUtil {
 
         // Table styling
         sb.append(".table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }\n");
-        sb.append("table { width: 100%; border-collapse: collapse; background-color: #ffffff; }\n");
-        sb.append("th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }\n");
+        sb.append("table { width: auto; table-layout: auto; border-collapse: collapse; background-color: #ffffff; }\n");
+        sb.append("th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; white-space: nowrap; }\n");
         sb.append("th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }\n");
         sb.append("tr:nth-child(even) { background-color: #f9f9f9; }\n");
         sb.append("tr:hover { background-color: #e0f7ff; cursor: pointer; }\n");
@@ -194,7 +194,7 @@ public class HtmlReportUtil {
     }
 
     private static void appendItems(Path outputPath, String fileName, String category, String ref, StringBuilder sb, List<Difference> items) throws IOException {
-        if (items.isEmpty() || items.get(0).rowZero() == null) return;
+        if (items.isEmpty() || items.getFirst().rowZero() == null) return;
 
         if (items.size() > 100) {
             String subReportFileName = fileName + "_" + ref.replaceAll("[^a-zA-Z0-9]", "_") + "_" + category.replaceAll("[^a-zA-Z0-9]", "_") + "_report.html";
@@ -210,7 +210,7 @@ public class HtmlReportUtil {
 
     private static void generateItemDetails(String category, String ref, StringBuilder sb, List<Difference> items, boolean isLazy) {
         if (isLazy) sb.append("<details>\n");
-        sb.append("<summary>").append(escape(ref)).append(" (").append(items.size()).append(")</summary>\n");
+        if (!category.equals("Mismatched Rows")) sb.append("<summary>").append(escape(ref)).append(" (").append(items.size()).append(")</summary>\n");
 
         switch (category) {
             case "Missing Headers":
@@ -238,9 +238,7 @@ public class HtmlReportUtil {
                 break;
 
             case "Mismatched Rows":
-                if (isLazy) sb.append("<div class='lazy'>\n");
-                sb.append(renderMismatchedTable(items));
-                if (isLazy) sb.append("</div>\n");
+                sb.append(renderMismatchedTable(ref, items, isLazy));
                 break;
         }
 
@@ -275,12 +273,14 @@ public class HtmlReportUtil {
         sb.append("<div class='table-container'>\n");
         sb.append("<table>");
         sb.append("<thead><tr>");
+        sb.append("<th>").append(escape("index")).append("</th>");
         for (String h : items.getFirst().rowZero()) sb.append("<th>").append(escape(h)).append("</th>");
         sb.append("</tr></thead><tbody>");
 
         for (Difference item : items) {
             String[] row = item.rowA() == null ? item.rowB() : item.rowA();
             sb.append("<tr>");
+            sb.append("<td>").append(item.rIndex()).append("</td>");
             for (String col : row) {
                 sb.append("<td>").append(escape(col)).append("</td>");
             }
@@ -291,26 +291,39 @@ public class HtmlReportUtil {
         return sb.toString();
     }
 
-    private static String renderMismatchedTable(List<Difference> items) {
+    private static String renderMismatchedTable(String ref, List<Difference> items, boolean isLazy) {
+        Map<Integer, List<Difference>> grouped =
+                items.stream().collect(Collectors.groupingBy(
+                        Difference::rIndex,
+                        LinkedHashMap::new,
+                        Collectors.toList()
+                ));
 
         StringBuilder sb = new StringBuilder();
+        sb.append("<summary>").append(escape(ref)).append(" (").append(grouped.size()).append(")</summary>\n");
+        if (isLazy) sb.append("<div class='lazy'>\n");
         sb.append("<div class='table-container'>\n");
         sb.append("<table>");
         sb.append("<thead><tr>");
+        sb.append("<th>").append(escape("index")).append("</th>");
         for (String h : items.getFirst().rowZero()) sb.append("<th>").append(escape(h)).append("</th>");
         sb.append("</tr></thead><tbody>");
 
-        items.forEach((item) -> {
+        for (List<Difference> mismatches : grouped.values()) {
+            Difference item = mismatches.getFirst();
             String[] aCols = item.rowA();
             String[] bCols = item.rowB();
 
+            List<Integer> errors = mismatches.stream()
+                    .map(Difference::cIndex)
+                    .toList();
+
             // Extracted (green)
             sb.append("<tr style='background-color:#c8e6c9;'>");
+            sb.append("<td>").append(item.rIndex()).append("</td>");
             for (int i = 0; i < aCols.length; i++) {
                 String val = escape(aCols[i]);
-                boolean diff = i < bCols.length &&
-                        !aCols[i].equals(bCols[i]);
-                if (diff)
+                if (errors.contains(i))
                     sb.append("<td style='background-color:#fff176;'>").append(val).append("</td>");
                 else
                     sb.append("<td>").append(val).append("</td>");
@@ -319,19 +332,19 @@ public class HtmlReportUtil {
 
             // Mod (red)
             sb.append("<tr style='background-color:#ffebee;'>");
+            sb.append("<td>").append(item.rIndex()).append("</td>");
             for (int i = 0; i < bCols.length; i++) {
                 String val = escape(bCols[i]);
-                boolean diff = i < aCols.length &&
-                        !bCols[i].equals(aCols[i]);
-                if (diff)
+                if (errors.contains(i))
                     sb.append("<td style='background-color:#fff176;'>").append(val).append("</td>");
                 else
                     sb.append("<td>").append(val).append("</td>");
             }
             sb.append("</tr>");
-        });
+        }
 
         sb.append("</tbody></table>\n</div>\n");
+        if (isLazy) sb.append("</div>\n");
         return sb.toString();
     }
 

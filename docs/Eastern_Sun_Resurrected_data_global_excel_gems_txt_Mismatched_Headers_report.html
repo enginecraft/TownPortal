@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/gems.txt (1236)</summary>
+<ul>
+<li>Expected: r12L | Found: r62l</li>
+<li>Expected: r12 | Found: r62</li>
+<li>Expected: 9 | Found: 15</li>
+<li>Expected: 9 | Found: 15</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: r04L | Found: r54l</li>
+<li>Expected: r04 | Found: r54</li>
+<li>Expected: 30 | Found: 100</li>
+<li>Expected: 30 | Found: 100</li>
+<li>Expected: 30 | Found: 100</li>
+<li>Expected: 30 | Found: 100</li>
+<li>Expected: r27L | Found: r77l</li>
+<li>Expected: r27 | Found: r77</li>
+<li>Expected: 50 | Found: 65</li>
+<li>Expected: 50 | Found: 65</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: fire-min | Found: dmg-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 15</li>
+<li>Expected: fire-max | Found: heal-kill</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected:  | Found: dmg-demon</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: deadly</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected:  | Found: balance1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected:  | Found: abs-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 14 | Found: 13</li>
+<li>Expected: ltng-min | Found: dmg-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 1 | Found: 100</li>
+<li>Expected: ltng-max | Found: slow</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 30 | Found: 8</li>
+<li>Expected: 30 | Found: 8</li>
+<li>Expected:  | Found: light-thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: gold%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected:  | Found: abs-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected:  | Found: res-ltng-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: dmg-undead | Found: dmg-norm</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 34 | Found: 2</li>
+<li>Expected: 34 | Found: 4</li>
+<li>Expected:  | Found: dmg-mag</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 12</li>
+<li>Expected:  | Found: dmg-undead</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: att | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected:  | Found: reduce-ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: dmg-to-mana</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 80 | Found: 90</li>
+<li>Expected: 80 | Found: 90</li>
+<li>Expected:  | Found: swing1</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected:  | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 18 | Found: 90</li>
+<li>Expected: 18 | Found: 90</li>
+<li>Expected:  | Found: block</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: r16L | Found: r66l</li>
+<li>Expected: r16 | Found: r66</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: r08L | Found: r58l</li>
+<li>Expected: r08 | Found: r58</li>
+<li>Expected: 5 | Found: 40</li>
+<li>Expected: 30 | Found: 80</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: r07L | Found: r57l</li>
+<li>Expected: r07 | Found: r57</li>
+<li>Expected: 154 | Found: 768</li>
+<li>Expected: 154 | Found: 768</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: swing1</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected:  | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 60</li>
+<li>Expected: 12 | Found: 60</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: r09L | Found: r59l</li>
+<li>Expected: r09 | Found: r59</li>
+<li>Expected: 50 | Found: 125</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: dmg-undead | Found: dmg-norm</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 54 | Found: 6</li>
+<li>Expected: 54 | Found: 12</li>
+<li>Expected:  | Found: dmg-mag</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: dmg-undead</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 60</li>
+<li>Expected: 0 | Found: 60</li>
+<li>Expected: att | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected:  | Found: reduce-ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 14</li>
+<li>Expected: 0 | Found: 14</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: dmg-to-mana</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: r22L | Found: r72l</li>
+<li>Expected: r22 | Found: r72</li>
+<li>Expected: openwounds | Found: res-all</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: 15 | Found: 25</li>
+<li>Expected: 15 | Found: 25</li>
+<li>Expected: 22 | Found: 25</li>
+<li>Expected: 22 | Found: 25</li>
+<li>Expected: r28L | Found: r78l</li>
+<li>Expected: r28 | Found: r78</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: gpv | Found: gvb</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 150 | Found: 180</li>
+<li>Expected: 150 | Found: 180</li>
+<li>Expected:  | Found: swing2</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: 30</li>
+<li>Expected:  | Found: thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 200</li>
+<li>Expected: 0 | Found: 200</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 12</li>
+<li>Expected: 0 | Found: 12</li>
+<li>Expected:  | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 12</li>
+<li>Expected: 0 | Found: 12</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 30 | Found: 180</li>
+<li>Expected: 30 | Found: 180</li>
+<li>Expected:  | Found: block</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: r31L | Found: r81l</li>
+<li>Expected: r31 | Found: r81</li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 50 | Found: 75</li>
+<li>Expected: 50 | Found: 75</li>
+<li>Expected: r20L | Found: r70l</li>
+<li>Expected: r20 | Found: r70</li>
+<li>Expected: 75 | Found: 55</li>
+<li>Expected: 75 | Found: 55</li>
+<li>Expected: 50 | Found: 55</li>
+<li>Expected: 50 | Found: 55</li>
+<li>Expected: 50 | Found: 55</li>
+<li>Expected: 50 | Found: 55</li>
+<li>Expected: gpg | Found: ggb</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 143 | Found: 1024</li>
+<li>Expected: 143 | Found: 2048</li>
+<li>Expected: pois-max | Found: regen</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 143 | Found: 100</li>
+<li>Expected: 143 | Found: 100</li>
+<li>Expected: pois-len | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 179 | Found: 20</li>
+<li>Expected: 179 | Found: 20</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected:  | Found: att%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 40 | Found: 60</li>
+<li>Expected: 40 | Found: 60</li>
+<li>Expected:  | Found: res-pois-len</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected:  | Found: res-pois-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: r32L | Found: r82l</li>
+<li>Expected: r32 | Found: r82</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: r14L | Found: r64l</li>
+<li>Expected: r14 | Found: r64</li>
+<li>Expected: howl | Found: regen</li>
+<li>Expected: 32 | Found: 200</li>
+<li>Expected: 32 | Found: 200</li>
+<li>Expected: 7 | Found: 15</li>
+<li>Expected: 7 | Found: 15</li>
+<li>Expected: 7 | Found: 15</li>
+<li>Expected: 7 | Found: 15</li>
+<li>Expected: 3 | Found: 2</li>
+<li>Expected: skz | Found: skb</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 3 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected:  | Found: dmg-min</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 5 | Found: 50</li>
+<li>Expected: 5 | Found: 50</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 19 | Found: 30</li>
+<li>Expected: 19 | Found: 30</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: thorns | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 20 | Found: 12</li>
+<li>Expected: 20 | Found: 12</li>
+<li>Expected:  | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 120</li>
+<li>Expected: 0 | Found: 120</li>
+<li>Expected:  | Found: red-dmg%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: r33L | Found: r83l</li>
+<li>Expected: r33 | Found: r83</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 51 | Found: 102</li>
+<li>Expected: 51 | Found: 204</li>
+<li>Expected: pois-max | Found: regen</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 51 | Found: 20</li>
+<li>Expected: 51 | Found: 20</li>
+<li>Expected: pois-len | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 100 | Found: 8</li>
+<li>Expected: 100 | Found: 8</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected: 4 | Found: 10</li>
+<li>Expected:  | Found: att%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected:  | Found: res-pois-len</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected:  | Found: res-pois-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: r19L | Found: r69l</li>
+<li>Expected: r19 | Found: r69</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: r24L | Found: r74l</li>
+<li>Expected: r24 | Found: r74</li>
+<li>Expected: 30 | Found: 35</li>
+<li>Expected: 30 | Found: 35</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: 25 | Found: 35</li>
+<li>Expected: r18L | Found: r19L</li>
+<li>Expected: r18 | Found: r19</li>
+<li>Expected: dex | Found: str</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: dex | Found: str</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: dex | Found: str</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: r15L | Found: r65l</li>
+<li>Expected: r15 | Found: r65</li>
+<li>Expected: -20 | Found: -25</li>
+<li>Expected: -20 | Found: -25</li>
+<li>Expected: -15 | Found: -25</li>
+<li>Expected: -15 | Found: -25</li>
+<li>Expected: -15 | Found: -25</li>
+<li>Expected: -15 | Found: -25</li>
+<li>Expected: r26L | Found: r76l</li>
+<li>Expected: r26 | Found: r76</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: fire-min | Found: dmg-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 5 | Found: 15</li>
+<li>Expected: 5 | Found: 25</li>
+<li>Expected: fire-max | Found: heal-kill</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected:  | Found: dmg-demon</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 17 | Found: 20</li>
+<li>Expected: 17 | Found: 20</li>
+<li>Expected:  | Found: deadly</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected:  | Found: balance1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected:  | Found: abs-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected:  | Found: res-fire-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: r30L | Found: r80l</li>
+<li>Expected: r30 | Found: r80</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: 8 | Found: 12</li>
+<li>Expected: r21L | Found: r71l</li>
+<li>Expected: r21 | Found: r71</li>
+<li>Expected: 100 | Found: 125</li>
+<li>Expected: 100 | Found: 125</li>
+<li>Expected: 75 | Found: 125</li>
+<li>Expected: 75 | Found: 125</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected: 30 | Found: 40</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected: gpr | Found: grb</li>
+<li>Expected: fire-min | Found: dmg-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 15 | Found: 120</li>
+<li>Expected: 15 | Found: 225</li>
+<li>Expected: fire-max | Found: heal-kill</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 20 | Found: 12</li>
+<li>Expected: 20 | Found: 12</li>
+<li>Expected:  | Found: dmg-demon</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 38 | Found: 60</li>
+<li>Expected: 38 | Found: 60</li>
+<li>Expected:  | Found: deadly</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected:  | Found: balance1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 40 | Found: 60</li>
+<li>Expected: 40 | Found: 60</li>
+<li>Expected:  | Found: abs-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected:  | Found: res-fire-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 34 | Found: 77</li>
+<li>Expected: 34 | Found: 102</li>
+<li>Expected: pois-max | Found: regen</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 34 | Found: 10</li>
+<li>Expected: 34 | Found: 10</li>
+<li>Expected: pois-len | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 75 | Found: 5</li>
+<li>Expected: 75 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected:  | Found: att%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected:  | Found: res-pois-len</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: gpy | Found: gyb</li>
+<li>Expected: ltng-min | Found: dmg-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 1 | Found: 350</li>
+<li>Expected: ltng-max | Found: slow</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 40 | Found: 12</li>
+<li>Expected: 40 | Found: 12</li>
+<li>Expected:  | Found: light-thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 200</li>
+<li>Expected: 0 | Found: 200</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected:  | Found: gold%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 40 | Found: 60</li>
+<li>Expected: 40 | Found: 60</li>
+<li>Expected:  | Found: abs-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected:  | Found: res-ltng-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: r05L | Found: r55l</li>
+<li>Expected: r05 | Found: r55</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 18 | Found: 17</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 100 | Found: 120</li>
+<li>Expected: 100 | Found: 120</li>
+<li>Expected:  | Found: swing1</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected:  | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 24 | Found: 120</li>
+<li>Expected: 24 | Found: 120</li>
+<li>Expected:  | Found: block</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 14</li>
+<li>Expected: 0 | Found: 14</li>
+<li>Expected: r11L | Found: r61l</li>
+<li>Expected: r11 | Found: r61</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 7 | Found: 10</li>
+<li>Expected: 14 | Found: 300</li>
+<li>Expected: 14 | Found: 300</li>
+<li>Expected: 14 | Found: 300</li>
+<li>Expected: 14 | Found: 300</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: dmg-min</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected: 8 | Found: 10</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: thorns | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected: 8 | Found: 4</li>
+<li>Expected:  | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 40</li>
+<li>Expected: 0 | Found: 40</li>
+<li>Expected:  | Found: red-dmg%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: r01L | Found: r51l</li>
+<li>Expected: r01 | Found: r51</li>
+<li>Expected: light | Found: dmg%</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: 1 | Found: 30</li>
+<li>Expected: att | Found: </li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: 50 | Found: </li>
+<li>Expected: light | Found: ac</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: ac | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: light | Found: ac</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: 1 | Found: 50</li>
+<li>Expected: ac | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: 15 | Found: </li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 82 | Found: 204</li>
+<li>Expected: 82 | Found: 256</li>
+<li>Expected: pois-max | Found: regen</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 82 | Found: 40</li>
+<li>Expected: 82 | Found: 40</li>
+<li>Expected: pois-len | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 125 | Found: 11</li>
+<li>Expected: 125 | Found: 11</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected: 6 | Found: 15</li>
+<li>Expected:  | Found: att%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 22 | Found: 30</li>
+<li>Expected: 22 | Found: 30</li>
+<li>Expected:  | Found: res-pois-len</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected:  | Found: res-pois-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: gpw | Found: gwb</li>
+<li>Expected: dmg-undead | Found: dmg-norm</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 68 | Found: 10</li>
+<li>Expected: 68 | Found: 20</li>
+<li>Expected:  | Found: dmg-mag</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected:  | Found: 100</li>
+<li>Expected:  | Found: dmg-undead</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: 0 | Found: 100</li>
+<li>Expected: att | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 100 | Found: 120</li>
+<li>Expected: 100 | Found: 120</li>
+<li>Expected:  | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected:  | Found: reduce-ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 19 | Found: 20</li>
+<li>Expected: 19 | Found: 20</li>
+<li>Expected:  | Found: dmg-to-mana</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 12</li>
+<li>Expected: 0 | Found: 12</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: pois-min | Found: dmg-pois</li>
+<li>Expected: 0 | Found: 50</li>
+<li>Expected: 101 | Found: 256</li>
+<li>Expected: 101 | Found: 512</li>
+<li>Expected: pois-max | Found: regen</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 101 | Found: 60</li>
+<li>Expected: 101 | Found: 60</li>
+<li>Expected: pois-len | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 152 | Found: 14</li>
+<li>Expected: 152 | Found: 14</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected:  | Found: att%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 14</li>
+<li>Expected: 0 | Found: 14</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected:  | Found: res-pois-len</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected: 0 | Found: 30</li>
+<li>Expected:  | Found: res-pois-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: fire-min | Found: dmg-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 20</li>
+<li>Expected: 8 | Found: 40</li>
+<li>Expected: fire-max | Found: heal-kill</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 6</li>
+<li>Expected: 12 | Found: 6</li>
+<li>Expected:  | Found: dmg-demon</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 45</li>
+<li>Expected: 0 | Found: 45</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected: 24 | Found: 30</li>
+<li>Expected:  | Found: deadly</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected:  | Found: balance1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 22 | Found: 30</li>
+<li>Expected: 22 | Found: 30</li>
+<li>Expected:  | Found: abs-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected:  | Found: res-fire-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: r13L | Found: r63l</li>
+<li>Expected: r13 | Found: r63</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: 20 | Found: 25</li>
+<li>Expected: r03L | Found: r53l</li>
+<li>Expected: r03 | Found: r53</li>
+<li>Expected: 2 | Found: 7</li>
+<li>Expected: 2 | Found: 7</li>
+<li>Expected: 2 | Found: 7</li>
+<li>Expected: 2 | Found: 7</li>
+<li>Expected: 2 | Found: 7</li>
+<li>Expected: 2 | Found: 7</li>
+<li>Expected: 8 | Found: 9</li>
+<li>Expected: fire-min | Found: dmg-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 10 | Found: 30</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: fire-max | Found: heal-kill</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 16 | Found: 8</li>
+<li>Expected: 16 | Found: 8</li>
+<li>Expected:  | Found: dmg-demon</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 60</li>
+<li>Expected: 0 | Found: 60</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 31 | Found: 40</li>
+<li>Expected: 31 | Found: 40</li>
+<li>Expected:  | Found: deadly</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected:  | Found: balance1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected: 28 | Found: 40</li>
+<li>Expected:  | Found: abs-fire</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected:  | Found: res-fire-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 40 | Found: 30</li>
+<li>Expected: 40 | Found: 30</li>
+<li>Expected:  | Found: swing1</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected:  | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 30</li>
+<li>Expected: 8 | Found: 30</li>
+<li>Expected:  | Found: block2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: r29L | Found: r79l</li>
+<li>Expected: r29 | Found: r79</li>
+<li>Expected: stupidity | Found: slow</li>
+<li>Expected: 1 | Found: 18</li>
+<li>Expected: 1 | Found: 18</li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 5 | Found: 18</li>
+<li>Expected: 50 | Found: 75</li>
+<li>Expected: 50 | Found: 75</li>
+<li>Expected: r17L | Found: r67l</li>
+<li>Expected: r17 | Found: r67</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: 10 | Found: 60</li>
+<li>Expected: dmg-undead | Found: dmg-norm</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 44 | Found: 4</li>
+<li>Expected: 44 | Found: 8</li>
+<li>Expected:  | Found: dmg-mag</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: dmg-undead</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 45</li>
+<li>Expected: 0 | Found: 45</li>
+<li>Expected: att | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected:  | Found: reduce-ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: 11</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: dmg-to-mana</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected: 0 | Found: 25</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected: 3 | Found: 4</li>
+<li>Expected:  | Found: dmg-min</li>
+<li>Expected:  | Found: 9</li>
+<li>Expected:  | Found: 9</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: 30</li>
+<li>Expected: 4 | Found: 30</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected: 12 | Found: 20</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: thorns | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 16 | Found: 8</li>
+<li>Expected: 16 | Found: 8</li>
+<li>Expected:  | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 80</li>
+<li>Expected: 0 | Found: 80</li>
+<li>Expected:  | Found: red-dmg%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: 0 | Found: 6</li>
+<li>Expected: r23L | Found: r73l</li>
+<li>Expected: r23 | Found: r73</li>
+<li>Expected: noheal | Found: red-mag</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 1 | Found: 20</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: 7 | Found: 18</li>
+<li>Expected: ltng-min | Found: dmg-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 1 | Found: 40</li>
+<li>Expected: ltng-max | Found: slow</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 14 | Found: 4</li>
+<li>Expected: 14 | Found: 4</li>
+<li>Expected:  | Found: light-thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 13 | Found: 10</li>
+<li>Expected: 13 | Found: 10</li>
+<li>Expected:  | Found: gold%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: 10</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected: 16 | Found: 20</li>
+<li>Expected:  | Found: abs-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected:  | Found: res-ltng-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: r10L | Found: r60l</li>
+<li>Expected: r10 | Found: r60</li>
+<li>Expected: 3 | Found: 35</li>
+<li>Expected: 14 | Found: 75</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 30 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: 35 | Found: 45</li>
+<li>Expected: dmg-undead | Found: dmg-norm</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 28 | Found: 1</li>
+<li>Expected: 28 | Found: 2</li>
+<li>Expected:  | Found: dmg-mag</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: dmg-undead</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: att | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: crush</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected:  | Found: reduce-ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 6 | Found: 5</li>
+<li>Expected: 6 | Found: 5</li>
+<li>Expected:  | Found: dmg-to-mana</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected:  | Found: red-dmg</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: r06L | Found: r56l</li>
+<li>Expected: r06 | Found: r56</li>
+<li>Expected: 9 | Found: 15</li>
+<li>Expected: 9 | Found: 15</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 15 | Found: 50</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 2 | Found: 3</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected:  | Found: dmg-min</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 3 | Found: 20</li>
+<li>Expected: 3 | Found: 20</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected: 12 | Found: 15</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: 0 | Found: 8</li>
+<li>Expected: thorns | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 6</li>
+<li>Expected: 12 | Found: 6</li>
+<li>Expected:  | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 60</li>
+<li>Expected: 0 | Found: 60</li>
+<li>Expected:  | Found: red-dmg%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: dmg-min</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 2 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 5</li>
+<li>Expected: 8 | Found: 5</li>
+<li>Expected:  | Found: move1</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: 0 | Found: 4</li>
+<li>Expected: thorns | Found: red-mag</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected: 4 | Found: 2</li>
+<li>Expected:  | Found: ac</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected:  | Found: red-dmg%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: 0 | Found: 2</li>
+<li>Expected: ltng-min | Found: dmg-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 1 | Found: 25</li>
+<li>Expected: ltng-max | Found: slow</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 8 | Found: 2</li>
+<li>Expected: 8 | Found: 2</li>
+<li>Expected:  | Found: light-thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 9 | Found: 5</li>
+<li>Expected: 9 | Found: 5</li>
+<li>Expected:  | Found: gold%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected: 12 | Found: 10</li>
+<li>Expected:  | Found: abs-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: r25L | Found: r75l</li>
+<li>Expected: r25 | Found: r75</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 20 | Found: 30</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: 5 | Found: 4</li>
+<li>Expected: r02L | Found: r52l</li>
+<li>Expected: r02 | Found: r52</li>
+<li>Expected: 50 | Found: 100</li>
+<li>Expected: 50 | Found: 100</li>
+<li>Expected: 75 | Found: 100</li>
+<li>Expected: 75 | Found: 100</li>
+<li>Expected: stamdrain | Found: move1</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: 15 | Found: 20</li>
+<li>Expected: 7 | Found: 3</li>
+<li>Expected: 7 | Found: 3</li>
+<li>Expected: ltng-min | Found: dmg-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 1 | Found: 60</li>
+<li>Expected: ltng-max | Found: slow</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 22 | Found: 6</li>
+<li>Expected: 22 | Found: 6</li>
+<li>Expected:  | Found: light-thorns</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 16 | Found: 15</li>
+<li>Expected: 16 | Found: 15</li>
+<li>Expected:  | Found: gold%</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: 15</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 22 | Found: 30</li>
+<li>Expected: 22 | Found: 30</li>
+<li>Expected:  | Found: abs-ltng</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected: 0 | Found: 5</li>
+<li>Expected:  | Found: res-ltng-max</li>
+<li>Expected: 0 | Found: </li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+</ul>
+</div>
+</body>
+</html>

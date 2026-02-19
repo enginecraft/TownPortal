@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/hireling.txt (204)</summary>
+<ul>
+<li>Expected: 2hs-Normal | Found: 1hs-Normal</li>
+<li>Expected: 28 | Found: 30</li>
+<li>Expected: 9000 | Found: 2250</li>
+<li>Expected: 120 | Found: 65</li>
+<li>Expected: 288 | Found: 350</li>
+<li>Expected: 14 | Found: 25</li>
+<li>Expected: 180 | Found: 250</li>
+<li>Expected: 7 | Found: 30</li>
+<li>Expected: 101 | Found: 88</li>
+<li>Expected: 15 | Found: 18</li>
+<li>Expected: 63 | Found: 62</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 150 | Found: 175</li>
+<li>Expected: 17 | Found: 15</li>
+<li>Expected: 16 | Found: 10</li>
+<li>Expected: 20 | Found: 18</li>
+<li>Expected: 6 | Found: 8</li>
+<li>Expected: 56 | Found: 77</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 56 | Found: 77</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 56 | Found: 77</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected: 56 | Found: 77</li>
+<li>Expected: 7 | Found: 6</li>
+<li>Expected:  | Found: def</li>
+<li>Expected: 50 | Found: 25</li>
+<li>Expected: Bash | Found: Shout</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: 4 | Found: 1</li>
+<li>Expected: Stun | Found: Battle Command</li>
+<li>Expected: 15 | Found: 5</li>
+<li>Expected: 3 | Found: 1</li>
+<li>Expected: 8 | Found: 6</li>
+<li>Expected:  | Found: Battle Orders</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 6</li>
+<li>Expected:  | Found: Stun</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: Concentrate</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 25</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected: Fire - Normal | Found: Elemental - Normal</li>
+<li>Expected: 3 | Found: 10</li>
+<li>Expected: 100 | Found: 25</li>
+<li>Expected: 100 | Found: 65</li>
+<li>Expected: 45 | Found: 350</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 15 | Found: 250</li>
+<li>Expected: 6 | Found: 30</li>
+<li>Expected: 35 | Found: 40</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 45 | Found: 50</li>
+<li>Expected: 16 | Found: 18</li>
+<li>Expected: 10 | Found: 50</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 3 | Found: 7</li>
+<li>Expected: 2 | Found: 6</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: 0 | Found: 20</li>
+<li>Expected: strhirespecial1 | Found: farw</li>
+<li>Expected: 75 | Found: 110</li>
+<li>Expected: Inner Sight | Found: Immolation Arrow</li>
+<li>Expected: 10 | Found: 70</li>
+<li>Expected: 1 | Found: 3</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: Fire Arrow | Found: Ice Arrow</li>
+<li>Expected: 25 | Found: 50</li>
+<li>Expected: 8 | Found: 0</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected:  | Found: Freezing Arrow</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 60</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 2</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: Inner Sight</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: Sharpened Focus</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: Pierce</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected: 15 | Found: 25</li>
+<li>Expected: 1000 | Found: 250</li>
+<li>Expected: 110 | Found: 65</li>
+<li>Expected: 160 | Found: 350</li>
+<li>Expected: 8 | Found: 25</li>
+<li>Expected: 80 | Found: 250</li>
+<li>Expected: 4 | Found: 30</li>
+<li>Expected: 49 | Found: 50</li>
+<li>Expected: 10 | Found: 14</li>
+<li>Expected: 8 | Found: 16</li>
+<li>Expected: 15 | Found: 120</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected: 1 | Found: 6</li>
+<li>Expected: 7 | Found: 11</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 25 | Found: 45</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 25 | Found: 45</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 25 | Found: 45</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 25 | Found: 45</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: strhirespecial7 | Found: fire</li>
+<li>Expected: 10 | Found: 1</li>
+<li>Expected: Inferno | Found: Fire Damage Aura</li>
+<li>Expected: 7 | Found: 1</li>
+<li>Expected: 60 | Found: 10</li>
+<li>Expected: 6 | Found: 4</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: Fire Ball | Found: Firestorm</li>
+<li>Expected: 30 | Found: 50</li>
+<li>Expected: 4 | Found: 6</li>
+<li>Expected: 10 | Found: 12</li>
+<li>Expected:  | Found: Volcano</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 10</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 15</li>
+<li>Expected:  | Found: Flameburst</li>
+<li>Expected:  | Found: 7</li>
+<li>Expected:  | Found: 50</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 5</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 5 | Found: 1</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected:  | Found: sor</li>
+<li>Expected: 9 | Found: 20</li>
+<li>Expected: 350 | Found: 87</li>
+<li>Expected: 110 | Found: 65</li>
+<li>Expected: 120 | Found: 350</li>
+<li>Expected: 15 | Found: 25</li>
+<li>Expected: 45 | Found: 250</li>
+<li>Expected: 11 | Found: 30</li>
+<li>Expected: 57 | Found: 65</li>
+<li>Expected: 14 | Found: 16</li>
+<li>Expected: 40 | Found: 45</li>
+<li>Expected: 12 | Found: 14</li>
+<li>Expected: 20 | Found: 180</li>
+<li>Expected: 7 | Found: 8</li>
+<li>Expected: 4 | Found: 7</li>
+<li>Expected: 18 | Found: 40</li>
+<li>Expected: 18 | Found: 40</li>
+<li>Expected: 18 | Found: 40</li>
+<li>Expected: 18 | Found: 40</li>
+<li>Expected: skillname99 | Found: comb</li>
+<li>Expected: 30 | Found: 25</li>
+<li>Expected: Jab | Found: Might</li>
+<li>Expected: 14 | Found: 1</li>
+<li>Expected: 70 | Found: 20</li>
+<li>Expected: 4 | Found: 0</li>
+<li>Expected: 3 | Found: 8</li>
+<li>Expected: 10 | Found: 15</li>
+<li>Expected: Prayer | Found: Fend</li>
+<li>Expected: 1 | Found: 4</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected: 3 | Found: 5</li>
+<li>Expected: 10 | Found: 20</li>
+<li>Expected:  | Found: Spearstorm</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 3</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected:  | Found: Dance of Death</li>
+<li>Expected:  | Found: 4</li>
+<li>Expected:  | Found: 40</li>
+<li>Expected:  | Found: 0</li>
+<li>Expected:  | Found: 8</li>
+<li>Expected:  | Found: 20</li>
+<li>Expected: 15 | Found: 10</li>
+<li>Expected:  | Found: pal</li>
+</ul>
+</div>
+</body>
+</html>

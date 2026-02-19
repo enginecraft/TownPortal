@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/monstats2.txt (342)</summary>
+<ul>
+<li>Expected: 511 | Found: 512</li>
+<li>Expected: 498 | Found: 499</li>
+<li>Expected: 499 | Found: 500</li>
+<li>Expected: 497 | Found: 498</li>
+<li>Expected: 556 | Found: 557</li>
+<li>Expected:  | Found: 410</li>
+<li>Expected: 500 | Found: 501</li>
+<li>Expected: 566 | Found: 567</li>
+<li>Expected: 565 | Found: 566</li>
+<li>Expected: 562 | Found: 563</li>
+<li>Expected: 564 | Found: 565</li>
+<li>Expected: 563 | Found: 564</li>
+<li>Expected: 586 | Found: 587</li>
+<li>Expected: 587 | Found: 588</li>
+<li>Expected: 588 | Found: 589</li>
+<li>Expected: 525 | Found: 526</li>
+<li>Expected: 524 | Found: 525</li>
+<li>Expected: 557 | Found: 558</li>
+<li>Expected: 559 | Found: 560</li>
+<li>Expected: 585 | Found: 586</li>
+<li>Expected: 468 | Found: 469</li>
+<li>Expected: 466 | Found: 467</li>
+<li>Expected: 413 | Found: 414</li>
+<li>Expected: 467 | Found: 468</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 464 | Found: 465</li>
+<li>Expected: 465 | Found: 466</li>
+<li>Expected: 462 | Found: 463</li>
+<li>Expected: 463 | Found: 464</li>
+<li>Expected: 461 | Found: 462</li>
+<li>Expected: 428 | Found: 429</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 574 | Found: 575</li>
+<li>Expected: 514 | Found: 515</li>
+<li>Expected: 528 | Found: 529</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 596 | Found: 597</li>
+<li>Expected: 595 | Found: 596</li>
+<li>Expected: 542 | Found: 543</li>
+<li>Expected: 597 | Found: 598</li>
+<li>Expected: 421 | Found: 422</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 594 | Found: 595</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 541 | Found: 542</li>
+<li>Expected: 540 | Found: 541</li>
+<li>Expected: 529 | Found: 530</li>
+<li>Expected: 530 | Found: 531</li>
+<li>Expected: 531 | Found: 532</li>
+<li>Expected: 522 | Found: 523</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 532 | Found: 533</li>
+<li>Expected: 453 | Found: 454</li>
+<li>Expected: 533 | Found: 534</li>
+<li>Expected: 561 | Found: 562</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 560 | Found: 561</li>
+<li>Expected: 0 | Found: 3</li>
+<li>Expected: 457 | Found: 458</li>
+<li>Expected: 449 | Found: 450</li>
+<li>Expected: 543 | Found: 544</li>
+<li>Expected: 456 | Found: 457</li>
+<li>Expected: 455 | Found: 456</li>
+<li>Expected: 454 | Found: 455</li>
+<li>Expected: 446 | Found: 447</li>
+<li>Expected: 447 | Found: 448</li>
+<li>Expected: 448 | Found: 449</li>
+<li>Expected: 583 | Found: 584</li>
+<li>Expected: 582 | Found: 583</li>
+<li>Expected: 581 | Found: 582</li>
+<li>Expected: 580 | Found: 581</li>
+<li>Expected: 707 | Found: 606</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 550 | Found: 551</li>
+<li>Expected: 548 | Found: 549</li>
+<li>Expected: 549 | Found: 550</li>
+<li>Expected: 546 | Found: 547</li>
+<li>Expected: 547 | Found: 548</li>
+<li>Expected: 523 | Found: 524</li>
+<li>Expected: 535 | Found: 536</li>
+<li>Expected: 521 | Found: 522</li>
+<li>Expected: 536 | Found: 537</li>
+<li>Expected: 704 | Found: 605</li>
+<li>Expected: 570 | Found: 571</li>
+<li>Expected: 555 | Found: 556</li>
+<li>Expected: 554 | Found: 555</li>
+<li>Expected: 553 | Found: 554</li>
+<li>Expected: 552 | Found: 553</li>
+<li>Expected: 551 | Found: 552</li>
+<li>Expected: 571 | Found: 572</li>
+<li>Expected: 572 | Found: 573</li>
+<li>Expected: 513 | Found: 514</li>
+<li>Expected: 573 | Found: 574</li>
+<li>Expected: 427 | Found: 428</li>
+<li>Expected: 512 | Found: 513</li>
+<li>Expected: 526 | Found: 527</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 435 | Found: 436</li>
+<li>Expected: 484 | Found: 485</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 737 | Found: 613</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 545 | Found: 546</li>
+<li>Expected: 584 | Found: 585</li>
+<li>Expected: 599 | Found: 600</li>
+<li>Expected: 600 | Found: 601</li>
+<li>Expected: 601 | Found: 602</li>
+<li>Expected: 602 | Found: 603</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 736 | Found: 612</li>
+<li>Expected: 422 | Found: 423</li>
+<li>Expected: 492 | Found: 493</li>
+<li>Expected: 411 | Found: 412</li>
+<li>Expected: lit | Found: </li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: 8</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 1 | Found: 14</li>
+<li>Expected:  | Found: 9</li>
+<li>Expected: 494 | Found: 495</li>
+<li>Expected: 493 | Found: 494</li>
+<li>Expected: 496 | Found: 497</li>
+<li>Expected: 495 | Found: 496</li>
+<li>Expected: 491 | Found: 492</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 460 | Found: 461</li>
+<li>Expected: 489 | Found: 490</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 459 | Found: 460</li>
+<li>Expected: 490 | Found: 491</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 458 | Found: 459</li>
+<li>Expected: 487 | Found: 488</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 488 | Found: 489</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 485 | Found: 486</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 486 | Found: 487</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 706 | Found: 607</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 415 | Found: 416</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 508 | Found: 509</li>
+<li>Expected: 481 | Found: 482</li>
+<li>Expected: 509 | Found: 510</li>
+<li>Expected: 482 | Found: 483</li>
+<li>Expected: 510 | Found: 511</li>
+<li>Expected: 483 | Found: 484</li>
+<li>Expected: 506 | Found: 507</li>
+<li>Expected: 507 | Found: 508</li>
+<li>Expected: 734 | Found: 610</li>
+<li>Expected: 591 | Found: 592</li>
+<li>Expected: 590 | Found: 591</li>
+<li>Expected: 430 | Found: 431</li>
+<li>Expected: 479 | Found: 480</li>
+<li>Expected: 480 | Found: 481</li>
+<li>Expected: 579 | Found: 580</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 593 | Found: 594</li>
+<li>Expected: 592 | Found: 593</li>
+<li>Expected: 478 | Found: 479</li>
+<li>Expected: 477 | Found: 478</li>
+<li>Expected: 476 | Found: 477</li>
+<li>Expected: 475 | Found: 476</li>
+<li>Expected: 474 | Found: 475</li>
+<li>Expected: 439 | Found: 440</li>
+<li>Expected: 440 | Found: 441</li>
+<li>Expected: 437 | Found: 438</li>
+<li>Expected: 438 | Found: 439</li>
+<li>Expected: 603 | Found: 604</li>
+<li>Expected: 436 | Found: 437</li>
+<li>Expected: 735 | Found: 611</li>
+<li>Expected: 419 | Found: 420</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 0 | Found: 1</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 516 | Found: 517</li>
+<li>Expected: 517 | Found: 518</li>
+<li>Expected: 518 | Found: 519</li>
+<li>Expected: 417 | Found: 418</li>
+<li>Expected: 519 | Found: 520</li>
+<li>Expected: 416 | Found: 417</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 425 | Found: 426</li>
+<li>Expected: 434 | Found: 435</li>
+<li>Expected: 450 | Found: 451</li>
+<li>Expected: 708 | Found: 608</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected: 452 | Found: 453</li>
+<li>Expected: 451 | Found: 452</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 738 | Found: 614</li>
+<li>Expected: 1 | Found: </li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 418 | Found: 419</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 414 | Found: 415</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 426 | Found: 427</li>
+<li>Expected: 423 | Found: 424</li>
+<li>Expected: 412 | Found: 413</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 520 | Found: 521</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 589 | Found: 590</li>
+<li>Expected: 537 | Found: 538</li>
+<li>Expected: 538 | Found: 539</li>
+<li>Expected: 539 | Found: 540</li>
+<li>Expected: 534 | Found: 535</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 598 | Found: 599</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 420 | Found: 421</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 2 | Found: 1</li>
+<li>Expected: 544 | Found: 545</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 424 | Found: 425</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 709 | Found: 609</li>
+<li>Expected: 569 | Found: 570</li>
+<li>Expected: 502 | Found: 503</li>
+<li>Expected: 568 | Found: 569</li>
+<li>Expected: 503 | Found: 504</li>
+<li>Expected: 567 | Found: 568</li>
+<li>Expected: 504 | Found: 505</li>
+<li>Expected: 505 | Found: 506</li>
+<li>Expected: 501 | Found: 502</li>
+<li>Expected: 473 | Found: 474</li>
+<li>Expected: 472 | Found: 473</li>
+<li>Expected: 471 | Found: 472</li>
+<li>Expected: 470 | Found: 471</li>
+<li>Expected: 431 | Found: 432</li>
+<li>Expected: 469 | Found: 470</li>
+<li>Expected: 432 | Found: 433</li>
+<li>Expected: 433 | Found: 434</li>
+<li>Expected: 441 | Found: 442</li>
+<li>Expected: 443 | Found: 444</li>
+<li>Expected: 442 | Found: 443</li>
+<li>Expected: 445 | Found: 446</li>
+<li>Expected: 410 | Found: 411</li>
+<li>Expected: 444 | Found: 445</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 527 | Found: 528</li>
+<li>Expected: 429 | Found: 430</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 575 | Found: 576</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 576 | Found: 577</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 577 | Found: 578</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 578 | Found: 579</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected: 515 | Found: 516</li>
+<li>Expected: 558 | Found: 559</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+<li>Expected:  | Found: 1</li>
+</ul>
+</div>
+</body>
+</html>

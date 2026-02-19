@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Comparison Report</title>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fa; color: #333; margin: 0; padding: 0; }
+h1, h2, p { margin: 0; padding: 0; }
+h1 { font-size: 2.5em; color: #2d87f0; text-align: center; padding-top: 30px; }
+h2 { font-size: 1.8em; margin: 20px 0 10px; color: #333; }
+p { font-size: 1.1em; line-height: 1.6; color: #666; text-align: center; }
+details { background: #ffffff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 15px; }
+summary { font-size: 1.2em; font-weight: bold; color: #2d87f0; cursor: pointer; }
+summary:hover { color: #155ba4; }
+.table-container { max-height: 350px; overflow-y: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; background-color: #ffffff; }
+th, td { padding: 10px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #3c8dbc; color: white; position: sticky; top: 0; z-index: 10; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7ff; cursor: pointer; }
+#spinner-container { text-align:center; margin-top:40px; }
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid #6cf;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#content { display: none; padding: 30px; }
+.lazy { display: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('summary').forEach(s => {
+    s.addEventListener('click', () => {
+      const div = s.nextElementSibling;
+      if(div && div.classList.contains('lazy')) {
+         div.style.display = 'block';
+         div.classList.remove('lazy');
+      }
+    });
+  });
+});
+window.onload = function() {
+  document.getElementById('spinner-container').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
+</head>
+<body>
+<h1>Library Comparison Report</h1>
+<h2 style="margin-left: 25px;">Results</h2><div id='spinner-container'>
+  <div class='spinner'></div>
+  <div style='margin-top: 10px; color: #999;'>Loading report...</div>
+</div>
+<div id='content'>
+<summary>data/global/excel/overlay.txt (132)</summary>
+<ul>
+<li>Expected: 274 | Found: 275</li>
+<li>Expected: 225 | Found: 226</li>
+<li>Expected: 259 | Found: 260</li>
+<li>Expected: xxx | Found: 190</li>
+<li>Expected: 251 | Found: 252</li>
+<li>Expected: 250 | Found: 251</li>
+<li>Expected: 249 | Found: 250</li>
+<li>Expected: 278 | Found: 279</li>
+<li>Expected: 209 | Found: 210</li>
+<li>Expected: 203 | Found: 204</li>
+<li>Expected: 283 | Found: 284</li>
+<li>Expected: 254 | Found: 255</li>
+<li>Expected: 281 | Found: 282</li>
+<li>Expected: 263 | Found: 264</li>
+<li>Expected: 262 | Found: 263</li>
+<li>Expected: 264 | Found: 265</li>
+<li>Expected: 193 | Found: 194</li>
+<li>Expected: 261 | Found: 262</li>
+<li>Expected: 260 | Found: 261</li>
+<li>Expected: 272 | Found: 273</li>
+<li>Expected: 257 | Found: 258</li>
+<li>Expected: 196 | Found: 197</li>
+<li>Expected: 226 | Found: 227</li>
+<li>Expected: 275 | Found: 276</li>
+<li>Expected: 241 | Found: 242</li>
+<li>Expected: 219 | Found: 220</li>
+<li>Expected: 239 | Found: 240</li>
+<li>Expected: 240 | Found: 241</li>
+<li>Expected: 216 | Found: 217</li>
+<li>Expected: 208 | Found: 209</li>
+<li>Expected: AuraResistColdCast | Found: ShockHitSm</li>
+<li>Expected: 11 | Found: 20</li>
+<li>Expected: 1 | Found: 0</li>
+<li>Expected: 24 | Found: 16</li>
+<li>Expected: 1 | Found: 11</li>
+<li>Expected: 6 | Found: 11</li>
+<li>Expected: 81 | Found: 255</li>
+<li>Expected: 81 | Found: 255</li>
+<li>Expected: FrozenArmor | Found: ShockHitSm</li>
+<li>Expected: 24 | Found: 20</li>
+<li>Expected: 16 | Found: 5</li>
+<li>Expected: 200 | Found: 81</li>
+<li>Expected: 200 | Found: 81</li>
+<li>Expected: 255 | Found: 81</li>
+<li>Expected: 243 | Found: 244</li>
+<li>Expected: 229 | Found: 230</li>
+<li>Expected: 205 | Found: 206</li>
+<li>Expected: 279 | Found: 280</li>
+<li>Expected: 248 | Found: 249</li>
+<li>Expected: 192 | Found: 193</li>
+<li>Expected: 284 | Found: 285</li>
+<li>Expected: 273 | Found: 274</li>
+<li>Expected: 265 | Found: 266</li>
+<li>Expected: 266 | Found: 267</li>
+<li>Expected: 210 | Found: 211</li>
+<li>Expected: 204 | Found: 205</li>
+<li>Expected: 190 | Found: 191</li>
+<li>Expected: 267 | Found: 268</li>
+<li>Expected: 268 | Found: 269</li>
+<li>Expected: ThunderstormCast | Found: firecast_for_sorceress</li>
+<li>Expected: 10 | Found: 14</li>
+<li>Expected: 269 | Found: 270</li>
+<li>Expected: 280 | Found: 281</li>
+<li>Expected: 227 | Found: 228</li>
+<li>Expected: 202 | Found: 203</li>
+<li>Expected: 214 | Found: 215</li>
+<li>Expected: 220 | Found: 221</li>
+<li>Expected: 223 | Found: 224</li>
+<li>Expected: 218 | Found: 219</li>
+<li>Expected: 271 | Found: 272</li>
+<li>Expected: 285 | Found: 286</li>
+<li>Expected: 228 | Found: 229</li>
+<li>Expected: 206 | Found: 207</li>
+<li>Expected: 198 | Found: 199</li>
+<li>Expected: null | Found: expansion\minionspawnover</li>
+<li>Expected: 2 | Found: 12</li>
+<li>Expected: 0 | Found: -17</li>
+<li>Expected: 16 | Found: 8</li>
+<li>Expected: 8 | Found: 1</li>
+<li>Expected: 256 | Found: 257</li>
+<li>Expected: 253 | Found: 254</li>
+<li>Expected: 200 | Found: 201</li>
+<li>Expected: 230 | Found: 231</li>
+<li>Expected: 232 | Found: 233</li>
+<li>Expected: 231 | Found: 232</li>
+<li>Expected: 258 | Found: 259</li>
+<li>Expected: 212 | Found: 213</li>
+<li>Expected: 276 | Found: 277</li>
+<li>Expected: AuraResistColdCast | Found: FireExplode</li>
+<li>Expected: 11 | Found: 12</li>
+<li>Expected: 282 | Found: 283</li>
+<li>Expected: 222 | Found: 223</li>
+<li>Expected: 215 | Found: 216</li>
+<li>Expected: 291 | Found: 292</li>
+<li>Expected: 290 | Found: 291</li>
+<li>Expected: ThunderstormCast_operate | Found: expansion\volcano_fire</li>
+<li>Expected: 19 | Found: 29</li>
+<li>Expected: 0 | Found: -100</li>
+<li>Expected: 292 | Found: 293</li>
+<li>Expected: FrozenArmor | Found: Expansion\On_Fire</li>
+<li>Expected: 24 | Found: 19</li>
+<li>Expected: 270 | Found: 271</li>
+<li>Expected: 211 | Found: 212</li>
+<li>Expected: 234 | Found: 235</li>
+<li>Expected: 235 | Found: 236</li>
+<li>Expected: 233 | Found: 234</li>
+<li>Expected: 238 | Found: 239</li>
+<li>Expected: 237 | Found: 238</li>
+<li>Expected: 236 | Found: 237</li>
+<li>Expected: 277 | Found: 278</li>
+<li>Expected: 255 | Found: 256</li>
+<li>Expected: 286 | Found: 287</li>
+<li>Expected: 199 | Found: 200</li>
+<li>Expected: 201 | Found: 202</li>
+<li>Expected: 194 | Found: 195</li>
+<li>Expected: 195 | Found: 196</li>
+<li>Expected: 221 | Found: 222</li>
+<li>Expected: 191 | Found: 192</li>
+<li>Expected: 207 | Found: 208</li>
+<li>Expected: 197 | Found: 198</li>
+<li>Expected: 288 | Found: 289</li>
+<li>Expected: 287 | Found: 288</li>
+<li>Expected: 289 | Found: 290</li>
+<li>Expected: 246 | Found: 247</li>
+<li>Expected: 217 | Found: 218</li>
+<li>Expected: 245 | Found: 246</li>
+<li>Expected: 244 | Found: 245</li>
+<li>Expected: 242 | Found: 243</li>
+<li>Expected: 252 | Found: 253</li>
+<li>Expected: 224 | Found: 225</li>
+<li>Expected: 213 | Found: 214</li>
+<li>Expected: 247 | Found: 248</li>
+</ul>
+</div>
+</body>
+</html>
