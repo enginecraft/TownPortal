@@ -271,11 +271,20 @@ public class HtmlReportUtil {
         }
         sb.append("<tbody>");
 
-        List<Integer> errors = items.stream()
-                .map(Difference::cIndex)
-                .toList();
+        Map<Integer, List<Difference>> grouped =
+                items.stream().collect(Collectors.groupingBy(
+                        Difference::rIndex,
+                        LinkedHashMap::new,
+                        Collectors.toList()
+                ));
 
-        for (Difference item : items) {
+        for (List<Difference> mismatches : grouped.values()) {
+            Difference item = mismatches.getFirst();
+
+            List<Integer> errors = mismatches.stream()
+                    .map(Difference::cIndex)
+                    .toList();
+
             boolean isRed = item.rowA() == null;
             String[] row = isRed ? item.rowB() : item.rowA();
             if (isRed) sb.append("<tr style='background-color:#ffebee;'>");
