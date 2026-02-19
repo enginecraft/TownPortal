@@ -8,7 +8,7 @@ public class ReportInfo {
         "\n* Unknown Headers/Rows - Information on if any of the library 'B' columns/rows are missing in library 'A'" +
         "\n* Mismatched Headers/Rows - Information on if library 'A' and library 'B' have different values on matched rows" +
         "\n* Color Codes - Green row symbolizes library 'A' reference. Red row symbolizes library 'B' reference. Yellow cell symbolizes value with issue." +
-        "\n* Large Quantity Dropdowns - These are actually links to sub pages in case the results exceed 100 for a file category, allowing for faster page load";
+        "\n* Large Quantity Dropdowns - Sub html pages incorporated when the results of a file drop down exceed 100, allowing for faster load time";
 
     public static final String RESULTS = "Results";
 }

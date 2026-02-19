@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class TownPortal {
     public static void main(String[] args) throws IOException {
-        LibraryService d2r = new LibraryService("D2R", Paths.get(".\\extracted\\91636"));
+        LibraryService d2r = new LibraryService("D2R (91636)", Paths.get(".\\extracted\\91636"));
         Map<String, String> modDirs = Map.of(
                 "Reimagined", "D:\\Diablo II Resurrected\\mods\\Reimagined\\Reimagined.mpq",
                 "Eastern_Sun_Resurrected", "C:\\D2RMM 1.8.0\\mods\\Eastern_Sun_Resurrected"
