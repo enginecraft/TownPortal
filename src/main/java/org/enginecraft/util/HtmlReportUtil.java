@@ -210,35 +210,24 @@ public class HtmlReportUtil {
 
     private static void generateItemDetails(String category, String ref, StringBuilder sb, List<Difference> items, boolean isLazy) {
         if (isLazy) sb.append("<details>\n");
-        if (!category.equals("Mismatched Rows")) sb.append("<summary>").append(escape(ref)).append(" (").append(items.size()).append(")</summary>\n");
 
         switch (category) {
             case "Missing Headers":
             case "Unknown Headers":
-                sb.append("<ul>\n");
-                for (Difference item : items) {
-                    sb.append("<li>").append(escape(item.valueA() == null ? item.valueB() : item.valueA())).append("</li>\n");
-                }
-                sb.append("</ul>\n");
+                sb.append(renderTable(ref, items, isLazy, false));
                 break;
 
             case "Mismatched Headers":
-                sb.append("<ul>\n");
-                for (Difference item : items) {
-                    sb.append("<li>Expected: ").append(escape(item.valueA())).append(" | Found: ").append(escape(item.valueB())).append("</li>\n");
-                }
-                sb.append("</ul>\n");
+                sb.append(renderMismatchedTable(ref, items, isLazy, false));
                 break;
 
             case "Missing Rows":
             case "Unknown Rows":
-                if (isLazy) sb.append("<div class='lazy'>\n");
-                sb.append(renderTable(items));
-                if (isLazy) sb.append("</div>\n");
+                sb.append(renderTable(ref, items, isLazy, true));
                 break;
 
             case "Mismatched Rows":
-                sb.append(renderMismatchedTable(ref, items, isLazy));
+                sb.append(renderMismatchedTable(ref, items, isLazy, true));
                 break;
         }
 
@@ -268,30 +257,44 @@ public class HtmlReportUtil {
         WriteUtil.writeFile(subReportPath, sb.toString());
     }
 
-    private static String renderTable(List<Difference> items) {
+    private static String renderTable(String ref, List<Difference> items, boolean isLazy, boolean useHeaders) {
         StringBuilder sb = new StringBuilder();
+        sb.append("<summary>").append(escape(ref)).append(" (").append(items.size()).append(")</summary>\n");
+        if (isLazy) sb.append("<div class='lazy'>\n");
         sb.append("<div class='table-container'>\n");
         sb.append("<table>");
-        sb.append("<thead><tr>");
-        sb.append("<th>").append(escape("index")).append("</th>");
-        for (String h : items.getFirst().rowZero()) sb.append("<th>").append(escape(h)).append("</th>");
-        sb.append("</tr></thead><tbody>");
+        if (useHeaders) {
+            sb.append("<thead><tr>");
+            sb.append("<th>").append(escape("index")).append("</th>");
+            for (String h : items.getFirst().rowZero()) sb.append("<th>").append(escape(h)).append("</th>");
+            sb.append("</tr></thead>");
+        }
+        sb.append("<tbody>");
+
+        List<Integer> errors = items.stream()
+                .map(Difference::cIndex)
+                .toList();
 
         for (Difference item : items) {
-            String[] row = item.rowA() == null ? item.rowB() : item.rowA();
-            sb.append("<tr>");
-            sb.append("<td>").append(item.rIndex()).append("</td>");
-            for (String col : row) {
-                sb.append("<td>").append(escape(col)).append("</td>");
+            boolean isRed = item.rowA() == null;
+            String[] row = isRed ? item.rowB() : item.rowA();
+            if (isRed) sb.append("<tr style='background-color:#ffebee;'>");
+            else sb.append("<tr style='background-color:#c8e6c9;'>");
+            if (useHeaders) sb.append("<td>").append(item.rIndex()).append("</td>");
+            for (int i = 0; i < row.length; i++) {
+                String val = escape(row[i]);
+                if (errors.contains(i)) sb.append("<td style='background-color:#fff176;'>").append(escape(val)).append("</td>");
+                else sb.append("<td>").append(escape(val)).append("</td>");
             }
             sb.append("</tr>");
         }
 
         sb.append("</tbody></table>\n</div>\n");
+        if (isLazy) sb.append("</div>\n");
         return sb.toString();
     }
 
-    private static String renderMismatchedTable(String ref, List<Difference> items, boolean isLazy) {
+    private static String renderMismatchedTable(String ref, List<Difference> items, boolean isLazy, boolean useHeaders) {
         Map<Integer, List<Difference>> grouped =
                 items.stream().collect(Collectors.groupingBy(
                         Difference::rIndex,
@@ -304,11 +307,14 @@ public class HtmlReportUtil {
         if (isLazy) sb.append("<div class='lazy'>\n");
         sb.append("<div class='table-container'>\n");
         sb.append("<table>");
-        sb.append("<thead><tr>");
-        sb.append("<th>").append(escape("index")).append("</th>");
-        for (String h : items.getFirst().rowZero()) sb.append("<th>").append(escape(h)).append("</th>");
-        sb.append("</tr></thead><tbody>");
+        if (useHeaders) {
+            sb.append("<thead><tr>");
+            sb.append("<th>").append(escape("index")).append("</th>");
+            for (String h : items.getFirst().rowZero()) sb.append("<th>").append(escape(h)).append("</th>");
+            sb.append("</tr></thead>");
+        }
 
+        sb.append("<tbody>");
         for (List<Difference> mismatches : grouped.values()) {
             Difference item = mismatches.getFirst();
             String[] aCols = item.rowA();
@@ -318,27 +324,23 @@ public class HtmlReportUtil {
                     .map(Difference::cIndex)
                     .toList();
 
-            // Extracted (green)
+            // Lib A (green)
             sb.append("<tr style='background-color:#c8e6c9;'>");
-            sb.append("<td>").append(item.rIndex()).append("</td>");
+            if (useHeaders) sb.append("<td>").append(item.rIndex()).append("</td>");
             for (int i = 0; i < aCols.length; i++) {
                 String val = escape(aCols[i]);
-                if (errors.contains(i))
-                    sb.append("<td style='background-color:#fff176;'>").append(val).append("</td>");
-                else
-                    sb.append("<td>").append(val).append("</td>");
+                if (errors.contains(i)) sb.append("<td style='background-color:#fff176;'>").append(val).append("</td>");
+                else sb.append("<td>").append(val).append("</td>");
             }
             sb.append("</tr>");
 
-            // Mod (red)
+            // Lib B (red)
             sb.append("<tr style='background-color:#ffebee;'>");
             sb.append("<td>").append(item.rIndex()).append("</td>");
             for (int i = 0; i < bCols.length; i++) {
                 String val = escape(bCols[i]);
-                if (errors.contains(i))
-                    sb.append("<td style='background-color:#fff176;'>").append(val).append("</td>");
-                else
-                    sb.append("<td>").append(val).append("</td>");
+                if (errors.contains(i)) sb.append("<td style='background-color:#fff176;'>").append(val).append("</td>");
+                else sb.append("<td>").append(val).append("</td>");
             }
             sb.append("</tr>");
         }
