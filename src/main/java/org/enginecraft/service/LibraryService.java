@@ -17,7 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -148,7 +147,7 @@ public class LibraryService {
             ps.executeBatch();
         }
 
-        log.info("Inserted {} rows into {}", count, tableName);
+        log.info("Merged {} rows into {}", count, tableName);
         return rows;
     }
 

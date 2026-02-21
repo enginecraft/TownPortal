@@ -12,11 +12,11 @@ import java.util.concurrent.CompletableFuture;
 
 public class TownPortal {
     public static void main(String[] args) throws Exception {
-        LibraryService d2r = new LibraryService("D2R (91636)", Paths.get(".\\extracted\\91636"));
+        LibraryService d2r = new LibraryService("D2R_91636", Paths.get(".\\extracted\\91636"));
         Map<String, String> modDirs = Map.of(
-                "D2R (77312)", ".\\extracted\\77312",
-                "Reimagined", "D:\\Diablo II Resurrected\\mods\\Reimagined\\Reimagined.mpq",
-                "Eastern_Sun_Resurrected", "C:\\D2RMM 1.8.0\\mods\\Eastern_Sun_Resurrected"
+                "D2R_77312", ".\\extracted\\77312"//,
+//                "Reimagined", "D:\\Diablo II Resurrected\\mods\\Reimagined\\Reimagined.mpq",
+//                "Eastern_Sun_Resurrected", "C:\\D2RMM 1.8.0\\mods\\Eastern_Sun_Resurrected"
         );
 
         final List<CompletableFuture<Void>> futures = new ArrayList<>();
