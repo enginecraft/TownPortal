@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class TownPortal {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         LibraryService d2r = new LibraryService("D2R (91636)", Paths.get(".\\extracted\\91636"));
         Map<String, String> modDirs = Map.of(
                 "D2R (77312)", ".\\extracted\\77312",
@@ -25,7 +25,7 @@ public class TownPortal {
                     try {
                         LibraryService mod = new LibraryService(k, Paths.get(v));
                         HtmlReportUtil.generate(Paths.get("./docs"), k, d2r.compareTo(mod));
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                 }))

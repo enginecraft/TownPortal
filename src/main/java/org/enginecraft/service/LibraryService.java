@@ -7,12 +7,20 @@ import org.enginecraft.objects.Difference;
 import org.enginecraft.objects.DifferenceOverview;
 import org.enginecraft.objects.DifferenceType;
 import org.enginecraft.objects.IndexedRow;
+import org.enginecraft.util.SqlUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -25,22 +33,141 @@ import java.util.stream.Stream;
 @Getter
 @Setter
 public class LibraryService {
-    public final String name;
-    public List<DataDictionary> dictionaries;
+    private static final Logger log = LoggerFactory.getLogger(LibraryService.class);
 
-    public LibraryService(String name, Path toLoad) throws IOException {
-        this.name = name;
-        dictionaries = loadFiles(toLoad);
+    public final String name;
+    public List<DataDictionary> library;
+
+    public LibraryService(String name) {
+        this.name = name
+                .replace("\\", "_")
+                .replace("/", "_")
+                .replaceAll("(?i)\\.txt$", "")
+                .replaceAll("[^a-zA-Z0-9_]", "_")
+                .toUpperCase();
+
+        library = loadLibraryRows();
     }
 
-     private List<String[]> loadFile(Path toLoad) throws IOException {
-        List<String[]> rows = new ArrayList<>();
-        try (BufferedReader br = Files.newBufferedReader(toLoad)) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                rows.add(line.split("\t", -1));
+    public LibraryService(String name, Path toLoad) throws Exception {
+        this.name = name;
+        library = loadFiles(toLoad);
+    }
+
+    private String tableNormalize(String val) throws Exception {
+        if (val == null || val.isEmpty()) return "TABLE";
+
+        String normalized = val
+                .replace("\\", "_")
+                .replace("/", "_")
+                .replaceAll("(?i)\\.txt$", "")
+                .replaceAll("[^a-zA-Z0-9_]", "_")
+                .replaceAll("_+", "_")
+                .replaceAll("^_+|_+$", "");
+
+        if (normalized.matches("^[0-9].*")) {
+            normalized = "_" + normalized;
+        }
+
+        normalized = normalized.toUpperCase();
+
+        if (normalized.isEmpty()) throw new Exception("Invalid value 'val'");
+        return normalized;
+    }
+
+    private List<DataDictionary> loadLibraryRows() {
+        return null;
+    }
+
+    private void createLibraryTable(
+            Connection conn,
+            String ref,
+            String[] headers
+    ) throws Exception {
+        String tableName = tableNormalize(name + "_" + ref);
+        StringBuilder sql = new StringBuilder();
+        sql.append("CREATE TABLE IF NOT EXISTS \"")
+                .append(tableName)
+                .append("\" (ROW_INDEX INTEGER NOT NULL, PATH VARCHAR(255), ");
+
+        for (int i = 0; i < headers.length; i++) {
+            sql.append("\"")
+                    .append(headers[i].trim())
+                    .append("\" TEXT");
+
+            if (i < headers.length - 1) {
+                sql.append(", ");
             }
         }
+
+        sql.append(", PRIMARY KEY (ROW_INDEX, PATH));");
+
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute(sql.toString());
+            stmt.execute("CREATE INDEX IF NOT EXISTS IDX_" + tableName + "_PATH ON " + tableName + "(PATH)");
+        }
+    }
+
+    private List<String[]> insertLibraryRows(
+            Connection conn,
+            String ref,
+            String[] headers,
+            BufferedReader reader
+    ) throws Exception {
+        List<String[]> rows = new ArrayList<>();
+        int batchSize = 1000;
+        int count = 0;
+
+        StringBuilder columnNames = new StringBuilder("ROW_INDEX, PATH");
+        for (String h : headers) {
+            columnNames.append(", \"").append(h.trim()).append("\"");
+        }
+
+        String placeholders = String.join(", ", Collections.nCopies(headers.length + 2, "?"));
+
+        String tableName = tableNormalize(name + "_" + ref);
+        String sql = "MERGE INTO \"" + tableName + "\" (" + columnNames + ") KEY(ROW_INDEX, PATH) VALUES (" + placeholders + ")";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split("\t", -1);
+                if (values.length != headers.length) continue;
+                ps.setInt(1, count);
+                ps.setString(2, ref);
+                for (int i = 0; i < headers.length; i++) {
+                    ps.setString(i + 3, values[i]);
+                }
+                ps.addBatch();
+                rows.add(values);
+                count++;
+                if (count % batchSize == 0) {
+                    ps.executeBatch();
+                }
+            }
+            ps.executeBatch();
+        }
+
+        log.info("Inserted {} rows into {}", count, tableName);
+        return rows;
+    }
+
+     private List<String[]> loadFile(Path toLoad, String ref) throws Exception {
+        List<String[]> rows = new ArrayList<>();
+        try (BufferedReader br = Files.newBufferedReader(toLoad)) {
+            String headerLine = br.readLine();
+            if (headerLine == null) return null;
+
+            String[] headers = headerLine.split("\t");
+            rows.add(headers);
+            if (headers.length < 2) return rows;
+
+            try (Connection conn = SqlUtil.getConnection()) {
+                createLibraryTable(conn, ref, headers);
+                rows.addAll(insertLibraryRows(conn, ref, headers, br));
+            }
+        }
+
         return rows;
     }
 
@@ -55,9 +182,10 @@ public class LibraryService {
                                 .toString()
                                 .replace("\\", "/");
                         try {
-                            List<String[]> data = loadFile(path);
+                            List<String[]> data = loadFile(path, ref);
                             return new DataDictionary(ref, data, null);
-                        } catch (IOException e) {
+                        } catch (Exception e) {
+                            log.error("An error occurred loading '{}' at '{}': {}", ref, path, e.getMessage());
                             return new DataDictionary(ref, null, e.getMessage());
                         }
                     })
@@ -66,8 +194,8 @@ public class LibraryService {
     }
 
     public DifferenceOverview compareTo(LibraryService lib) {
-        Map<String, DataDictionary> aMap = toMap(this.dictionaries);
-        Map<String, DataDictionary> bMap = toMap(lib.getDictionaries());
+        Map<String, DataDictionary> aMap = toMap(this.library);
+        Map<String, DataDictionary> bMap = toMap(lib.getLibrary());
 
         return new DifferenceOverview(
                 name,
