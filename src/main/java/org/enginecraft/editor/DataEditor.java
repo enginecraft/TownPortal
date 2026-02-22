@@ -5,6 +5,8 @@ import org.enginecraft.util.SqlUtil;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -47,6 +49,12 @@ public class DataEditor extends JFrame {
         topPanel.add(btnRefresh);
         JButton btnSave = new JButton("Save Changes");
         topPanel.add(btnSave);
+        JButton btnDeleteRow = new JButton("Delete Row");
+        topPanel.add(btnDeleteRow);
+        JButton btnDeleteColumn = new JButton("Delete Column");
+        topPanel.add(btnDeleteColumn);
+        JButton btnSetValue = new JButton("Set Value");
+        topPanel.add(btnSetValue);
         topPanel.add(btnToggleDarkMode);
 
         add(topPanel, BorderLayout.NORTH);
@@ -57,6 +65,7 @@ public class DataEditor extends JFrame {
         );
         add(scrollPane, BorderLayout.CENTER);
 
+        // Refresh button action
         btnRefresh.addActionListener(e -> {
             String selectedGroup = (String) groupSelector.getSelectedItem();
             String selectedTable = (String) subGroupSelector.getSelectedItem();
@@ -69,6 +78,7 @@ public class DataEditor extends JFrame {
             }
         });
 
+        // Save button action
         btnSave.addActionListener(e -> {
             try {
                 saveChanges();
@@ -77,6 +87,70 @@ public class DataEditor extends JFrame {
             }
         });
 
+        // Delete Row button action
+        btnDeleteRow.addActionListener(e -> {
+            int[] selectedRows = table.getSelectedRows();
+            if (selectedRows.length == 0) return;
+
+            // Delete from bottom to top to avoid index shifting
+            for (int i = selectedRows.length - 1; i >= 0; i--) {
+                int modelRow = table.convertRowIndexToModel(selectedRows[i]);
+                model.removeRow(modelRow);
+            }
+        });
+
+        // Delete Column button action
+        btnDeleteColumn.addActionListener(e -> {
+            int selectedCol = table.getSelectedColumn();
+            if (selectedCol == -1) return;
+
+            int modelCol = table.convertColumnIndexToModel(selectedCol);
+
+            // Remove column from model
+            int columnCount = model.getColumnCount();
+            Object[] columnData = new Object[model.getRowCount()];
+            for (int r = 0; r < model.getRowCount(); r++) {
+                columnData[r] = model.getValueAt(r, modelCol);
+            }
+
+            // Create a new model with column removed
+            String[] newColumnNames = new String[columnCount - 1];
+            Object[][] newData = new Object[model.getRowCount()][columnCount - 1];
+
+            for (int c = 0, nc = 0; c < columnCount; c++) {
+                if (c == modelCol) continue;
+                newColumnNames[nc] = model.getColumnName(c);
+                for (int r = 0; r < model.getRowCount(); r++) {
+                    newData[r][nc] = model.getValueAt(r, c);
+                }
+                nc++;
+            }
+
+            model = new DefaultTableModel(newData, newColumnNames);
+            table.setModel(model);
+        });
+
+        // Set Value button action (multi-cell editing)
+        btnSetValue.addActionListener(e -> {
+            int[] selectedRows = table.getSelectedRows();
+            int[] selectedCols = table.getSelectedColumns();
+
+            if (selectedRows.length == 0 || selectedCols.length == 0) return;
+
+            String newValue = JOptionPane.showInputDialog(this, "Enter new value:");
+
+            if (newValue != null) {
+                for (int row : selectedRows) {
+                    for (int col : selectedCols) {
+                        int modelRow = table.convertRowIndexToModel(row);
+                        int modelCol = table.convertColumnIndexToModel(col);
+                        model.setValueAt(newValue, modelRow, modelCol);
+                    }
+                }
+            }
+        });
+
+        // Toggle dark/light mode
         btnToggleDarkMode.addActionListener(e -> {
             darkMode = !darkMode;
 
@@ -148,7 +222,7 @@ public class DataEditor extends JFrame {
             boolean found = false;
             for (String groupPrefix : groups.keySet()) {
                 if (
-                    (!table.equals(groupPrefix) && table.startsWith(groupPrefix))
+                        (!table.equals(groupPrefix) && table.startsWith(groupPrefix))
                 ) {
                     List<String> groupTables = groups.get(table);
                     if (groupTables == null || groupTables.isEmpty()) {
@@ -209,7 +283,7 @@ public class DataEditor extends JFrame {
             if (!tablesInGroup.isEmpty()) {
                 subGroupSelector.setSelectedIndex(0);
                 try {
-                    loadTableData(selectedGroup + "_" + tablesInGroup.getFirst());
+                    loadTableData(selectedGroup + "_" + tablesInGroup.get(0));
                 } catch (SQLException ex) {
                     showError("Error loading table data: " + ex.getMessage());
                 }
@@ -276,8 +350,107 @@ public class DataEditor extends JFrame {
             model = new DefaultTableModel(visibleData, visibleColumnNames);
             table.setModel(model);
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-            table.setAutoCreateRowSorter(true);
+            table.setAutoCreateRowSorter(false);
+            table.setCellSelectionEnabled(true);
+            table.setRowSelectionAllowed(true);
+            table.setColumnSelectionAllowed(true);
             autoResizeColumns(table);
+
+            // Enable cell, row, and column selection
+            table.setCellSelectionEnabled(true);
+            table.setRowSelectionAllowed(true);
+            table.setColumnSelectionAllowed(true);
+
+// Disable automatic sorting (so header clicks don't sort)
+            table.setAutoCreateRowSorter(false);
+
+            // Right-click context menu for deleting rows/columns
+            JPopupMenu popupMenu = new JPopupMenu();
+            JMenuItem deleteRowItem = new JMenuItem("Delete Row");
+            JMenuItem deleteColumnItem = new JMenuItem("Delete Column");
+            popupMenu.add(deleteRowItem);
+            popupMenu.add(deleteColumnItem);
+
+            // Add mouse listener to show popup
+            table.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    if (e.isPopupTrigger()) {
+                        showMenu(e);
+                    }
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    if (e.isPopupTrigger()) {
+                        showMenu(e);
+                    }
+                }
+
+                private void showMenu(MouseEvent e) {
+                    int row = table.rowAtPoint(e.getPoint());
+                    int col = table.columnAtPoint(e.getPoint());
+                    if (row >= 0 && col >= 0) {
+                        table.setRowSelectionInterval(row, row);
+                        table.setColumnSelectionInterval(col, col);
+                        popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                    }
+                }
+            });
+
+            // Action: delete selected row
+            deleteRowItem.addActionListener(e -> {
+                int[] selectedRows = table.getSelectedRows();
+                if (selectedRows.length == 0) return;
+
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                // Remove from last to first to avoid index shift
+                for (int i = selectedRows.length - 1; i >= 0; i--) {
+                    model.removeRow(selectedRows[i]);
+                }
+            });
+
+            // Action: delete selected column
+            deleteColumnItem.addActionListener(e -> {
+                int[] selectedCols = table.getSelectedColumns();
+                if (selectedCols.length == 0) return;
+
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+                // Remove columns in reverse order to avoid index shift
+                Arrays.sort(selectedCols);
+                for (int i = selectedCols.length - 1; i >= 0; i--) {
+                    int colIndex = selectedCols[i];
+
+                    // Remove the column data from each row
+                    for (int row = 0; row < model.getRowCount(); row++) {
+                        Vector<Object> rowData = new Vector<>();
+                        for (int c = 0; c < model.getColumnCount(); c++) {
+                            if (c != colIndex) {
+                                rowData.add(model.getValueAt(row, c));
+                            }
+                        }
+                        for (int c = 0; c < model.getColumnCount(); c++) {
+                            model.setValueAt(null, row, c);
+                        }
+                        for (int c = 0; c < rowData.size(); c++) {
+                            model.setValueAt(rowData.get(c), row, c);
+                        }
+                    }
+
+                    // Remove column name
+                    Vector<String> columnIdentifiers = new Vector<>();
+                    for (int c = 0; c < model.getColumnCount(); c++) {
+                        if (c != colIndex) {
+                            columnIdentifiers.add(model.getColumnName(c));
+                        }
+                    }
+                    model.setColumnIdentifiers(columnIdentifiers);
+
+                    // Remove from table view
+                    table.getColumnModel().removeColumn(table.getColumnModel().getColumn(colIndex));
+                }
+            });
         }
     }
 
