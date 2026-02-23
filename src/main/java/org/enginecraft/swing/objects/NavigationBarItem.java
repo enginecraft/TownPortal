@@ -3,6 +3,7 @@ package org.enginecraft.swing.objects;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.enginecraft.swing.util.ColorUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @Setter
 public class NavigationBarItem {
     public static final int WIDTH = 100;
-    public static final int HEIGHT = 30;
+    public static final int HEIGHT = 40;
 
     public static boolean isSubItem(JPanel toMatch, NavigationBarItem item) {
         if (toMatch == item.getPanel()) return true;
@@ -30,7 +31,7 @@ public class NavigationBarItem {
     }
 
     private final MenuItemDefinition definition;
-    private Color backgroundColor, textColor, highlightBackgroundColor, highlightTextColor;
+    private Color background, foreground, highlight;
     private int x, y, subX, subY;
 
     private final NavigationBarItem parent;
@@ -40,16 +41,15 @@ public class NavigationBarItem {
     private final JLabel arrow = new JLabel("▶");
     private List<NavigationBarItem> subItems = null;
     private JPanel subItemsPanel = null;
-    boolean isClicked = false;
+    boolean entered = false;
 
     public NavigationBarItem(
             NavigationBarItem parent,
             @NonNull JFrame frame,
             @NonNull MenuItemDefinition definition,
-            @NonNull Color backgroundColor,
-            @NonNull Color textColor,
-            @NonNull Color highlightBackgroundColor,
-            @NonNull Color highlightTextColor,
+            @NonNull Color background,
+            @NonNull Color foreground,
+            @NonNull Color highlight,
             int x,
             int y,
             int subX,
@@ -58,10 +58,9 @@ public class NavigationBarItem {
         this.parent = parent;
         this.frame = frame;
         this.definition = definition;
-        this.backgroundColor = backgroundColor;
-        this.textColor = textColor;
-        this.highlightBackgroundColor = highlightBackgroundColor;
-        this.highlightTextColor = highlightTextColor;
+        this.background = background;
+        this.foreground = foreground;
+        this.highlight = highlight;
         this.x = x;
         this.y = y;
         this.subX = subX;
@@ -77,7 +76,9 @@ public class NavigationBarItem {
 
         label.setLayout(null);
         label.setLocation(5, 0);
-        label.setSize(WIDTH, HEIGHT);
+        label.setSize(WIDTH - 5, HEIGHT);
+        label.setHorizontalAlignment(SwingConstants.LEFT);
+        label.setVerticalAlignment(SwingConstants.CENTER);
         panel.add(label);
 
         panel.setLocation(x, y);
@@ -88,17 +89,17 @@ public class NavigationBarItem {
             subItemsPanel = new JPanel();
             subItemsPanel.setLayout(null);
             subItemsPanel.setLocation(subX, subY);
-            subItemsPanel.setBackground(Color.BLACK);
             for (int i = 0; i < subDefinitions.size(); i++) {
                 MenuItemDefinition subDefinition = subDefinitions.get(i);
+                Color[] colors = ColorUtil.adjustColors(background, foreground, true, 0.05f, 0.25);
+                Color[] highlights = ColorUtil.adjustColors(highlight, foreground, true, 0.05f, 0.25);
                 NavigationBarItem subItem = new NavigationBarItem(
                         this,
                         frame,
                         subDefinition,
-                        backgroundColor,
-                        textColor,
-                        highlightBackgroundColor,
-                        highlightTextColor,
+                        colors[0],
+                        colors[1],
+                        highlights[0],
                         0,
                         HEIGHT * i,
                         subX + WIDTH,
@@ -117,20 +118,14 @@ public class NavigationBarItem {
         panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                isClicked = !isClicked;
-                if (isClicked) {
-                    parentReset(NavigationBarItem.this);
-                    arrow.setText("▼");
-                }
-                else {
-                    subReset(NavigationBarItem.this);
-                    arrow.setText("▶");
-                }
-                onEnter();
-
-                if (subItems == null) isClicked = false;
-                else subItemsPanel.setVisible(isClicked);
                 if (definition.getActions() == null) return;
+
+                NavigationBarItem menuItem = NavigationBarItem.this;
+                while (menuItem.parent != null) {
+                    menuItem = menuItem.parent;
+                }
+                menuItem.subReset(null);
+
                 for (MenuAction menuAction : definition.getActions()) {
                     try {
                         menuAction.run();
@@ -142,46 +137,55 @@ public class NavigationBarItem {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                onEnter();
-            }
+                entered = !entered;
+                if (entered) {
+                    parentReset(NavigationBarItem.this);
+                    arrow.setText("▼");
+                    onEnter();
+                }
+                else {
+                    subReset(NavigationBarItem.this);
+                    arrow.setText("▶");
+                }
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-                onExit();
+                if (subItems != null) subItemsPanel.setVisible(entered);
             }
         });
         refresh();
 
-        arrow.setLocation(panel.getWidth() - 20, 0);
+        arrow.setLocation(0, 0);
         arrow.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 6));
-        arrow.setSize(20, 30);
+        arrow.setSize(WIDTH - 5, HEIGHT);
+        arrow.setHorizontalAlignment(SwingConstants.RIGHT);
+        arrow.setVerticalAlignment(SwingConstants.CENTER);
         if (subItems != null && !subItems.isEmpty()) panel.add(arrow);
         panel.setVisible(true);
     }
 
     public void onEnter() {
-        panel.setBackground(highlightBackgroundColor);
-        label.setForeground(highlightTextColor);
+        panel.setBackground(highlight);
+        label.setForeground(foreground);
+        arrow.setForeground(foreground);
         panel.repaint();
     }
 
     public void onExit() {
-        if (isClicked) return;
-        panel.setBackground(backgroundColor);
-        label.setForeground(textColor);
-        arrow.setForeground(textColor);
+        if (entered) return;
+        panel.setBackground(background);
+        label.setForeground(foreground);
+        arrow.setForeground(foreground);
         panel.repaint();
     }
 
     public void refresh() {
-        panel.setBackground(backgroundColor);
-        label.setForeground(textColor);
-        arrow.setForeground(textColor);
+        panel.setBackground(background);
+        label.setForeground(foreground);
+        arrow.setForeground(foreground);
         panel.repaint();
     }
 
     public void subReset(NavigationBarItem exclude) {
-        isClicked = false;
+        entered = false;
         arrow.setText("▶");
         if (this != exclude) onExit();
 

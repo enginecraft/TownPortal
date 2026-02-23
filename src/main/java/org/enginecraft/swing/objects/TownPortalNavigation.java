@@ -8,12 +8,28 @@ public class TownPortalNavigation {
                     "File",
                     List.of(
                             new MenuItemDefinition(
-                                    "Save",
-                                    null,
+                                    "Project",
+                                    List.of(
+                                            new MenuItemDefinition(
+                                                    "New",
+                                                    null,
+                                                    null
+                                            ),
+                                            new MenuItemDefinition(
+                                                    "Open",
+                                                    null,
+                                                    null
+                                            ),
+                                            new MenuItemDefinition(
+                                                    "Recent",
+                                                    null,
+                                                    null
+                                            )
+                                    ),
                                     null
                             ),
                             new MenuItemDefinition(
-                                    "Import",
+                                    "Save",
                                     null,
                                     null
                             ),
@@ -36,8 +52,13 @@ public class TownPortalNavigation {
                                     "Preferences",
                                     List.of(
                                             new MenuItemDefinition(
-                                                    "Change Style",
+                                                    "Style",
                                                     List.of(
+                                                            new MenuItemDefinition(
+                                                                    "Custom Mode",
+                                                                    null,
+                                                                    null
+                                                            ),
                                                             new MenuItemDefinition(
                                                                     "Dark Mode",
                                                                     null,
@@ -49,11 +70,6 @@ public class TownPortalNavigation {
                                                                     null
                                                             )
                                                     ),
-                                                    null
-                                            ),
-                                            new MenuItemDefinition(
-                                                    "Import Style",
-                                                    null,
                                                     null
                                             )
                                     ),
