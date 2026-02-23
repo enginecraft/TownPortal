@@ -3,12 +3,12 @@ package org.enginecraft.swing.objects;
 import java.util.List;
 
 public class TownPortalNavigation {
-    public static final List<MenuItemDefinition> DEFINITIONS = List.of(
+    public static final List<MenuItemDefinition> TOP_BAR_DEFINITIONS = List.of(
             new MenuItemDefinition(
                     "File",
                     List.of(
                             new MenuItemDefinition(
-                                    "Project",
+                                    "Collection",
                                     List.of(
                                             new MenuItemDefinition(
                                                     "New",
@@ -73,6 +73,25 @@ public class TownPortalNavigation {
                                                     null
                                             )
                                     ),
+                                    null
+                            )
+                    ),
+                    null
+            )
+    );
+
+    public static final List<MenuItemDefinition> SIDE_BAR_DEFINITIONS = List.of(
+            new MenuItemDefinition(
+                    "＋",
+                    List.of(
+                            new MenuItemDefinition(
+                                    "New Project",
+                                    null,
+                                    null
+                            ),
+                            new MenuItemDefinition(
+                                    "Open Project",
+                                    null,
                                     null
                             )
                     ),

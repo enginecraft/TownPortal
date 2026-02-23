@@ -1,7 +1,6 @@
 package org.enginecraft.swing.objects;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import org.enginecraft.swing.TownPortalFrame;
 
@@ -10,7 +9,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
-import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -21,10 +19,9 @@ public class TopBar {
     private final String appName, iconLoc;
     private final JPanel panel;
 
-    private Color background;
-    private Color foreground;
-    private Color highlight;
+    private Color background, foreground, highlight, exitColor;
 
+    private Navigation navigation;
     boolean navShown = false;
 
     public TopBar(
@@ -33,7 +30,8 @@ public class TopBar {
             String iconLoc,
             Color background,
             Color foreground,
-            Color highlight
+            Color highlight,
+            Color exitColor
     ) {
         this.frame = frame;
         this.appName = appName;
@@ -41,6 +39,7 @@ public class TopBar {
         this.background = background;
         this.foreground = foreground;
         this.highlight = highlight;
+        this.exitColor = exitColor;
 
         panel = new JPanel();
         setup();
@@ -79,132 +78,46 @@ public class TopBar {
         menu.setFont(new Font("Segoe UI Symbol", Font.BOLD, 24));
         menu.setHorizontalAlignment(SwingConstants.CENTER);
 
-        java.util.List<NavigationBarItem> navigation = new ArrayList<>();
-        for (int i = 0; i < TownPortalNavigation.DEFINITIONS.size(); i++) {
-            MenuItemDefinition definition = TownPortalNavigation.DEFINITIONS.get(i);
-            int width = menu.getX() + menu.getWidth() + 15 + i * NavigationBarItem.WIDTH;
-            NavigationBarItem menuItem = new NavigationBarItem(
-                    null,
-                    frame,
-                    definition,
-                    background,
-                    foreground,
-                    highlight,
-                    width,
-                    0,
-                    width,
-                    NavigationBarItem.HEIGHT
-            );
-            menuItem.getPanel().setVisible(false);
-            navigation.add(menuItem);
+        navigation = new Navigation(
+                frame,
+                panel,
+                menu,
+                TownPortalNavigation.TOP_BAR_DEFINITIONS,
+                background,
+                foreground,
+                highlight,
+                menu.getX() + menu.getWidth() + 15,
+                0
+        );
 
-            final int THROTTLE_MS = 50;
-            final MouseEvent[] lastEvent = {null};
-            Timer hoverTimer = new Timer(THROTTLE_MS, ae -> {
-                MouseEvent e = lastEvent[0];
-                if (e == null) return;
+        JLabel exit = new JLabel("  ☠  ");
+        exit.setForeground(foreground);
+        exit.setFont(new Font("Segoe UI Symbol", Font.BOLD, 24));
+        exit.setHorizontalAlignment(SwingConstants.CENTER);
+        int width = (int) exit.getPreferredSize().getWidth();
+        exit.setLocation(panel.getWidth() - width, 0);
+        exit.setSize(width, HEIGHT);
 
-                JPanel hoveredPanel = findDeepestPanel(e);
-                if (hoveredPanel != null && NavigationBarItem.isSubItem(hoveredPanel, menuItem)) return;
-                menuItem.subReset(null);
-            });
-            hoverTimer.start();
-
-            Toolkit.getDefaultToolkit().addAWTEventListener(event -> {
-                if (event instanceof MouseEvent e && e.getID() == MouseEvent.MOUSE_MOVED) {
-                    lastEvent[0] = e;
-                }
-            }, AWTEvent.MOUSE_MOTION_EVENT_MASK);
-
-            JLayeredPane layeredPane = frame.getLayeredPane();
-            layeredPane.add(menuItem.getPanel(), JLayeredPane.POPUP_LAYER);
-        }
-
-        Toolkit.getDefaultToolkit().addAWTEventListener(event -> {
-            if (event instanceof MouseEvent e && e.getID() == MouseEvent.MOUSE_CLICKED) {
-                Component source = e.getComponent();
-                if (!SwingUtilities.isDescendingFrom(source, frame)) return;
-
-                Point framePoint = SwingUtilities.convertPoint(source, e.getPoint(), frame);
-                Component deepest = SwingUtilities.getDeepestComponentAt(frame, framePoint.x, framePoint.y);
-                if (deepest == menu) return;
-
-                JPanel clickedPanel = null;
-                while (deepest != null) {
-                    if (deepest instanceof JPanel p) {
-                        clickedPanel = p;
-                        break;
-                    }
-                    deepest = deepest.getParent();
-                }
-
-                for (NavigationBarItem item : navigation) {
-                    if (clickedPanel != null && NavigationBarItem.isSubItem(clickedPanel, item)) return;
-                    item.subReset(null);
-                }
-
-                for (NavigationBarItem item : navigation) {
-                    item.getPanel().setVisible(false);
-                }
-
-                navShown = false;
-            }
-        }, AWTEvent.MOUSE_EVENT_MASK);
-
-        menu.addMouseListener(new MouseAdapter() {
+        exit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (navShown) {
-                    for (NavigationBarItem item : navigation) {
-                        item.subReset(null);
-                        item.getPanel().setVisible(false);
-                    }
-                }
-                else {
-                    for (NavigationBarItem item : navigation) {
-                        item.getPanel().setVisible(true);
-                    }
-                }
-
-                navShown = !navShown;
+                System.exit(0);
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                menu.setBackground(highlight);
-                menu.setOpaque(true);
-                menu.repaint();
+                exit.setBackground(exitColor);
+                exit.setOpaque(true);
+                exit.repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                menu.setBackground(background);
-                menu.setOpaque(false);
-                menu.repaint();
+                exit.setBackground(background);
+                exit.setOpaque(false);
+                exit.repaint();
             }
         });
-
-        panel.add(menu);
-        frame.add(panel);
-        frame.repaint();
-    }
-
-    public JPanel findDeepestPanel(@NonNull MouseEvent e) {
-        Component source = e.getComponent();
-        if (!SwingUtilities.isDescendingFrom(source, frame)) return null;
-
-        Point framePoint = SwingUtilities.convertPoint(source, e.getPoint(), frame);
-        Component deepest = SwingUtilities.getDeepestComponentAt(frame, framePoint.x, framePoint.y);
-
-        JPanel hoveredPanel = null;
-        while (deepest != null) {
-            if (deepest instanceof JPanel p) {
-                hoveredPanel = p;
-                break;
-            }
-            deepest = deepest.getParent();
-        }
-
-        return hoveredPanel;
+        panel.add(exit);
     }
 }

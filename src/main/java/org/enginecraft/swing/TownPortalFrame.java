@@ -24,6 +24,7 @@ public class TownPortalFrame {
     private Color background = new Color(38, 38, 38);
     private Color foreground = new Color(227, 227, 227);
     private Color highlight = new Color(58, 58, 58);
+    private Color exitColor = new Color(175, 20, 20);
 
     public TownPortalFrame() {
         frame = new JFrame();
@@ -49,9 +50,11 @@ public class TownPortalFrame {
         frame.setBounds(x, y, width, height);
         frame.setBackground(Color.WHITE);
 
-        topBar = new TopBar(frame, "Town Portal", iconLoc, background, foreground, highlight);
+        topBar = new TopBar(frame, "Town Portal", iconLoc, background, foreground, highlight, exitColor);
         sideBar = new SideBar(frame, background, foreground, highlight);
         contentArea = new ContentArea(frame, sideBar, background, foreground, highlight);
+
+        frame.repaint();
     }
 
     public void toggle() {
