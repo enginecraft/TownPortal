@@ -2,11 +2,14 @@ package org.enginecraft.swing;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.enginecraft.swing.menu.MenuDefinition;
+import org.enginecraft.swing.menu.MenuShowType;
 import org.enginecraft.swing.objects.ContentArea;
 import org.enginecraft.swing.objects.SideBar;
 import org.enginecraft.swing.objects.TopBar;
 
 import javax.swing.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,9 +24,18 @@ public class TownPortalFrame extends AbstractFrame {
 
     @Override
     public void init() {
-//        topBar = new TopBar(frame, "Town Portal", iconLoc, background, foreground, highlight, exitColor);
-//        sideBar = new SideBar(frame, background, foreground, highlight);
-//        contentArea = new ContentArea(frame, sideBar, background, foreground, highlight);
+        MenuDefinition menu = new MenuDefinition(
+                frame,
+                "File",
+                MenuShowType.ON_HOVER,
+                List.of(),
+                null,
+                baseHighlightDefinition,
+                titleLabelOffset + 10, 0, 0, 0,
+                null, null, 100, 30,
+                true,
+                true
+        );
     }
 
     public static void main(String[] args) {

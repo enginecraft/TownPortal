@@ -36,7 +36,7 @@ public class MenuDefinition {
     private StyleComponent labelStyle;
 
     public MenuDefinition(
-            JFrame frame,
+            @NonNull JFrame frame,
             @NonNull String name,
             MenuShowType showType,
             List<MenuDefinition> subDefinitions,
@@ -81,7 +81,6 @@ public class MenuDefinition {
         panel.setLayout(null);
         panel.setLocation(x, y);
         panelStyle = new StyleComponent(panel, definition, true);
-        setEnabled(enabled);
 
         label.setLayout(null);
         label.setLocation(0, 0);
@@ -166,6 +165,7 @@ public class MenuDefinition {
                 heightOverride == null ? (int) label.getPreferredSize().getHeight() : heightOverride
         );
         updateSubPos(this);
+        setEnabled(enabled);
         setVisible(visible);
         frame.add(panel);
     }

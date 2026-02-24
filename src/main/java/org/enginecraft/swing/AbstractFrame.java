@@ -22,6 +22,7 @@ public abstract class AbstractFrame {
     protected final JFrame frame;
     private final String appName;
     private final String icon;
+    protected int titleLabelOffset = 0;
 
     protected List<StyleDefinition> styleDefinitions = new ArrayList<>();
     protected StyleDefinition baseDefinition = new StyleDefinition(
@@ -100,6 +101,8 @@ public abstract class AbstractFrame {
         titleBar_label.setHorizontalAlignment(SwingConstants.CENTER);
         baseDefinition.getComponents().add(new StyleComponent(titleBar_label, baseDefinition, true));
         titleBar.add(titleBar_label);
+
+        titleLabelOffset = xBuffer + titleBar_label.getWidth();
 
         JLabel titleBar_exit = new JLabel("  ☠  ");
         titleBar_exit.setFont(new Font("Segoe UI Symbol", Font.BOLD, 24));
