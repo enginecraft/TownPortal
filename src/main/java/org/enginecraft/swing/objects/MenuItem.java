@@ -3,6 +3,7 @@ package org.enginecraft.swing.objects;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.enginecraft.swing.menu.MenuAction;
 import org.enginecraft.swing.util.ColorUtil;
 
 import javax.swing.*;

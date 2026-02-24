@@ -2,6 +2,7 @@ package org.enginecraft.swing.objects;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.enginecraft.swing.menu.MenuAction;
 
 import java.util.List;
 

@@ -11,6 +11,10 @@ public class ColorUtil {
         return Math.abs(luminance(c1) - luminance(c2)) < threshold;
     }
 
+    public static boolean isDarker(Color c1, Color c2) {
+        return luminance(c1) < luminance(c2);
+    }
+
     public static Color lighten(Color color, float factor) {
         int r = (int) (color.getRed() + (255 - color.getRed()) * factor);
         int g = (int) (color.getGreen() + (255 - color.getGreen()) * factor);
